@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Continutives in Africa</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="site_libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="site_libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="site_libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+<link href="site_libs/minichart-0.2.2/minicharts.css" rel="stylesheet" />
+<script src="site_libs/minichart-0.2.2/leaflet.minicharts.min.js"></script>
+<link href="site_libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Continuative</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Main</a>
+</li>
+<li>
+  <a href="eurasia.html">Eurasia</a>
+</li>
+<li>
+  <a href="africa.html">Africa</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="eurasia.csv">Dataset (.csv)</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Continutives in Africa</h1>
+
+</div>
+
+
+<div id="languages" class="section level3">
+<h3>1. Languages</h3>
+<p>All African languages included in the sample.</p>
+<div id="list" class="section level4">
+<h4>1.1. List</h4>
+<div id="htmlwidget-5b297ba487ba2f41adfd" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5b297ba487ba2f41adfd">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Afro-Asiatic&quot;,&quot;Atlantic-Congo&quot;,&quot;Blue Nile Mao&quot;,&quot;Central Sudanic&quot;,&quot;Dajuic&quot;,&quot;Dizoid&quot;,&quot;Dogon&quot;,&quot;Eastern Jebel&quot;,&quot;Furan&quot;,&quot;Gumuz&quot;,&quot;Heibanic&quot;,&quot;Ijoid&quot;,&quot;Kadugli-Krongo&quot;,&quot;Katla-Tima&quot;,&quot;Khoe-Kwadi&quot;,&quot;Koman&quot;,&quot;Kresh-Aja&quot;,&quot;Kuliak&quot;,&quot;Kxa&quot;,&quot;Maban&quot;,&quot;Mande&quot;,&quot;Narrow Talodi&quot;,&quot;Nilotic&quot;,&quot;Nubian&quot;,&quot;Nyimang&quot;,&quot;Rashad&quot;,&quot;Saharan&quot;,&quot;Songhay&quot;,&quot;South Omotic&quot;,&quot;Surmic&quot;,&quot;Ta-Ne-Omotic&quot;,&quot;Tamaic&quot;,&quot;Temeinic&quot;,&quot;Tuu&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;apc&quot;,&quot;ggu&quot;,&quot;nyy&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Gban&quot;,&quot;North Levantine Arabic&quot;,&quot;Nyakyusa-Ngonde&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;grammar, Bible&quot;,&quot;grammar, Bible (for Standard Arabic)&quot;,&quot;grammar, Bible, expert&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3"],["Atlantic-Congo","Afro-Asiatic","Mande"],["nyy","apc","ggu"],["Nyakyusa-Ngonde","North Levantine Arabic","Gban"],["grammar, Bible","grammar, Bible (for Standard Arabic)","grammar, Bible, expert"],["yes","yes","yes"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>iso<\/th>\n      <th>language<\/th>\n      <th>data<\/th>\n      <th>included<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="map" class="section level4">
+<h4>1.2. Map</h4>
+<div id="htmlwidget-172cc65267d6f9e13ef9" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-172cc65267d6f9e13ef9">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"zoomControl":false},"calls":[{"method":"addTiles","args":["OpenStreetMap.Mapnik",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false}]},{"method":"addProviderTiles","args":["OpenStreetMap.Mapnik",null,"OpenStreetMap.Mapnik",{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[-9.71018,34.1709,6.40859],[33.7763,36.0468,-5.51851],5.5,null,["Nyakyusa-Ngonde","North Levantine Arabic","Gban"],{"interactive":true,"className":"","stroke":false,"color":"black","weight":5,"opacity":0.5,"fill":true,"fillColor":"black","fillOpacity":1},null,null,["<a href='https://glottolog.org/resource/languoid/id/nyak1260' target='_blank'>Nyakyusa-Ngonde<\/a><br>","<a href='https://glottolog.org/resource/languoid/id/nort3139' target='_blank'>North Levantine Arabic<\/a><br>","<a href='https://glottolog.org/resource/languoid/id/gagu1242' target='_blank'>Gban<\/a><br>"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[-9.71018,34.1709,6.40859],[33.7763,36.0468,-5.51851],5,null,["Nyakyusa-Ngonde","North Levantine Arabic","Gban"],{"interactive":true,"className":"","stroke":false,"color":["#2CA02C","#C89119","#CF7E56"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#2CA02C","#C89119","#CF7E56"],"fillOpacity":1},null,null,["<a href='https://glottolog.org/resource/languoid/id/nyak1260' target='_blank'>Nyakyusa-Ngonde<\/a><br>","<a href='https://glottolog.org/resource/languoid/id/nort3139' target='_blank'>North Levantine Arabic<\/a><br>","<a href='https://glottolog.org/resource/languoid/id/gagu1242' target='_blank'>Gban<\/a><br>"],null,["Nyakyusa-Ngonde","North Levantine Arabic","Gban"],{"interactive":false,"permanent":false,"direction":"right","opacity":1,"offset":[7.5,0],"textsize":"10px","textOnly":true,"style":{"font-size":"15px","font-family":"sans-serif"},"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"limits":{"lat":[-9.71018,34.1709],"lng":[-5.51851,36.0468]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="examples" class="section level3">
+<h3>2. Examples</h3>
+<div id="atlantic-congo" class="section level4">
+<h4>Atlantic-Congo</h4>
+<p><strong>Nyakyusa-Ngonde</strong> <span class="citation">(Persohn <a href="#ref-persohn2017">2017</a>:186)</span></p>
+<p><img src="examples/nyakyusa.png" style="width:60.0%" /></p>
+<p>The continuative marker: kaalɪ.</p>
+</div>
+<div id="afro-asiatic" class="section level4">
+<h4>Afro-Asiatic</h4>
+<p><strong>North Levantine Arabic</strong> <span class="citation">(Versteegh <a href="#ref-versteegh2018">2018</a>:246)</span></p>
+<p><img src="examples/arabic.png" style="width:60.0%" /></p>
+<p>The continuative marker: copula + baʿda + ʿam-.</p>
+</div>
+<div id="mande" class="section level4">
+<h4>Mande</h4>
+<p><strong>Gban</strong> <span class="citation">(Fedotov <a href="#ref-fedotov2015">2015</a>:4)</span></p>
+<p><img src="examples/gban.png" style="width:60.0%" /></p>
+<p>The continuative marker: né‶.</p>
+<p><strong>Gban</strong> <span class="citation">(Fedotov <a href="#ref-fedotov2015">2015</a>:5)</span></p>
+<p><img src="examples/gban2.png" style="width:60.0%" /></p>
+<p>The continuative marker: gɔ ̰ .</p>
+</div>
+</div>
+<div id="parameters" class="section level3">
+<h3>3. Parameters</h3>
+<div id="morposyntactic-status" class="section level4">
+<h4>3.1. Morposyntactic status</h4>
+<div id="htmlwidget-dfacba2534d12bcb37c9" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dfacba2534d12bcb37c9">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"zoomControl":false},"calls":[{"method":"addTiles","args":["OpenStreetMap.Mapnik",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false}]},{"method":"addProviderTiles","args":["OpenStreetMap.Mapnik",null,"OpenStreetMap.Mapnik",{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[6.40859,34.1709,-9.71018],[-5.51851,36.0468,33.7763],2,null,["","",""],{"interactive":true,"className":"","stroke":false,"color":["#1f77b4","#1f77b4","#1f77b4"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#1f77b4","#1f77b4","#1f77b4"],"fillOpacity":0},null,null,["<a href='https://glottolog.org/resource/languoid/id/gagu1242' target='_blank'>Gban<\/a><br>part: TRUE<br> aux: TRUE<br> ","<a href='https://glottolog.org/resource/languoid/id/nort3139' target='_blank'>North Levantine Arabic<\/a><br>part: FALSE<br> aux: TRUE<br> ","<a href='https://glottolog.org/resource/languoid/id/nyak1260' target='_blank'>Nyakyusa-Ngonde<\/a><br>part: FALSE<br> aux: TRUE<br> "],null,null,{"interactive":false,"permanent":false,"direction":"right","opacity":1,"offset":[7.5,0],"textsize":"10px","textOnly":true,"style":{"font-size":"15px","font-family":"sans-serif"},"className":"","sticky":true},null]},{"method":"addMinicharts","args":[[{"dyn":{},"static":{"type":"pie","width":14,"height":30,"opacity":1,"labels":"none","labelMinSize":8,"labelMaxSize":24,"transitionTime":750,"fillColor":"#1f77b4","layerId":"_minichart (-5.51851,6.40859)","lat":6.40859,"lng":-5.51851},"timeSteps":1},{"dyn":{},"static":{"type":"pie","width":14,"height":30,"opacity":1,"labels":"none","labelMinSize":8,"labelMaxSize":24,"transitionTime":750,"fillColor":"#1f77b4","layerId":"_minichart (33.7763,-9.71018)","lat":-9.71018,"lng":33.7763},"timeSteps":1},{"dyn":{},"static":{"type":"pie","width":14,"height":30,"opacity":1,"labels":"none","labelMinSize":8,"labelMaxSize":24,"transitionTime":750,"fillColor":"#1f77b4","layerId":"_minichart (36.0468,34.1709)","lat":34.1709,"lng":36.0468},"timeSteps":1}],[[[true,true]],[[false,true]],[[false,true]]],1,["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#17becf","coral","palevioletred3","coral3","darkmagenta","deepskyblue4","blanchedalmond","indianred2","paleturquoise4","darkorchid2","springgreen2","royalblue4","deepskyblue2","mediumpurple4","peru","skyblue2","chartreuse2","darkolivegreen3","lavender","darkviolet","sandybrown","violetred","blue3","lightsteelblue","orangered3","lightyellow3","sienna4","lemonchiffon","red","olivedrab","mediumpurple","green","purple3","brown2","lightgoldenrod2","thistle3","darkgoldenrod4","gold4","firebrick","mistyrose2","navyblue","paleturquoise","lightcyan","lightgoldenrod","cyan2","cornsilk2","darkseagreen","palevioletred2","plum","dodgerblue","lemonchiffon3","tomato3","lightcyan2","linen","steelblue3","mediumspringgreen","blue","coral4","cornsilk","tomato","sienna3","burlywood2","darkblue","purple","lightyellow4","turquoise4","seashell","snow3","lightsteelblue2","plum3","darkorange3","thistle4","violet","aquamarine4","violetred2","mediumorchid3","aquamarine","maroon","wheat3","lightcyan4","papayawhip","lightgoldenrod3","moccasin","seagreen3","thistle","slateblue3","lightsalmon4","tan4","seagreen2","cyan4","rosybrown3","turquoise2","lemonchiffon2","tomato2","slateblue2","brown3","orchid4","deepskyblue","cadetblue3","rosybrown4","darkgoldenrod3","firebrick2","saddlebrown","orangered","slateblue","steelblue","palegreen","powderblue","salmon3","chocolate3","cornsilk3","palevioletred4","red2","darkolivegreen4","aquamarine3","gainsboro","lightblue4","cadetblue4","mediumpurple2","mistyrose4","goldenrod2","turquoise3","royalblue","dodgerblue4","darksalmon","aquamarine2","wheat","snow","limegreen","gold2","salmon4","seashell4","darkorchid","lightseagreen","darkorchid4","indianred4","lightslateblue","seashell3","paleturquoise3","gold3","darkolivegreen","plum4","lightcyan3","navy","orangered4","purple2","orangered2","mediumorchid4","greenyellow","lightblue","beige","chocolate2","darkorange","turquoise","palevioletred","yellow3","darkkhaki","springgreen3","magenta2","blue2","peachpuff4","tan2","slateblue4","springgreen4","bisque3","snow4","wheat4","darkturquoise","steelblue4","purple4","goldenrod4","darkorange4","lightcoral","yellow2","snow2","darkorange2","palegreen2","lightsalmon3","cornflowerblue","orchid","lightblue2","tan","palegreen4","tomato4","lightyellow2","magenta3","chartreuse3","yellow","mediumturquoise","blue4","darkseagreen3","cyan","darkred","mediumorchid2","lightsteelblue3","cornsilk4","lavenderblush","khaki","darkolivegreen2","lightsalmon","seagreen4","lawngreen","springgreen","mistyrose","lightblue3","khaki2","midnightblue","olivedrab2","lightgoldenrod4","mediumorchid","mediumseagreen","cadetblue2","orange4","olivedrab3","bisque","maroon4","chocolate4","lavenderblush2","olivedrab4","mediumpurple3","lightsteelblue4","khaki4","magenta","dodgerblue2","seagreen","indianred","lightgreen","steelblue2","rosybrown","darkorchid3","lightgoldenrodyellow","darkseagreen4","violetred4","lightskyblue2","lightskyblue","orange","khaki3","skyblue3","violetred3","maroon3","darkgoldenrod2","seashell2","blueviolet","magenta4","cyan3","chocolate","burlywood3","maroon2","orchid3","orange3","burlywood4","lightskyblue4","cadetblue","bisque4","salmon","lightskyblue3","darkgreen","lightyellow","salmon2","green2","firebrick3","lemonchiffon4","lightsalmon2","mediumslateblue","coral2","palegreen3","darkslateblue","skyblue","chartreuse","green3","dodgerblue3","orchid2","paleturquoise2","orange2","aliceblue","peachpuff2","palegoldenrod","wheat2","darkcyan","darkgoldenrod","rosybrown2","brown4","goldenrod","yellow4","mintcream","peachpuff","honeydew2","mediumvioletred","indianred3","yellowgreen","royalblue3","sienna2","deepskyblue3","skyblue4","red4","plum2","lavenderblush4","mediumblue","royalblue2","firebrick4","brown","darkseagreen2","gold","chartreuse4","forestgreen","lavenderblush3","sienna","mediumaquamarine","honeydew3","tan3","oldlace","honeydew4","honeydew","bisque2","green4","goldenrod3","red3","peachpuff3","mistyrose3","thistle2","burlywood"],["1"],null,{"showTitle":true,"showValues":true,"labels":["part","aux"],"supValues":null,"supLabels":[],"html":[["<a href='https://glottolog.org/resource/languoid/id/gagu1242' target='_blank'>Gban<\/a><br>part: TRUE<br> aux: TRUE<br> "],["<a href='https://glottolog.org/resource/languoid/id/nyak1260' target='_blank'>Nyakyusa-Ngonde<\/a><br>part: FALSE<br> aux: TRUE<br> "],["<a href='https://glottolog.org/resource/languoid/id/nort3139' target='_blank'>North Levantine Arabic<\/a><br>part: FALSE<br> aux: TRUE<br> "]],"noPopup":false,"digits":null},null]},{"method":"addLegend","args":[{"colors":["#1f77b4","#ff7f0e"],"labels":["part","aux"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"unknown","title":null,"extra":null,"layerId":"minichartsLegend","className":"info legend","group":null}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"limits":{"lat":[-9.71018,34.1709],"lng":[-5.51851,36.0468]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f4ce28cebe2875985dec" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f4ce28cebe2875985dec">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Gban&quot;,&quot;North Levantine Arabic&quot;,&quot;Nyakyusa-Ngonde&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"logical\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;true&quot;,&quot;false&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3"],["Gban","North Levantine Arabic","Nyakyusa-Ngonde"],[true,true,true],[true,false,false]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>language<\/th>\n      <th>aux<\/th>\n      <th>part<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="meaning-under-negation" class="section level4">
+<h4>3.2. Meaning under negation</h4>
+<div id="htmlwidget-349f907389414b5c2063" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-349f907389414b5c2063">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"zoomControl":false},"calls":[{"method":"addTiles","args":["OpenStreetMap.Mapnik",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false}]},{"method":"addProviderTiles","args":["OpenStreetMap.Mapnik",null,"OpenStreetMap.Mapnik",{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[-9.71018,6.40859],[33.7763,-5.51851],5.5,null,["still not","not yet"],{"interactive":true,"className":"","stroke":false,"color":"black","weight":5,"opacity":0.5,"fill":true,"fillColor":"black","fillOpacity":1},null,null,["<a href='https://glottolog.org/resource/languoid/id/nyak1260' target='_blank'>Nyakyusa-Ngonde<\/a><br>","<a href='https://glottolog.org/resource/languoid/id/gagu1242' target='_blank'>Gban<\/a><br>"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[-9.71018,6.40859],[33.7763,-5.51851],5,null,["still not","not yet"],{"interactive":true,"className":"","stroke":false,"color":["#FF7F0E","#B47C6F"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#FF7F0E","#B47C6F"],"fillOpacity":1},null,null,["<a href='https://glottolog.org/resource/languoid/id/nyak1260' target='_blank'>Nyakyusa-Ngonde<\/a><br>","<a href='https://glottolog.org/resource/languoid/id/gagu1242' target='_blank'>Gban<\/a><br>"],null,["Nyakyusa-Ngonde","Gban"],{"interactive":false,"permanent":false,"direction":"right","opacity":1,"offset":[7.5,0],"textsize":"10px","textOnly":true,"style":{"font-size":"15px","font-family":"sans-serif"},"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]},{"method":"addLegend","args":[{"colors":["#B47C6F","#FF7F0E"],"labels":["not yet","still not"],"na_color":null,"na_label":"NA","opacity":1,"position":"topright","type":"factor","title":null,"extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[-9.71018,6.40859],"lng":[-5.51851,33.7763]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-afc21e90d03564cf940f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-afc21e90d03564cf940f">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Afro-Asiatic&quot;,&quot;Atlantic-Congo&quot;,&quot;Blue Nile Mao&quot;,&quot;Central Sudanic&quot;,&quot;Dajuic&quot;,&quot;Dizoid&quot;,&quot;Dogon&quot;,&quot;Eastern Jebel&quot;,&quot;Furan&quot;,&quot;Gumuz&quot;,&quot;Heibanic&quot;,&quot;Ijoid&quot;,&quot;Kadugli-Krongo&quot;,&quot;Katla-Tima&quot;,&quot;Khoe-Kwadi&quot;,&quot;Koman&quot;,&quot;Kresh-Aja&quot;,&quot;Kuliak&quot;,&quot;Kxa&quot;,&quot;Maban&quot;,&quot;Mande&quot;,&quot;Narrow Talodi&quot;,&quot;Nilotic&quot;,&quot;Nubian&quot;,&quot;Nyimang&quot;,&quot;Rashad&quot;,&quot;Saharan&quot;,&quot;Songhay&quot;,&quot;South Omotic&quot;,&quot;Surmic&quot;,&quot;Ta-Ne-Omotic&quot;,&quot;Tamaic&quot;,&quot;Temeinic&quot;,&quot;Tuu&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Gban&quot;,&quot;North Levantine Arabic&quot;,&quot;Nyakyusa-Ngonde&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;not yet&quot;,&quot;still not&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2"],["Atlantic-Congo","Mande"],["Nyakyusa-Ngonde","Gban"],["still not","not yet"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>language<\/th>\n      <th>X1_meaning_under_negation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="adjacent-meanings-and-other-uses" class="section level4">
+<h4>3.3. Adjacent meanings and other uses</h4>
+<div id="htmlwidget-cfbc3b69553ea0ea75f3" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfbc3b69553ea0ea75f3">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>language<\/th>\n      <th>X1_adjacent_meanings_and_other_uses<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="references" class="section level3 unnumbered">
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-fedotov2015">
+<p><strong>Fedotov, M.</strong> <strong>2015</strong>. To be continued... : Приключения континуативного показателя в языке гбан [to be continued…: Adventures of the continuative marker in gban].</p>
+</div>
+<div id="ref-persohn2017">
+<p><strong>Persohn, B.</strong> <strong>2017</strong>. <em>The Verb in Nyakyusa: A Focus on Tense, Aspect, and Modality</em>. Berlin: Language Science Press.</p>
+</div>
+<div id="ref-versteegh2018">
+<p><strong>Versteegh, K.</strong> <strong>2018</strong>. ‘Temporal Adverbs of Contrast in the Basic Variety of Arabic’. In Manfredi, S. and M. Tosco (eds), <em>Arabic in contact</em>. Amsterdam, Philadelphia: John Benjamins, 233–250.</p>
+</div>
+</div>
+</div>
+
+<br>
+<br>
+<p> <center> Anastasia Panova, 2020 </center></p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
