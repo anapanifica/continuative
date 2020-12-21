@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Continutives in Papua-Oceania</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="site_libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="site_libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="site_libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Continuative</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Main</a>
+</li>
+<li>
+  <a href="eurasia.html">Eurasia</a>
+</li>
+<li>
+  <a href="africa.html">Africa</a>
+</li>
+<li>
+  <a href="north-america.html">North America</a>
+</li>
+<li>
+  <a href="south-america.html">South America</a>
+</li>
+<li>
+  <a href="australia.html">Australia</a>
+</li>
+<li>
+  <a href="papua-oceania.html">Papua &amp; Oceania</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="continuative-2020-09-11.xlsx">Dataset (.xlsx)</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Continutives in Papua-Oceania</h1>
+
+</div>
+
+
+<div id="languages" class="section level3">
+<h3>1. Languages</h3>
+<p>All Papuan and Oceanic languages included in the sample.</p>
+<div id="list" class="section level4">
+<h4>1.1. List</h4>
+<div id="htmlwidget-b71ae34dd96091929b04" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b71ae34dd96091929b04">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Amto-Musan&quot;,&quot;Angan&quot;,&quot;Anim&quot;,&quot;Arafundi&quot;,&quot;Austroasiatic (&gt; Aslian)&quot;,&quot;Austroasiatic (&gt; Khmeric)&quot;,&quot;Austronesian (&gt; Atayalic)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian)&quot;,&quot;Austronesian (&gt; Malayo-Sumbawan)&quot;,&quot;Baibai-Fas&quot;,&quot;Baining&quot;,&quot;Bayono-Awbono&quot;,&quot;Bogia&quot;,&quot;Border&quot;,&quot;Bosavi&quot;,&quot;Bulaka River&quot;,&quot;Dagan&quot;,&quot;Doso-Turumsa&quot;,&quot;East Bird&#39;s Head&quot;,&quot;East Kutubu&quot;,&quot;East Strickland&quot;,&quot;Eastern Trans-Fly&quot;,&quot;Eleman&quot;,&quot;Geelvink Bay&quot;,&quot;Goilalan&quot;,&quot;Greater Kwerba&quot;,&quot;Hatam-Mansim&quot;,&quot;Inanwatan&quot;,&quot;Kamula-Elevala&quot;,&quot;Kaure-Kosare&quot;,&quot;Kayagaric&quot;,&quot;Keram&quot;,&quot;Kiwaian&quot;,&quot;Koiarian&quot;,&quot;Kolopom&quot;,&quot;Konda-Yahadian&quot;,&quot;Kwalean&quot;,&quot;Kwomtari-Nai&quot;,&quot;Lakes Plain&quot;,&quot;Left May&quot;,&quot;Lepki-Murkim-Kembra&quot;,&quot;Lower Sepik-Ramu&quot;,&quot;Mailuan&quot;,&quot;Mairasic&quot;,&quot;Manubaran&quot;,&quot;Mombum-Koneraw&quot;,&quot;Namla-Tofanma&quot;,&quot;Ndu&quot;,&quot;Nimboranic&quot;,&quot;North Bougainville&quot;,&quot;North Halmahera&quot;,&quot;Nuclear Torricelli&quot;,&quot;Nuclear Trans New Guinea (&gt; Dani)&quot;,&quot;Nuclear Trans New Guinea (&gt; Ok)&quot;,&quot;Pahoturi&quot;,&quot;Pauwasi&quot;,&quot;Piawi&quot;,&quot;Senagi&quot;,&quot;Sentanic&quot;,&quot;Sepik&quot;,&quot;Sko&quot;,&quot;Somahai&quot;,&quot;South Bird&#39;s Head Family&quot;,&quot;South Bougainville&quot;,&quot;Suki-Gogodala&quot;,&quot;Taulil-Butam&quot;,&quot;Teberan&quot;,&quot;Timor-Alor-Pantar&quot;,&quot;Tor-Orya&quot;,&quot;Turama-Kikori&quot;,&quot;Walioic&quot;,&quot;West Bird&#39;s Head&quot;,&quot;West Bomberai&quot;,&quot;Yam&quot;,&quot;Yareban&quot;,&quot;Yawa-Saweru&quot;,&quot;Yuat&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;bpa&quot;,&quot;cha&quot;,&quot;dnw&quot;,&quot;ind&quot;,&quot;khm&quot;,&quot;mpt&quot;,&quot;nee&quot;,&quot;sza&quot;,&quot;tay&quot;,&quot;tgl&quot;,&quot;yev&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Atayal&quot;,&quot;Central Khmer&quot;,&quot;Chamorro&quot;,&quot;Dakaka&quot;,&quot;Indonesian&quot;,&quot;Mian&quot;,&quot;Nêlêmwa-Nixumwak&quot;,&quot;Semelai&quot;,&quot;Tagalog&quot;,&quot;Western Dani&quot;,&quot;Yeri&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;grammar&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;yes&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80"],["Austronesian (&gt; Atayalic)","Austronesian (&gt; Malayo-Polynesian)","Austronesian (&gt; Malayo-Sumbawan)","Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)","Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)","Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)","Nuclear Trans New Guinea (&gt; Ok)","Nuclear Trans New Guinea (&gt; Dani)","Austroasiatic (&gt; Khmeric)","Austroasiatic (&gt; Aslian)","Nuclear Torricelli","Sepik","Lower Sepik-Ramu","Timor-Alor-Pantar","Lakes Plain","Yam","Anim","Border","North Halmahera","Angan","Ndu","Tor-Orya","Geelvink Bay","Sko","Dagan","South Bougainville","Greater Kwerba","Koiarian","Mailuan","Bosavi","Baining","East Strickland","Goilalan","Kiwaian","Left May","South Bird's Head Family","Eleman","Keram","Nimboranic","Pauwasi","West Bird's Head","Yareban","Yuat","Arafundi","Eastern Trans-Fly","North Bougainville","Sentanic","Suki-Gogodala","Turama-Kikori","Walioic","East Bird's Head","Kamula-Elevala","Kayagaric","Kolopom","Kwalean","Lepki-Murkim-Kembra","Mairasic","West Bomberai","Amto-Musan","Baibai-Fas","Bayono-Awbono","Bogia","Bulaka River","Doso-Turumsa","East Kutubu","Hatam-Mansim","Inanwatan","Kaure-Kosare","Konda-Yahadian","Kwomtari-Nai","Manubaran","Mombum-Koneraw","Namla-Tofanma","Pahoturi","Piawi","Senagi","Somahai","Taulil-Butam","Teberan","Yawa-Saweru"],["tay","cha","ind","tgl","nee","bpa","mpt","dnw","khm","sza","yev","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],["Atayal","Chamorro","Indonesian","Tagalog","Nêlêmwa-Nixumwak","Dakaka","Mian","Western Dani","Central Khmer","Semelai","Yeri","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],["grammar","grammar","grammar","grammar","grammar","grammar","grammar","grammar","grammar","grammar","grammar","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],["yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","yes","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>iso<\/th>\n      <th>language<\/th>\n      <th>data_sources<\/th>\n      <th>included<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="map" class="section level4">
+<h4>1.2. Map</h4>
+<div id="htmlwidget-a497dfdcea3ce03f9fc1" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a497dfdcea3ce03f9fc1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"zoomControl":false},"calls":[{"method":"addTiles","args":["OpenStreetMap.Mapnik",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false}]},{"method":"addProviderTiles","args":["OpenStreetMap.Mapnik",null,"OpenStreetMap.Mapnik",{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[24.5209,13.438011,-7.33458,14.06,-20.4035,-16.2696,-4.70881,-3.77127,12.0515,2.82799,-3.47256],[121.388,144.74474,109.716,121.747,164.193,168.013,141.523,138.217,105.015,102.806,142.436],5.5,null,["","","","","","","","","","",""],{"interactive":true,"className":"","stroke":false,"color":"black","weight":5,"opacity":0.5,"fill":true,"fillColor":"black","fillOpacity":1},null,null,["<a href='https://glottolog.org/resource/languoid/id/atay1247' target='_blank'>Atayal<\/a><br>Austronesian (> Atayalic)","<a href='https://glottolog.org/resource/languoid/id/cham1312' target='_blank'>Chamorro<\/a><br>Austronesian (> Malayo-Polynesian)","<a href='https://glottolog.org/resource/languoid/id/indo1316' target='_blank'>Indonesian<\/a><br>Austronesian (> Malayo-Sumbawan)","<a href='https://glottolog.org/resource/languoid/id/taga1270' target='_blank'>Tagalog<\/a><br>Austronesian (> Malayo-Polynesian > Greater Central Philippine)","<a href='https://glottolog.org/resource/languoid/id/kuma1276' target='_blank'>Nêlêmwa-Nixumwak<\/a><br>Austronesian (> Malayo-Polynesian > Oceanic > New Caledonian)","<a href='https://glottolog.org/resource/languoid/id/daka1243' target='_blank'>Dakaka<\/a><br>Austronesian (> Malayo-Polynesian > Oceanic > Central Vanuatu)","<a href='https://glottolog.org/resource/languoid/id/mian1256' target='_blank'>Mian<\/a><br>Nuclear Trans New Guinea (> Ok)","<a href='https://glottolog.org/resource/languoid/id/west2594' target='_blank'>Western Dani<\/a><br>Nuclear Trans New Guinea (> Dani)","<a href='https://glottolog.org/resource/languoid/id/cent1989' target='_blank'>Central Khmer<\/a><br>Austroasiatic (> Khmeric)","<a href='https://glottolog.org/resource/languoid/id/seme1247' target='_blank'>Semelai<\/a><br>Austroasiatic (> Aslian)","<a href='https://glottolog.org/resource/languoid/id/yapu1240' target='_blank'>Yeri<\/a><br>Nuclear Torricelli"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[24.5209,13.438011,-7.33458,14.06,-20.4035,-16.2696,-4.70881,-3.77127,12.0515,2.82799,-3.47256],[121.388,144.74474,109.716,121.747,164.193,168.013,141.523,138.217,105.015,102.806,142.436],5,null,["","","","","","","","","","",""],{"interactive":true,"className":"","stroke":false,"color":["#F27F2B","#B85E28","#945D7E","#7AB5B8","#BF7DA9","#B85486","#B4657F","#FB7D56","#699E27","#749094","#CD6889"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#F27F2B","#B85E28","#945D7E","#7AB5B8","#BF7DA9","#B85486","#B4657F","#FB7D56","#699E27","#749094","#CD6889"],"fillOpacity":1},null,null,["<a href='https://glottolog.org/resource/languoid/id/atay1247' target='_blank'>Atayal<\/a><br>Austronesian (> Atayalic)","<a href='https://glottolog.org/resource/languoid/id/cham1312' target='_blank'>Chamorro<\/a><br>Austronesian (> Malayo-Polynesian)","<a href='https://glottolog.org/resource/languoid/id/indo1316' target='_blank'>Indonesian<\/a><br>Austronesian (> Malayo-Sumbawan)","<a href='https://glottolog.org/resource/languoid/id/taga1270' target='_blank'>Tagalog<\/a><br>Austronesian (> Malayo-Polynesian > Greater Central Philippine)","<a href='https://glottolog.org/resource/languoid/id/kuma1276' target='_blank'>Nêlêmwa-Nixumwak<\/a><br>Austronesian (> Malayo-Polynesian > Oceanic > New Caledonian)","<a href='https://glottolog.org/resource/languoid/id/daka1243' target='_blank'>Dakaka<\/a><br>Austronesian (> Malayo-Polynesian > Oceanic > Central Vanuatu)","<a href='https://glottolog.org/resource/languoid/id/mian1256' target='_blank'>Mian<\/a><br>Nuclear Trans New Guinea (> Ok)","<a href='https://glottolog.org/resource/languoid/id/west2594' target='_blank'>Western Dani<\/a><br>Nuclear Trans New Guinea (> Dani)","<a href='https://glottolog.org/resource/languoid/id/cent1989' target='_blank'>Central Khmer<\/a><br>Austroasiatic (> Khmeric)","<a href='https://glottolog.org/resource/languoid/id/seme1247' target='_blank'>Semelai<\/a><br>Austroasiatic (> Aslian)","<a href='https://glottolog.org/resource/languoid/id/yapu1240' target='_blank'>Yeri<\/a><br>Nuclear Torricelli"],null,["Atayal","Chamorro","Indonesian","Tagalog","Nêlêmwa-Nixumwak","Dakaka","Mian","Western Dani","Central Khmer","Semelai","Yeri"],{"interactive":false,"permanent":false,"direction":"right","opacity":1,"offset":[7.5,0],"textsize":"10px","textOnly":true,"style":{"font-size":"15px","font-family":"sans-serif"},"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]}],"limits":{"lat":[-20.4035,24.5209],"lng":[102.806,168.013]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="examples" class="section level3">
+<h3>2. Examples</h3>
+<div id="austronesian-atayalic" class="section level4">
+<h4>Austronesian (&gt; Atayalic)</h4>
+<p><strong>Atayal</strong> <span class="citation">(Rau <a href="#ref-rau1992">1992</a>:159)</span></p>
+<p><img src="examples/atayal.png" style="width:60.0%" /></p>
+<p>The continuative marker: na.</p>
+</div>
+<div id="austronesian-malayo-polynesian" class="section level4">
+<h4>Austronesian (&gt; Malayo-Polynesian)</h4>
+<p><strong>Chamorro</strong> <span class="citation">(Chung <a href="#ref-chung2020">2020</a>:406)</span></p>
+<p><img src="examples/chamorro.png" style="width:60.0%" /></p>
+<p>The continuative marker: trabiha.</p>
+<p><strong>Chamorro</strong> <span class="citation">(Chung <a href="#ref-chung2020">2020</a>:344)</span></p>
+<p><img src="examples/chamorro2.png" style="width:60.0%" /></p>
+<p>The continuative marker: ha’.</p>
+</div>
+<div id="austronesian-malayo-sumbawan" class="section level4">
+<h4>Austronesian (&gt; Malayo-Sumbawan)</h4>
+<p><strong>Indonesian</strong> <span class="citation">(Sneddon, … Ewing <a href="#ref-sneddonetal2010">2010</a>:206)</span></p>
+<p><img src="examples/indonesian.png" style="width:60.0%" /></p>
+<p>The continuative marker: masih.</p>
+</div>
+<div id="austronesian-malayo-polynesian-greater-central-philippine" class="section level4">
+<h4>Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)</h4>
+<p><strong>Tagalog</strong> <span class="citation">(Schachter and Otanes <a href="#ref-schachterotanes1972">1972</a>:416)</span></p>
+<p><img src="examples/tagalog.png" style="width:60.0%" /></p>
+<p>The continuative marker: pa.</p>
+</div>
+<div id="austronesian-malayo-polynesian-oceanic-new-caledonian" class="section level4">
+<h4>Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)</h4>
+<p><strong>Nêlêmwa-Nixumwak</strong> <span class="citation">(Bril <a href="#ref-bril2016">2016</a>:93)</span></p>
+<p><img src="examples/ne%CC%82le%CC%82mwa.png" style="width:60.0%" /></p>
+<p>The continuative marker: gaa.</p>
+<p><strong>Nêlêmwa-Nixumwak</strong> <span class="citation">(Bril <a href="#ref-bril2016">2016</a>:95)</span></p>
+<p><img src="examples/ne%CC%82le%CC%82mwa2.png" style="width:60.0%" /></p>
+<p>The continuative marker: gat.</p>
+</div>
+<div id="austronesian-malayo-polynesian-oceanic-central-vanuatu" class="section level4">
+<h4>Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)</h4>
+<p><strong>Dakaka</strong> <span class="citation">(Prince <a href="#ref-vonprince2012">2012</a>:179)</span></p>
+<p><img src="examples/dakaka.png" style="width:60.0%" /></p>
+<p>The continuative marker: ngabak.</p>
+</div>
+<div id="nuclear-trans-new-guinea-ok" class="section level4">
+<h4>Nuclear Trans New Guinea (&gt; Ok)</h4>
+<p><strong>Mian</strong> <span class="citation">(Fedden <a href="#ref-fedden2011">2011</a>:102)</span></p>
+<p><img src="examples/mian.png" style="width:60.0%" /></p>
+<p>The continuative marker: smā.</p>
+</div>
+<div id="nuclear-trans-new-guinea-dani" class="section level4">
+<h4>Nuclear Trans New Guinea (&gt; Dani)</h4>
+<p><strong>Western Dani</strong> <span class="citation">(Barclay <a href="#ref-barclay2008">2008</a>:441)</span></p>
+<p><img src="examples/dani.png" style="width:60.0%" /></p>
+<p>The continuative marker: awo.</p>
+</div>
+<div id="austroasiatic-khmeric" class="section level4">
+<h4>Austroasiatic (&gt; Khmeric)</h4>
+<p><strong>Central Khmer</strong> <span class="citation">(Haiman <a href="#ref-haiman2011">2011</a>:221)</span></p>
+<p><img src="examples/khmer.png" style="width:60.0%" /></p>
+<p>The continuative marker: nev.</p>
+</div>
+<div id="austroasiatic-aslian" class="section level4">
+<h4>Austroasiatic (&gt; Aslian)</h4>
+<p><strong>Semelai</strong> <span class="citation">(Kruspe <a href="#ref-kruspe2004">2004</a>:299)</span></p>
+<p><img src="examples/semelai.png" style="width:60.0%" /></p>
+<p>The continuative marker: lagiʔ.</p>
+</div>
+<div id="nuclear-torricelli" class="section level4">
+<h4>Nuclear Torricelli</h4>
+<p><strong>Yeri</strong> <span class="citation">(Wilson <a href="#ref-wilson2017">2017</a>:478)</span></p>
+<p><img src="examples/yeri.png" style="width:60.0%" /></p>
+<p>The continuative marker: ko / kua.</p>
+</div>
+</div>
+<div id="parameters" class="section level3">
+<h3>3. Parameters</h3>
+<div id="morposyntactic-status" class="section level4">
+<h4>3.1. Morposyntactic status</h4>
+<div id="htmlwidget-29512f477a580d7d8b2c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-29512f477a580d7d8b2c">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Amto-Musan&quot;,&quot;Angan&quot;,&quot;Anim&quot;,&quot;Arafundi&quot;,&quot;Austroasiatic (&gt; Aslian)&quot;,&quot;Austroasiatic (&gt; Khmeric)&quot;,&quot;Austronesian (&gt; Atayalic)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian)&quot;,&quot;Austronesian (&gt; Malayo-Sumbawan)&quot;,&quot;Baibai-Fas&quot;,&quot;Baining&quot;,&quot;Bayono-Awbono&quot;,&quot;Bogia&quot;,&quot;Border&quot;,&quot;Bosavi&quot;,&quot;Bulaka River&quot;,&quot;Dagan&quot;,&quot;Doso-Turumsa&quot;,&quot;East Bird&#39;s Head&quot;,&quot;East Kutubu&quot;,&quot;East Strickland&quot;,&quot;Eastern Trans-Fly&quot;,&quot;Eleman&quot;,&quot;Geelvink Bay&quot;,&quot;Goilalan&quot;,&quot;Greater Kwerba&quot;,&quot;Hatam-Mansim&quot;,&quot;Inanwatan&quot;,&quot;Kamula-Elevala&quot;,&quot;Kaure-Kosare&quot;,&quot;Kayagaric&quot;,&quot;Keram&quot;,&quot;Kiwaian&quot;,&quot;Koiarian&quot;,&quot;Kolopom&quot;,&quot;Konda-Yahadian&quot;,&quot;Kwalean&quot;,&quot;Kwomtari-Nai&quot;,&quot;Lakes Plain&quot;,&quot;Left May&quot;,&quot;Lepki-Murkim-Kembra&quot;,&quot;Lower Sepik-Ramu&quot;,&quot;Mailuan&quot;,&quot;Mairasic&quot;,&quot;Manubaran&quot;,&quot;Mombum-Koneraw&quot;,&quot;Namla-Tofanma&quot;,&quot;Ndu&quot;,&quot;Nimboranic&quot;,&quot;North Bougainville&quot;,&quot;North Halmahera&quot;,&quot;Nuclear Torricelli&quot;,&quot;Nuclear Trans New Guinea (&gt; Dani)&quot;,&quot;Nuclear Trans New Guinea (&gt; Ok)&quot;,&quot;Pahoturi&quot;,&quot;Pauwasi&quot;,&quot;Piawi&quot;,&quot;Senagi&quot;,&quot;Sentanic&quot;,&quot;Sepik&quot;,&quot;Sko&quot;,&quot;Somahai&quot;,&quot;South Bird&#39;s Head Family&quot;,&quot;South Bougainville&quot;,&quot;Suki-Gogodala&quot;,&quot;Taulil-Butam&quot;,&quot;Teberan&quot;,&quot;Timor-Alor-Pantar&quot;,&quot;Tor-Orya&quot;,&quot;Turama-Kikori&quot;,&quot;Walioic&quot;,&quot;West Bird&#39;s Head&quot;,&quot;West Bomberai&quot;,&quot;Yam&quot;,&quot;Yareban&quot;,&quot;Yawa-Saweru&quot;,&quot;Yuat&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Atayal&quot;,&quot;Central Khmer&quot;,&quot;Chamorro&quot;,&quot;Dakaka&quot;,&quot;Indonesian&quot;,&quot;Mian&quot;,&quot;Nêlêmwa-Nixumwak&quot;,&quot;Semelai&quot;,&quot;Tagalog&quot;,&quot;Western Dani&quot;,&quot;Yeri&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;adverb&quot;,&quot;adverbial particle&quot;,&quot;auxiliary&quot;,&quot;class 1 enclitic particle&quot;,&quot;class 2 clause particle&quot;,&quot;particle&quot;,&quot;particle/adverb&quot;,&quot;persistive marker&quot;,&quot;temporal marker&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;particle&quot;,&quot;persistive marker&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9","10","11"],["Austronesian (&gt; Atayalic)","Austronesian (&gt; Malayo-Polynesian)","Austronesian (&gt; Malayo-Sumbawan)","Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)","Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)","Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)","Nuclear Trans New Guinea (&gt; Ok)","Nuclear Trans New Guinea (&gt; Dani)","Austroasiatic (&gt; Khmeric)","Austroasiatic (&gt; Aslian)","Nuclear Torricelli"],["Atayal","Chamorro","Indonesian","Tagalog","Nêlêmwa-Nixumwak","Dakaka","Mian","Western Dani","Central Khmer","Semelai","Yeri"],["particle","adverb","temporal marker","class 1 enclitic particle","persistive marker","adverbial particle","adverb","particle/adverb","auxiliary","adverb","class 2 clause particle"],["","particle","","","persistive marker","","","","","",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>language<\/th>\n      <th>X1_morphosyntactic_type_detailed<\/th>\n      <th>X2_morphosyntactic_type_detailed<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="meaning-in-combination-with-negation" class="section level4">
+<h4>3.2. Meaning in combination with negation</h4>
+<div id="htmlwidget-66095484a05a4903f2b6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-66095484a05a4903f2b6">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Amto-Musan&quot;,&quot;Angan&quot;,&quot;Anim&quot;,&quot;Arafundi&quot;,&quot;Austroasiatic (&gt; Aslian)&quot;,&quot;Austroasiatic (&gt; Khmeric)&quot;,&quot;Austronesian (&gt; Atayalic)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian)&quot;,&quot;Austronesian (&gt; Malayo-Sumbawan)&quot;,&quot;Baibai-Fas&quot;,&quot;Baining&quot;,&quot;Bayono-Awbono&quot;,&quot;Bogia&quot;,&quot;Border&quot;,&quot;Bosavi&quot;,&quot;Bulaka River&quot;,&quot;Dagan&quot;,&quot;Doso-Turumsa&quot;,&quot;East Bird&#39;s Head&quot;,&quot;East Kutubu&quot;,&quot;East Strickland&quot;,&quot;Eastern Trans-Fly&quot;,&quot;Eleman&quot;,&quot;Geelvink Bay&quot;,&quot;Goilalan&quot;,&quot;Greater Kwerba&quot;,&quot;Hatam-Mansim&quot;,&quot;Inanwatan&quot;,&quot;Kamula-Elevala&quot;,&quot;Kaure-Kosare&quot;,&quot;Kayagaric&quot;,&quot;Keram&quot;,&quot;Kiwaian&quot;,&quot;Koiarian&quot;,&quot;Kolopom&quot;,&quot;Konda-Yahadian&quot;,&quot;Kwalean&quot;,&quot;Kwomtari-Nai&quot;,&quot;Lakes Plain&quot;,&quot;Left May&quot;,&quot;Lepki-Murkim-Kembra&quot;,&quot;Lower Sepik-Ramu&quot;,&quot;Mailuan&quot;,&quot;Mairasic&quot;,&quot;Manubaran&quot;,&quot;Mombum-Koneraw&quot;,&quot;Namla-Tofanma&quot;,&quot;Ndu&quot;,&quot;Nimboranic&quot;,&quot;North Bougainville&quot;,&quot;North Halmahera&quot;,&quot;Nuclear Torricelli&quot;,&quot;Nuclear Trans New Guinea (&gt; Dani)&quot;,&quot;Nuclear Trans New Guinea (&gt; Ok)&quot;,&quot;Pahoturi&quot;,&quot;Pauwasi&quot;,&quot;Piawi&quot;,&quot;Senagi&quot;,&quot;Sentanic&quot;,&quot;Sepik&quot;,&quot;Sko&quot;,&quot;Somahai&quot;,&quot;South Bird&#39;s Head Family&quot;,&quot;South Bougainville&quot;,&quot;Suki-Gogodala&quot;,&quot;Taulil-Butam&quot;,&quot;Teberan&quot;,&quot;Timor-Alor-Pantar&quot;,&quot;Tor-Orya&quot;,&quot;Turama-Kikori&quot;,&quot;Walioic&quot;,&quot;West Bird&#39;s Head&quot;,&quot;West Bomberai&quot;,&quot;Yam&quot;,&quot;Yareban&quot;,&quot;Yawa-Saweru&quot;,&quot;Yuat&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Atayal&quot;,&quot;Central Khmer&quot;,&quot;Chamorro&quot;,&quot;Dakaka&quot;,&quot;Indonesian&quot;,&quot;Mian&quot;,&quot;Nêlêmwa-Nixumwak&quot;,&quot;Semelai&quot;,&quot;Tagalog&quot;,&quot;Western Dani&quot;,&quot;Yeri&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;not yet&quot;,&quot;still not / not yet&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7"],["Austronesian (&gt; Atayalic)","Austronesian (&gt; Malayo-Polynesian)","Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)","Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)","Nuclear Trans New Guinea (&gt; Dani)","Austroasiatic (&gt; Aslian)","Nuclear Torricelli"],["Atayal","Chamorro","Tagalog","Dakaka","Western Dani","Semelai","Yeri"],["not yet","not yet","not yet","not yet","not yet","still not / not yet","still not / not yet"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>language<\/th>\n      <th>X1_meaning_under_negation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="tam-restrictions" class="section level4">
+<h4>3.3. TAM restrictions</h4>
+<div id="htmlwidget-8105feafabacc61879bc" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8105feafabacc61879bc">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Amto-Musan&quot;,&quot;Angan&quot;,&quot;Anim&quot;,&quot;Arafundi&quot;,&quot;Austroasiatic (&gt; Aslian)&quot;,&quot;Austroasiatic (&gt; Khmeric)&quot;,&quot;Austronesian (&gt; Atayalic)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian)&quot;,&quot;Austronesian (&gt; Malayo-Sumbawan)&quot;,&quot;Baibai-Fas&quot;,&quot;Baining&quot;,&quot;Bayono-Awbono&quot;,&quot;Bogia&quot;,&quot;Border&quot;,&quot;Bosavi&quot;,&quot;Bulaka River&quot;,&quot;Dagan&quot;,&quot;Doso-Turumsa&quot;,&quot;East Bird&#39;s Head&quot;,&quot;East Kutubu&quot;,&quot;East Strickland&quot;,&quot;Eastern Trans-Fly&quot;,&quot;Eleman&quot;,&quot;Geelvink Bay&quot;,&quot;Goilalan&quot;,&quot;Greater Kwerba&quot;,&quot;Hatam-Mansim&quot;,&quot;Inanwatan&quot;,&quot;Kamula-Elevala&quot;,&quot;Kaure-Kosare&quot;,&quot;Kayagaric&quot;,&quot;Keram&quot;,&quot;Kiwaian&quot;,&quot;Koiarian&quot;,&quot;Kolopom&quot;,&quot;Konda-Yahadian&quot;,&quot;Kwalean&quot;,&quot;Kwomtari-Nai&quot;,&quot;Lakes Plain&quot;,&quot;Left May&quot;,&quot;Lepki-Murkim-Kembra&quot;,&quot;Lower Sepik-Ramu&quot;,&quot;Mailuan&quot;,&quot;Mairasic&quot;,&quot;Manubaran&quot;,&quot;Mombum-Koneraw&quot;,&quot;Namla-Tofanma&quot;,&quot;Ndu&quot;,&quot;Nimboranic&quot;,&quot;North Bougainville&quot;,&quot;North Halmahera&quot;,&quot;Nuclear Torricelli&quot;,&quot;Nuclear Trans New Guinea (&gt; Dani)&quot;,&quot;Nuclear Trans New Guinea (&gt; Ok)&quot;,&quot;Pahoturi&quot;,&quot;Pauwasi&quot;,&quot;Piawi&quot;,&quot;Senagi&quot;,&quot;Sentanic&quot;,&quot;Sepik&quot;,&quot;Sko&quot;,&quot;Somahai&quot;,&quot;South Bird&#39;s Head Family&quot;,&quot;South Bougainville&quot;,&quot;Suki-Gogodala&quot;,&quot;Taulil-Butam&quot;,&quot;Teberan&quot;,&quot;Timor-Alor-Pantar&quot;,&quot;Tor-Orya&quot;,&quot;Turama-Kikori&quot;,&quot;Walioic&quot;,&quot;West Bird&#39;s Head&quot;,&quot;West Bomberai&quot;,&quot;Yam&quot;,&quot;Yareban&quot;,&quot;Yawa-Saweru&quot;,&quot;Yuat&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Atayal&quot;,&quot;Central Khmer&quot;,&quot;Chamorro&quot;,&quot;Dakaka&quot;,&quot;Indonesian&quot;,&quot;Mian&quot;,&quot;Nêlêmwa-Nixumwak&quot;,&quot;Semelai&quot;,&quot;Tagalog&quot;,&quot;Western Dani&quot;,&quot;Yeri&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;imperfective aspect, non-verbal predicates&quot;,&quot;only active verbs (with statives - \\&quot;more\\&quot;, \\&quot;increasingly\\&quot;)&quot;,&quot;progressive, resultative, unmarked&quot;,&quot;verbs, non-verbal predicates&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4"],["Austronesian (&gt; Atayalic)","Austronesian (&gt; Malayo-Sumbawan)","Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)","Austroasiatic (&gt; Aslian)"],["Atayal","Indonesian","Tagalog","Semelai"],["progressive, resultative, unmarked","verbs, non-verbal predicates","imperfective aspect, non-verbal predicates","only active verbs (with statives - \"more\", \"increasingly\")"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>language<\/th>\n      <th>X1_tam_restrictions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="adjacent-meanings" class="section level4">
+<h4>3.4. Adjacent meanings</h4>
+<div id="htmlwidget-02ad837b4b4c2a885d9e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-02ad837b4b4c2a885d9e">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Amto-Musan&quot;,&quot;Angan&quot;,&quot;Anim&quot;,&quot;Arafundi&quot;,&quot;Austroasiatic (&gt; Aslian)&quot;,&quot;Austroasiatic (&gt; Khmeric)&quot;,&quot;Austronesian (&gt; Atayalic)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian)&quot;,&quot;Austronesian (&gt; Malayo-Sumbawan)&quot;,&quot;Baibai-Fas&quot;,&quot;Baining&quot;,&quot;Bayono-Awbono&quot;,&quot;Bogia&quot;,&quot;Border&quot;,&quot;Bosavi&quot;,&quot;Bulaka River&quot;,&quot;Dagan&quot;,&quot;Doso-Turumsa&quot;,&quot;East Bird&#39;s Head&quot;,&quot;East Kutubu&quot;,&quot;East Strickland&quot;,&quot;Eastern Trans-Fly&quot;,&quot;Eleman&quot;,&quot;Geelvink Bay&quot;,&quot;Goilalan&quot;,&quot;Greater Kwerba&quot;,&quot;Hatam-Mansim&quot;,&quot;Inanwatan&quot;,&quot;Kamula-Elevala&quot;,&quot;Kaure-Kosare&quot;,&quot;Kayagaric&quot;,&quot;Keram&quot;,&quot;Kiwaian&quot;,&quot;Koiarian&quot;,&quot;Kolopom&quot;,&quot;Konda-Yahadian&quot;,&quot;Kwalean&quot;,&quot;Kwomtari-Nai&quot;,&quot;Lakes Plain&quot;,&quot;Left May&quot;,&quot;Lepki-Murkim-Kembra&quot;,&quot;Lower Sepik-Ramu&quot;,&quot;Mailuan&quot;,&quot;Mairasic&quot;,&quot;Manubaran&quot;,&quot;Mombum-Koneraw&quot;,&quot;Namla-Tofanma&quot;,&quot;Ndu&quot;,&quot;Nimboranic&quot;,&quot;North Bougainville&quot;,&quot;North Halmahera&quot;,&quot;Nuclear Torricelli&quot;,&quot;Nuclear Trans New Guinea (&gt; Dani)&quot;,&quot;Nuclear Trans New Guinea (&gt; Ok)&quot;,&quot;Pahoturi&quot;,&quot;Pauwasi&quot;,&quot;Piawi&quot;,&quot;Senagi&quot;,&quot;Sentanic&quot;,&quot;Sepik&quot;,&quot;Sko&quot;,&quot;Somahai&quot;,&quot;South Bird&#39;s Head Family&quot;,&quot;South Bougainville&quot;,&quot;Suki-Gogodala&quot;,&quot;Taulil-Butam&quot;,&quot;Teberan&quot;,&quot;Timor-Alor-Pantar&quot;,&quot;Tor-Orya&quot;,&quot;Turama-Kikori&quot;,&quot;Walioic&quot;,&quot;West Bird&#39;s Head&quot;,&quot;West Bomberai&quot;,&quot;Yam&quot;,&quot;Yareban&quot;,&quot;Yawa-Saweru&quot;,&quot;Yuat&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;Atayal&quot;,&quot;Central Khmer&quot;,&quot;Chamorro&quot;,&quot;Dakaka&quot;,&quot;Indonesian&quot;,&quot;Mian&quot;,&quot;Nêlêmwa-Nixumwak&quot;,&quot;Semelai&quot;,&quot;Tagalog&quot;,&quot;Western Dani&quot;,&quot;Yeri&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;&quot;,&quot;\\&quot;only (so-and-so-much) up to now\\&quot;&quot;,&quot;first&quot;,&quot;just, recently, wait&quot;,&quot;more, again, before (+ neg)&quot;,&quot;quite a while ago (with temporal expressions), some more, first, also/too (with perfective aspect), just (with recent-perfective aspect), in addition, ~while (\\&quot;in successive clauses\\&quot;), &quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6"],["Austronesian (&gt; Atayalic)","Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)","Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)","Nuclear Trans New Guinea (&gt; Dani)","Austroasiatic (&gt; Aslian)","Nuclear Torricelli"],["Atayal","Tagalog","Dakaka","Western Dani","Semelai","Yeri"],["\"only (so-and-so-much) up to now\"","quite a while ago (with temporal expressions), some more, first, also/too (with perfective aspect), just (with recent-perfective aspect), in addition, ~while (\"in successive clauses\"), ","first","just, recently, wait","more, again, before (+ neg)","first"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>language<\/th>\n      <th>X1_adjacent_meanings<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="diachronic-sources" class="section level4">
+<h4>3.5. Diachronic sources</h4>
+<div id="htmlwidget-5e1119930a1e8db4d146" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5e1119930a1e8db4d146">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1"],["Austroasiatic (&gt; Khmeric)"],["Central Khmer"],["\"be at, stay\""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>name<\/th>\n      <th>language<\/th>\n      <th>X1_diachronic_sources<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="references" class="section level3 unnumbered">
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-barclay2008">
+<p><strong>Barclay, P.</strong> <strong>2008</strong>. <em>A Grammar of Western Dani</em>. München: Lincom.</p>
+</div>
+<div id="ref-bril2016">
+<p><strong>Bril, I.</strong> <strong>2016</strong>. ‘Tense, Aspect and Mood in Nêlêmwa (New Caledonia): Encoding Events, Processes and States’. In Guentchéva, Z. (ed), <em>Aspectuality and temporality: Descriptive and theoretical issues</em>. Amsterdam: John Benjamins, 63–106.</p>
+</div>
+<div id="ref-chung2020">
+<p><strong>Chung, S.</strong> <strong>2020</strong>. <em>Chamorro Grammar</em>. Santa Cruz: University of California.</p>
+</div>
+<div id="ref-fedden2011">
+<p><strong>Fedden, S. O.</strong> <strong>2011</strong>. <em>A Grammar of Mian</em>. Berlin: Mouton de Gruyter.</p>
+</div>
+<div id="ref-haiman2011">
+<p><strong>Haiman, J.</strong> <strong>2011</strong>. <em>Cambodian (Khmer)</em>. Amsterdam: Benjamins.</p>
+</div>
+<div id="ref-kruspe2004">
+<p><strong>Kruspe, N. D.</strong> <strong>2004</strong>. <em>A Grammar of Semelai</em>. Cambridge: Cambridge University Press.</p>
+</div>
+<div id="ref-vonprince2012">
+<p><strong>Prince, K. von</strong>. <strong>2012</strong>. A grammar of daakaka.</p>
+</div>
+<div id="ref-rau1992">
+<p><strong>Rau, D.-H. V.</strong> <strong>1992</strong>. A grammar of atayal.</p>
+</div>
+<div id="ref-schachterotanes1972">
+<p><strong>Schachter, P. and F. T. Otanes</strong>. <strong>1972</strong>. <em>Tagalog Reference Grammar</em>. Berkeley; Los Angeles: University of California Press.</p>
+</div>
+<div id="ref-sneddonetal2010">
+<p><strong>Sneddon, J. N., A. Adelaar, D. N. Djenar and M. C. Ewing</strong>. <strong>2010</strong>. <em>Indonesian Reference Grammar</em>. Allen &amp; Unwin.</p>
+</div>
+<div id="ref-wilson2017">
+<p><strong>Wilson, J.</strong> <strong>2017</strong>. A grammar of yeri: A torricelli language of papua new guinea.</p>
+</div>
+</div>
+</div>
+
+<br>
+<br>
+<p> <center> Anastasia Panova, 2020 </center></p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4,h5",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
