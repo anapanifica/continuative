@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Morphosyntactic status</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="site_libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="site_libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="site_libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Continuative</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Main</a>
+</li>
+<li>
+  <a href="examples.html">Examples</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Parameters
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="morphosynt_type.html">Morphosyntactic status</a>
+    </li>
+    <li>
+      <a href="meaning_with_negation.html">Meaning in combination with negation</a>
+    </li>
+    <li>
+      <a href="pred_restrictions.html">Predicate restrictions</a>
+    </li>
+    <li>
+      <a href="other_uses.html">Other uses</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="sample-2021-01-08.csv">Dataset (.csv)</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Morphosyntactic status</h1>
+
+</div>
+
+
+<hr />
+<div id="htmlwidget-62814b80e6d292c14012" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-62814b80e6d292c14012">{"x":{"filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Africa&quot;,&quot;Australia&quot;,&quot;Eurasia&quot;,&quot;North America&quot;,&quot;Papunesia&quot;,&quot;South America&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;Abkhaz-Adyge&quot;,&quot;Afro-Asiatic (&gt; Berber)&quot;,&quot;Afro-Asiatic (&gt; Chadic)&quot;,&quot;Afro-Asiatic (&gt; Cushitic)&quot;,&quot;Afro-Asiatic (&gt; Egyptian)&quot;,&quot;Afro-Asiatic (&gt; Semitic)&quot;,&quot;Ainu&quot;,&quot;Algic&quot;,&quot;Araucanian&quot;,&quot;Arawakan (&gt; Caribbean Arawakan)&quot;,&quot;Arawakan (&gt; Southern Maipuran)&quot;,&quot;Arawan&quot;,&quot;Athabaskan-Eyak-Tlingit (&gt; Athabaskan)&quot;,&quot;Athabaskan-Eyak-Tlingit (&gt; Tlingit)&quot;,&quot;Atlantic-Congo (&gt; North-Central Atlantic)&quot;,&quot;Atlantic-Congo (&gt; Volta-Congo &gt; Central-Western Bantu)&quot;,&quot;Atlantic-Congo (&gt; Volta-Congo &gt; East Bantu &gt; Corridor Bantu)&quot;,&quot;Atlantic-Congo (&gt; Volta-Congo &gt; East Bantu &gt; Southern Bantu-Makua)&quot;,&quot;Atlantic-Congo (&gt; Volta-Congo &gt; Gur)&quot;,&quot;Atlantic-Congo (&gt; Volta-Congo &gt; Kwa)&quot;,&quot;Atlantic-Congo (&gt; Volta-Congo &gt; North Volta-Congo) &quot;,&quot;Austroasiatic (&gt; Aslian)&quot;,&quot;Austroasiatic (&gt; Khmeric)&quot;,&quot;Austronesian (&gt; Atayalic)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Celebic)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian &gt; Polynesian)&quot;,&quot;Austronesian (&gt; Malayo-Polynesian)&quot;,&quot;Austronesian (&gt; Malayo-Sumbawan)&quot;,&quot;Barbacoan&quot;,&quot;Bororoan&quot;,&quot;Bunaban&quot;,&quot;Caddoan&quot;,&quot;Cariban&quot;,&quot;Central Sudanic&quot;,&quot;Chibchan&quot;,&quot;Chonan&quot;,&quot;Chukotko-Kamchatkan&quot;,&quot;Cochimi-Yuman&quot;,&quot;Dagan&quot;,&quot;Dizoid&quot;,&quot;Dogon&quot;,&quot;Dravidian&quot;,&quot;East Bird&#39;s Head&quot;,&quot;Eskimo-Aleut&quot;,&quot;Garrwan&quot;,&quot;Giimbiyu&quot;,&quot;Great Andamanese&quot;,&quot;Gunwinyguan&quot;,&quot;Hmong-Mien&quot;,&quot;Huitotoan&quot;,&quot;Hurro-Urartian&quot;,&quot;Indo-European (&gt; Indo-Iranian)&quot;,&quot;Indo-European (&gt; Italic)&quot;,&quot;Iroquoian&quot;,&quot;Isolate&quot;,&quot;Isolate (Australia 1)&quot;,&quot;Isolate (Australia 2)&quot;,&quot;Iwaidjan Proper&quot;,&quot;Japonic&quot;,&quot;Jarrakan&quot;,&quot;Kartvelian&quot;,&quot;Khoe-Kwadi&quot;,&quot;Kiowa-Tanoan&quot;,&quot;Koman&quot;,&quot;Koreanic&quot;,&quot;Kuliak&quot;,&quot;Limilngan-Wulna&quot;,&quot;Lower Sepik-Ramu&quot;,&quot;Mande&quot;,&quot;Mangarrayi-Maran&quot;,&quot;Maningrida&quot;,&quot;Matacoan&quot;,&quot;Mayan&quot;,&quot;Mirndi&quot;,&quot;Mirndi (&gt; Yirram)&quot;,&quot;Miwok-Costanoan&quot;,&quot;Mixe-Zoque&quot;,&quot;Mongolic-Khitan&quot;,&quot;Muskogean&quot;,&quot;Naduhup&quot;,&quot;Nakh-Daghestanian&quot;,&quot;Nambiquaran&quot;,&quot;Narrow Talodi&quot;,&quot;Nilotic&quot;,&quot;Nivkh&quot;,&quot;North Halmahera&quot;,&quot;Northern Daly&quot;,&quot;Nubian&quot;,&quot;Nuclear Torricelli&quot;,&quot;Nuclear Trans New Guinea (&gt; Dani)&quot;,&quot;Nuclear Trans New Guinea (&gt; Madang)&quot;,&quot;Nuclear Trans New Guinea (&gt; Ok)&quot;,&quot;Nuclear-Macro-Je&quot;,&quot;Nyulnyulan&quot;,&quot;Otomanguean (&gt; Eastern Otomanguean)&quot;,&quot;Otomanguean (&gt; Western Otomanguean)&quot;,&quot;Pama-Nyungan (&gt; Desert Nyungic)&quot;,&quot;Pama-Nyungan (&gt; South-West Pama-Nyungan)&quot;,&quot;Pama-Nyungan (&gt; Southeastern Pama-Nyungan)&quot;,&quot;Pama-Nyungan (&gt; Yarli-Baagandji)&quot;,&quot;Pano-Tacanan&quot;,&quot;Peba-Yagua&quot;,&quot;Quechuan&quot;,&quot;Salishan&quot;,&quot;Sino-Tibetan&quot;,&quot;Siouan&quot;,&quot;Songhay&quot;,&quot;South Bougainville&quot;,&quot;Surmic&quot;,&quot;Ta-Ne-Omotic&quot;,&quot;Tai-Kadai&quot;,&quot;Tangkic&quot;,&quot;Tarascan&quot;,&quot;Taulil-Butam&quot;,&quot;Timor-Alor-Pantar&quot;,&quot;Totonacan&quot;,&quot;Tucanoan&quot;,&quot;Tungusic&quot;,&quot;Tupian&quot;,&quot;Turkic&quot;,&quot;Tuu&quot;,&quot;Uralic&quot;,&quot;Uto-Aztecan&quot;,&quot;Wakashan&quot;,&quot;West Bomberai&quot;,&quot;Worrorran&quot;,&quot;Yam&quot;,&quot;Yangmanic&quot;,&quot;Yeniseian&quot;,&quot;Yukaghir&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;//Xegwi&quot;,&quot;Abaza&quot;,&quot;Akajeru&quot;,&quot;Anta-Komnzo-Wára-Wérè-Kémä&quot;,&quot;Atayal&quot;,&quot;Balanta-Ganja&quot;,&quot;Bardi&quot;,&quot;Bench&quot;,&quot;Bininj Kun-Wok&quot;,&quot;Bororo&quot;,&quot;Bunak&quot;,&quot;Buwal&quot;,&quot;Caddo&quot;,&quot;Central Alaskan Yupik&quot;,&quot;Central Khmer&quot;,&quot;Chamorro&quot;,&quot;Cherokee&quot;,&quot;Chukchi&quot;,&quot;Coptic&quot;,&quot;Creek&quot;,&quot;Culina&quot;,&quot;Daga&quot;,&quot;Dagik&quot;,&quot;Dakaka&quot;,&quot;Ese Ejja&quot;,&quot;Evenki&quot;,&quot;Ewe&quot;,&quot;Finnish&quot;,&quot;Galibi Carib&quot;,&quot;Garrwa&quot;,&quot;Gban&quot;,&quot;Georgian&quot;,&quot;Ghomara&quot;,&quot;Gooniyandi&quot;,&quot;Guragone&quot;,&quot;Halh Mongolian&quot;,&quot;Highland Popoluca&quot;,&quot;Hindi&quot;,&quot;Hmong Njua&quot;,&quot;Hokkaido Ainu&quot;,&quot;Huangascar-Topara-Yauyos Quechua&quot;,&quot;Huehuetla Tepehua&quot;,&quot;Hup&quot;,&quot;Hurrian&quot;,&quot;Ik&quot;,&quot;Indonesian&quot;,&quot;Isthmus Zapotec&quot;,&quot;Jaminjung-Ngaliwurru&quot;,&quot;Japanese&quot;,&quot;Kalamang&quot;,&quot;Kambaata&quot;,&quot;Kayardild&quot;,&quot;Kenuzi-Dongola&quot;,&quot;Kesawai&quot;,&quot;Ket&quot;,&quot;Kitja&quot;,&quot;Komo (Sudan-Ethiopia)&quot;,&quot;Korean&quot;,&quot;Lakota&quot;,&quot;Lezgian&quot;,&quot;Limilngan&quot;,&quot;Lopit&quot;,&quot;Ma&#39;di&quot;,&quot;Mamaindé&quot;,&quot;Mandarin Chinese&quot;,&quot;Mangarrayi&quot;,&quot;Mapudungun&quot;,&quot;Martuthunira&quot;,&quot;Mawng&quot;,&quot;Mian&quot;,&quot;Montagnais&quot;,&quot;Moskona&quot;,&quot;Mullukmulluk&quot;,&quot;Murle&quot;,&quot;Murui Huitoto&quot;,&quot;Nanga&quot;,&quot;Navajo&quot;,&quot;Nêlêmwa-Nixumwak&quot;,&quot;Ngarinman&quot;,&quot;Ngiyambaa&quot;,&quot;Nivaclé&quot;,&quot;Nivkh&quot;,&quot;North Levantine Arabic&quot;,&quot;Northern Dagara&quot;,&quot;Northern Lushootseed&quot;,&quot;Nuu-chah-nulth&quot;,&quot;Nyakyusa-Ngonde&quot;,&quot;Paakantyi&quot;,&quot;Paraguayan Guaraní&quot;,&quot;Puinave&quot;,&quot;Purepecha&quot;,&quot;Querétaro Otomi&quot;,&quot;Rama&quot;,&quot;Sango&quot;,&quot;Semelai&quot;,&quot;Sheko&quot;,&quot;Siwai&quot;,&quot;Southern Ohlone&quot;,&quot;Southern Yukaghir&quot;,&quot;Spanish&quot;,&quot;Tadaksahak&quot;,&quot;Tagalog&quot;,&quot;Tamil&quot;,&quot;Tanimuca-Retuarã&quot;,&quot;Taulil&quot;,&quot;Tehuelche&quot;,&quot;Thai&quot;,&quot;Tidore&quot;,&quot;Tipai&quot;,&quot;Tiwi&quot;,&quot;Tlaxcala-Puebla-Central Nahuatl&quot;,&quot;Tlingit&quot;,&quot;Totoro&quot;,&quot;Towa&quot;,&quot;Ts&#39;ixa&quot;,&quot;Tukang Besi North&quot;,&quot;Turkana&quot;,&quot;Turkish&quot;,&quot;Tuvalu&quot;,&quot;Urningangg&quot;,&quot;Wageman&quot;,&quot;Wambayan&quot;,&quot;Wardaman&quot;,&quot;Wayuu&quot;,&quot;Western Dani&quot;,&quot;Worrorra&quot;,&quot;Xavánte&quot;,&quot;Yagua&quot;,&quot;Yansi&quot;,&quot;Yeri&quot;,&quot;Yimas&quot;,&quot;Yine&quot;,&quot;Yucatec Maya&quot;,&quot;Zulu&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;543&quot;,&quot;adv/part&quot;,&quot;adverb&quot;,&quot;adverb/aux&quot;,&quot;adverb2&quot;,&quot;affix&quot;,&quot;aux&quot;,&quot;aux + part&quot;,&quot;clitic&quot;,&quot;clitic + aux&quot;,&quot;part&quot;,&quot;particle&quot;,&quot;particle/adverb&quot;,&quot;particle/affix&quot;,&quot;particle2&quot;,&quot;PP&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot; el clítico -ju de ‘imperfectivo’ (p. 261)&quot;,&quot;?&quot;,&quot;наречие&quot;,&quot;adv&quot;,&quot;adv/part&quot;,&quot;adverb&quot;,&quot;adverb + clause final particle expressing textual deixis&quot;,&quot;adverb often written as an enclitic&quot;,&quot;adverb, interjection&quot;,&quot;adverb/particle&quot;,&quot;adverbial enclitic&quot;,&quot;adverbial noun&quot;,&quot;adverbial particle&quot;,&quot;adverbios topicalizados&quot;,&quot;affix&quot;,&quot;affix/particle&quot;,&quot;apectual particle&quot;,&quot;aspect-like morpheme&quot;,&quot;aspectual (imperfective) particle&quot;,&quot;aspectual adverb&quot;,&quot;aspectual prefix&quot;,&quot;aspectual suffix&quot;,&quot;aspectual word&quot;,&quot;aux&quot;,&quot;aux + part&quot;,&quot;auxiliaire&quot;,&quot;auxiliary&quot;,&quot;catenative verb (verb with an auxiliary status)&quot;,&quot;class 1 enclitic particle&quot;,&quot;class 2 clause particle&quot;,&quot;clause-final adverb&quot;,&quot;clitic&quot;,&quot;clititc&quot;,&quot;continuative and contrastive marker&quot;,&quot;copula + participle&quot;,&quot;el sufijo de tiempo&quot;,&quot;emphatic particle&quot;,&quot;enclitic&quot;,&quot;enclitic + verb &#39;do&#39;&quot;,&quot;enclitic, a marker of the Immediate Aspect&quot;,&quot;forment une locution verbale complémentaire&quot;,&quot;la partícula&quot;,&quot;la partícula aspectual&quot;,&quot;la particule&quot;,&quot;la particule placée comme infix&quot;,&quot;limiting adverb&quot;,&quot;linking adverb, clausal adverb&quot;,&quot;manner derivational suffix&quot;,&quot;mobile particle&quot;,&quot;modal particle&quot;,&quot;motion verb in aspectual serialisation&quot;,&quot;nominal&quot;,&quot;not sure&quot;,&quot;now-INST&quot;,&quot;part&quot;,&quot;particle&quot;,&quot;particle/adverb&quot;,&quot;perseverative auxiliary&quot;,&quot;persistive marker&quot;,&quot;persistive prefix&quot;,&quot;phase verb&quot;,&quot;PP&quot;,&quot;predicate modifier, adverb-like modifier&quot;,&quot;predicative marker&quot;,&quot;prefix&quot;,&quot;proclitic&quot;,&quot;suffix&quot;,&quot;suffix (persistive aspect marker)&quot;,&quot;suffix, a marker of Prolonged Action Tense&quot;,&quot;temporal (durative) specifier&quot;,&quot;temporal (habitual) specifier&quot;,&quot;temporal adverb&quot;,&quot;temporal conjunction&quot;,&quot;temporal marker&quot;,&quot;temporal particle&quot;,&quot;tense-aspect-mood marker&quot;,&quot;the continuative aspect adverb&quot;,&quot;verb&quot;,&quot;verb taking as its complement a sentence with a nonverbal predicate and a missing subject&quot;,&quot;verbal prefix&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120"],["Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Eurasia","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","Africa","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","North America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","South America","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Australia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia","Papunesia"],["Indo-European (&gt; Italic)","Indo-European (&gt; Indo-Iranian)","Sino-Tibetan","Tai-Kadai","Dravidian","Uralic","Turkic","Hmong-Mien","Nakh-Daghestanian","Mongolic-Khitan","Japonic","Tungusic","Chukotko-Kamchatkan","Kartvelian","Abkhaz-Adyge","Yukaghir","Ainu","Koreanic","Austroasiatic (&gt; Khmeric)","Austronesian (&gt; Atayalic)","Atlantic-Congo (&gt; North-Central Atlantic)","Atlantic-Congo (&gt; Volta-Congo &gt; North Volta-Congo) ","Atlantic-Congo (&gt; Volta-Congo &gt; Kwa)","Atlantic-Congo (&gt; Volta-Congo &gt; Gur)","Atlantic-Congo (&gt; Volta-Congo &gt; East Bantu &gt; Corridor Bantu)","Atlantic-Congo (&gt; Volta-Congo &gt; East Bantu &gt; Southern Bantu-Makua)","Atlantic-Congo (&gt; Volta-Congo &gt; Central-Western Bantu)","Afro-Asiatic (&gt; Semitic)","Afro-Asiatic (&gt; Berber)","Afro-Asiatic (&gt; Chadic)","Afro-Asiatic (&gt; Cushitic)","Afro-Asiatic (&gt; Egyptian)","Mande","Central Sudanic","Nilotic","Dogon","Khoe-Kwadi","Nubian","Songhay","Dizoid","Otomanguean (&gt; Eastern Otomanguean)","Otomanguean (&gt; Western Otomanguean)","Uto-Aztecan","Algic","Athabaskan-Eyak-Tlingit (&gt; Tlingit)","Athabaskan-Eyak-Tlingit (&gt; Athabaskan)","Mayan","Salishan","Mixe-Zoque","Siouan","Eskimo-Aleut","Totonacan","Cochimi-Yuman","Iroquoian","Miwok-Costanoan","Kiowa-Tanoan","Muskogean","Wakashan","Caddoan","Tarascan","Arawakan (&gt; Southern Maipuran)","Arawakan (&gt; Caribbean Arawakan)","Tupian","Pano-Tacanan","Quechuan","Cariban","Nuclear-Macro-Je","Chibchan","Tucanoan","Huitotoan","Matacoan","Arawan","Barbacoan","Nambiquaran","Chonan","Naduhup","Bororoan","Peba-Yagua","Araucanian","Isolate","Pama-Nyungan (&gt; Desert Nyungic)","Pama-Nyungan (&gt; Yarli-Baagandji)","Pama-Nyungan (&gt; South-West Pama-Nyungan)","Gunwinyguan","Nyulnyulan","Worrorran","Mirndi","Iwaidjan Proper","Mangarrayi-Maran","Maningrida","Tangkic","Giimbiyu","Jarrakan","Yangmanic","Bunaban","Garrwan","Limilngan-Wulna","Northern Daly","Isolate (Australia 1)","Isolate (Australia 2)","Austronesian (&gt; Malayo-Polynesian &gt; Celebic)","Austronesian (&gt; Malayo-Polynesian)","Austronesian (&gt; Malayo-Sumbawan)","Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)","Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)","Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)","Austronesian (&gt; Malayo-Polynesian &gt; Polynesian)","Nuclear Trans New Guinea (&gt; Madang)","Nuclear Trans New Guinea (&gt; Dani)","Austroasiatic (&gt; Aslian)","Nuclear Torricelli","Lower Sepik-Ramu","Timor-Alor-Pantar","Yam","North Halmahera","Dagan","South Bougainville","East Bird's Head","West Bomberai","Taulil-Butam"],["Spanish","Hindi","Mandarin Chinese","Thai","Tamil","Finnish","Turkish","Hmong Njua","Lezgian","Halh Mongolian","Japanese","Evenki","Chukchi","Georgian","Abaza","Southern Yukaghir","Hokkaido Ainu","Korean","Central Khmer","Atayal","Balanta-Ganja","Sango","Ewe","Northern Dagara","Nyakyusa-Ngonde","Zulu","Yansi","North Levantine Arabic","Ghomara","Buwal","Kambaata","Coptic","Gban","Ma'di","Turkana","Nanga","Ts'ixa","Kenuzi-Dongola","Tadaksahak","Sheko","Isthmus Zapotec","Querétaro Otomi","Tlaxcala-Puebla-Central Nahuatl","Montagnais","Tlingit","Navajo","Yucatec Maya","Northern Lushootseed","Highland Popoluca","Lakota","Central Alaskan Yupik","Huehuetla Tepehua","Tipai","Cherokee","Southern Ohlone","Towa","Creek","Nuu-chah-nulth","Caddo","Purepecha","Yine","Wayuu","Paraguayan Guaraní","Ese Ejja","Huangascar-Topara-Yauyos Quechua","Galibi Carib","Xavánte","Rama","Tanimuca-Retuarã","Murui Huitoto","Nivaclé","Culina","Totoro","Mamaindé","Tehuelche","Hup","Bororo","Yagua","Mapudungun","Puinave","Ngarinman","Paakantyi","Martuthunira","Bininj Kun-Wok","Bardi","Worrorra","Wambayan","Mawng","Mangarrayi","Guragone","Kayardild","Urningangg","Kitja","Wardaman","Gooniyandi","Garrwa","Limilngan","Mullukmulluk","Tiwi","Wageman","Tukang Besi North","Chamorro","Indonesian","Tagalog","Nêlêmwa-Nixumwak","Dakaka","Tuvalu","Kesawai","Western Dani","Semelai","Yeri","Yimas","Bunak","Anta-Komnzo-Wára-Wérè-Kémä","Tidore","Daga","Siwai","Moskona","Kalamang","Taulil"],["adv/part","adv/part","adv/part","aux","adv/part","adv/part","adv/part","adv/part","affix","aux","adv/part","adv/part","adv/part","aux","affix","adv/part","adv/part","adv/part","aux","particle","aux","aux","affix","aux","aux","affix","affix","aux + part","adverb","adverb","adverb","adverb","part","aux","aux","PP","adverb","adverb","adverb","adverb","affix","adverb","particle","adverb","particle","adverb","adverb","particle","particle","affix","affix","particle","aux","adverb","particle","particle","aux","adverb","particle","affix","affix","affix","affix","affix","clitic","particle","affix","affix","affix","particle","adverb","affix","adverb","adverb","affix","particle","adverb","affix","adverb","particle","particle","affix","adverb","affix","adverb","adverb","aux","particle","adverb","adverb","particle","adverb","adverb","adverb","particle","affix","adverb","particle","particle","adverb","affix","adverb","particle/adverb","particle","particle","particle","particle","clitic + aux","particle/adverb","adverb/aux","particle","particle/affix","particle","particle","adverb","affix","adverb","particle","particle","particle"],["adv","adv/part","adv","aux","adv/part","adv","adv","adv/part","affix","aux","adv/part","part","adv/part","aux","affix","part","adv/part","adv","auxiliary","particle","auxiliaire","forment une locution verbale complémentaire","verbal prefix","catenative verb (verb with an auxiliary status)","aux","aspectual prefix","la particule placée comme infix","aux + part","adverb","linking adverb, clausal adverb","adverbial noun","наречие","predicative marker","verb taking as its complement a sentence with a nonverbal predicate and a missing subject","auxiliary","PP","adverb","adverb","particle","adverb","la partícula","adverbios topicalizados","la partícula aspectual","the continuative aspect adverb","mobile particle","adverb","adverb + clause final particle expressing textual deixis","adverb often written as an enclitic","adverbial enclitic","suffix","affix","clitic","perseverative auxiliary","adverb","temporal particle","modal particle","auxiliary","predicate modifier, adverb-like modifier","proclitic","affix","suffix","el sufijo de tiempo","suffix","suffix","enclitic","particle","suffix","suffix (persistive aspect marker)","suffix","particle","adverb","suffix","adverb","adverb","suffix","particle","limiting adverb","suffix","adverb"," el clítico -ju de ‘imperfectivo’ (p. 261)","clitic","aspectual suffix","nominal","prefix","adverb","adverb","aux","adverbial particle","temporal conjunction","adverb","clitic","adverb/particle","adverb","adverb, interjection","clitic","aspect-like morpheme","adverb","temporal (durative) specifier","particle","adverb","suffix","adverb","temporal marker","class 1 enclitic particle","persistive marker","adverbial particle","tense-aspect-mood marker","enclitic + verb 'do'","particle/adverb","adverb","class 2 clause particle","enclitic, a marker of the Immediate Aspect","aspectual (imperfective) particle","apectual particle","aspectual adverb","suffix, a marker of Prolonged Action Tense","temporal adverb","clause-final adverb","aspectual word","emphatic particle"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>macroarea<\/th>\n      <th>family<\/th>\n      <th>language<\/th>\n      <th>morphosynt_type<\/th>\n      <th>morphosynt_type_comment<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"order":[],"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}],"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+
+<br>
+<br>
+<p> <center> Anastasia Panova, 2021 </center></p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
