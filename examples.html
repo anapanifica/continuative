@@ -13,12 +13,22 @@
 
 <title>Examples</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -26,12 +36,16 @@
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -44,30 +58,28 @@ if (window.hljs) {
 
 
 
+
+
 <style type="text/css">
-h1 {
-  font-size: 34px;
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
 }
-h1.title {
-  font-size: 38px;
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-h2 {
-  font-size: 30px;
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-h3 {
-  font-size: 24px;
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
 }
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -79,10 +91,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -99,40 +107,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 64px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h2 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h3 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h4 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h5 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
-.section h6 {
-  padding-top: 69px;
-  margin-top: -69px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -160,7 +144,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -172,7 +156,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -183,10 +167,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -198,7 +195,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -324,7 +320,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -338,7 +334,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -354,7 +350,7 @@ div.tocify {
   <a href="examples.html">Examples</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Parameters
      
     <span class="caret"></span>
@@ -367,27 +363,27 @@ div.tocify {
       <a href="grammaticalization.html">Degree of grammaticalization</a>
     </li>
     <li>
-      <a href="pred_restrictions.html">Predicate restrictions</a>
-    </li>
-    <li>
       <a href="other_uses.html">Non-continuative meanings of continuative expressions</a>
     </li>
     <li>
       <a href="meaning_with_negation.html">Semantic effects when combined with negation</a>
+    </li>
+    <li>
+      <a href="maturation.html">Maturation</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="sample-2021-01-08.csv">Dataset (.csv)</a>
+  <a href="sample-2022-08-02.csv">Dataset (.csv)</a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -402,130 +398,202 @@ div.tocify {
 <h3>1. Eurasia</h3>
 <div id="indo-european-italic" class="section level4">
 <h4>Indo-European (&gt; Italic)</h4>
-<p><strong>Spanish</strong> <span class="citation">(Butt, … Rodríguez <a href="#ref-butt2019">2019</a>:446)</span></p>
-<p><img src="examples/spanish1.png" style="width:60.0%" /></p>
-<p>The continuative marker: todavía, aún.</p>
-<p><strong>Spanish</strong> <span class="citation">(Butt, … Rodríguez <a href="#ref-butt2019">2019</a>:457)</span></p>
+<p><strong>Spanish</strong> <span class="citation">(<a
+href="#ref-butt2019" role="doc-biblioref">Butt … Rodríguez
+2019:446</a>)</span></p>
+<p><img src="examples/spanish1-1.png" style="width:60.0%" /></p>
+<p>The continuative marker: todavía.</p>
+<p><strong>Spanish</strong> <span class="citation">(<a
+href="#ref-butt2019" role="doc-biblioref">Butt … Rodríguez
+2019:446</a>)</span></p>
+<p><img src="examples/spanish1-2.png" style="width:60.0%" /></p>
+<p>The continuative marker: aún.</p>
+<p><strong>Spanish</strong> <span class="citation">(<a
+href="#ref-butt2019" role="doc-biblioref">Butt … Rodríguez
+2019:457</a>)</span></p>
 <p><img src="examples/spanish2.png" style="width:60.0%" /></p>
-<p>The continuative marker: continuar, seguir.</p>
+<p>The continuative marker: seguir.</p>
+<p><strong>Spanish</strong> <span class="citation">(<a
+href="#ref-butt2019" role="doc-biblioref">Butt … Rodríguez
+2019:457</a>)</span></p>
+<p><img src="examples/spanish3.png" style="width:60.0%" /></p>
+<p>The continuative marker: continuar.</p>
 </div>
 <div id="indo-european-indo-iranian" class="section level4">
 <h4>Indo-European (&gt; Indo-Iranian)</h4>
-<p><strong>Hindi</strong> <span class="citation">(Kachru <a href="#ref-kachru2006">2006</a>:162)</span></p>
+<p><strong>Hindi</strong> <span class="citation">(<a
+href="#ref-kachru2006" role="doc-biblioref">Kachru
+2006:162</a>)</span></p>
 <p><img src="examples/hindi.png" style="width:60.0%" /></p>
 <p>The continuative marker: əbhī.</p>
 </div>
 <div id="sino-tibetan" class="section level4">
 <h4>Sino-Tibetan</h4>
-<p><strong>Mandarin Chinese</strong> <span class="citation">(Ross and Ma <a href="#ref-maross2017">2017</a>:88)</span></p>
+<p><strong>Mandarin Chinese</strong> <span class="citation">(<a
+href="#ref-maross2017" role="doc-biblioref">Ross and Ma
+2017:88</a>)</span></p>
 <p><img src="examples/mandarin.png" style="width:60.0%" /></p>
 <p>The continuative marker: hái.</p>
+<p><strong>Mandarin Chinese</strong> <span class="citation">(<a
+href="#ref-maross2017" role="doc-biblioref">Ross and Ma
+2017:120</a>)</span></p>
+<p><img src="examples/mandarin2.png" style="width:60.0%" /></p>
+<p>The continuative marker: xiàqù.</p>
+<p><strong>Mandarin Chinese</strong> <span class="citation">(<a
+href="#ref-lithompson1989" role="doc-biblioref">Li and Thompson
+1989:178</a>)</span></p>
+<p><img src="examples/mandarin3.png" style="width:60.0%" /></p>
+<p>The continuative marker: jìxù.</p>
 </div>
 <div id="tai-kadai" class="section level4">
 <h4>Tai-Kadai</h4>
-<p><strong>Thai</strong> <span class="citation">(Iwasaki and Ingkaphirom <a href="#ref-iwasaki2005">2005</a>:158)</span></p>
+<p><strong>Thai</strong> <span class="citation">(<a
+href="#ref-iwasaki2005" role="doc-biblioref">Iwasaki and Ingkaphirom
+2005:158</a>)</span></p>
 <p><img src="examples/thai.png" style="width:60.0%" /></p>
 <p>The continuative marker: pay.</p>
+<p><strong>Thai</strong> <span class="citation">(<a
+href="#ref-higbiethinsan2002" role="doc-biblioref">Higbie and Thinsan
+2002:105</a>)</span></p>
+<p><img src="examples/thai2.png" style="width:60.0%" /></p>
+<p>The continuative marker: yang.</p>
 </div>
 <div id="dravidian" class="section level4">
 <h4>Dravidian</h4>
-<p><strong>Tamil</strong> <span class="citation">(Lehmann <a href="#ref-lehmann1993">1993</a>:304)</span></p>
+<p><strong>Tamil</strong> <span class="citation">(<a
+href="#ref-lehmann1993" role="doc-biblioref">Lehmann
+1993:304</a>)</span></p>
 <p><img src="examples/tamil.png" style="width:60.0%" /></p>
-<p>The continuative marker: inrum.</p>
+<p>The continuative marker: iṉṉum.</p>
 </div>
 <div id="uralic" class="section level4">
 <h4>Uralic</h4>
-<p><strong>Finnish</strong> <span class="citation">(Karlsson <a href="#ref-karlsson1999">1999</a>:132)</span></p>
+<p><strong>Finnish</strong> <span class="citation">(<a
+href="#ref-karlsson1999" role="doc-biblioref">Karlsson
+1999:132</a>)</span></p>
 <p><img src="examples/finnish.png" style="width:60.0%" /></p>
 <p>The continuative marker: vielä.</p>
 </div>
 <div id="turkic" class="section level4">
 <h4>Turkic</h4>
-<p><strong>Turkish</strong> <span class="citation">(Göksel and Kerslake <a href="#ref-gökselkerslake2005">2005</a>:206)</span></p>
+<p><strong>Turkish</strong> <span class="citation">(<a
+href="#ref-gökselkerslake2005" role="doc-biblioref">Göksel and Kerslake
+2005:206</a>)</span></p>
 <p><img src="examples/turkish.png" style="width:60.0%" /></p>
 <p>The continuative marker: daha.</p>
 </div>
 <div id="hmong-mien" class="section level4">
 <h4>Hmong-Mien</h4>
-<p><strong>Hmong Njua</strong> <span class="citation">(Dej-Amorn <a href="#ref-dejamorn2006">2006</a>:77)</span></p>
+<p><strong>Hmong Njua</strong> <span class="citation">(<a
+href="#ref-dejamorn2006" role="doc-biblioref">Dej-Amorn
+2006:77</a>)</span></p>
 <p><img src="examples/hmong.png" style="width:60.0%" /></p>
 <p>The continuative marker: tseem.</p>
 </div>
 <div id="nakh-daghestanian" class="section level4">
 <h4>Nakh-Daghestanian</h4>
-<p><strong>Lezgian</strong> <span class="citation">(Haspelmath <a href="#ref-haspelmath1993">1993</a>:145)</span></p>
+<p><strong>Lezgian</strong> <span class="citation">(<a
+href="#ref-haspelmath1993" role="doc-biblioref">Haspelmath
+1993:145</a>)</span></p>
 <p><img src="examples/lezgian1.png" style="width:60.0%" /></p>
 <p>The continuative marker: -zma/-nma.</p>
-<p><strong>Lezgian</strong> <span class="citation">(Haspelmath <a href="#ref-haspelmath1993">1993</a>:210)</span></p>
+<p><strong>Lezgian</strong> <span class="citation">(<a
+href="#ref-haspelmath1993" role="doc-biblioref">Haspelmath
+1993:210</a>)</span></p>
 <p><img src="examples/lezgian2.png" style="width:60.0%" /></p>
 <p>The continuative marker: hele.</p>
 </div>
 <div id="mongolic-khitan" class="section level4">
 <h4>Mongolic-Khitan</h4>
-<p><strong>Halh Mongolian</strong> <span class="citation">(Kullmann <a href="#ref-kullmann1996">1996</a>:138)</span></p>
+<p><strong>Halh Mongolian</strong> <span class="citation">(<a
+href="#ref-kullmann1996" role="doc-biblioref">Kullmann
+1996:138</a>)</span></p>
 <p><img src="examples/mongolian.png" style="width:60.0%" /></p>
 <p>The continuative marker: -sааr bаj-.</p>
 </div>
 <div id="japonic" class="section level4">
 <h4>Japonic</h4>
-<p><strong>Japanese</strong> <span class="citation">(Kaiser, … Yamamoto <a href="#ref-kaiseretal2013">2013</a>:10)</span></p>
+<p><strong>Japanese</strong> <span class="citation">(<a
+href="#ref-kaiseretal2013" role="doc-biblioref">Kaiser … Yamamoto
+2013:10</a>)</span></p>
 <p><img src="examples/japanese.png" style="width:60.0%" /></p>
 <p>The continuative marker: mada.</p>
 </div>
 <div id="tungusic" class="section level4">
 <h4>Tungusic</h4>
-<p><strong>Evenki</strong> <span class="citation">(Nedjalkov <a href="#ref-nedjalkov1997">1997</a>:133)</span></p>
+<p><strong>Evenki</strong> <span class="citation">(<a
+href="#ref-nedjalkov1997" role="doc-biblioref">Nedjalkov
+1997:133</a>)</span></p>
 <p><img src="examples/evenki.png" style="width:60.0%" /></p>
 <p>The continuative marker: hata.</p>
 </div>
 <div id="chukotko-kamchatkan" class="section level4">
 <h4>Chukotko-Kamchatkan</h4>
-<p><strong>Chukchi</strong> <span class="citation">(Dunn <a href="#ref-dunn1999">1999</a>:372)</span></p>
+<p><strong>Chukchi</strong> <span class="citation">(<a
+href="#ref-dunn1999" role="doc-biblioref">Dunn 1999:372</a>)</span></p>
 <p><img src="examples/chukchi.png" style="width:60.0%" /></p>
 <p>The continuative marker: panena.</p>
 </div>
 <div id="kartvelian" class="section level4">
 <h4>Kartvelian</h4>
-<p><strong>Georgian</strong> <span class="citation">(Hewitt <a href="#ref-hewitt1995">1995</a>:596)</span></p>
+<p><strong>Georgian</strong> <span class="citation">(<a
+href="#ref-rayfield2006" role="doc-biblioref">Rayfield
+2006:1671</a>)</span></p>
 <p><img src="examples/georgian.png" style="width:60.0%" /></p>
-<p>The continuative marker: -grj-.</p>
+<p>The continuative marker: jer k’idev.</p>
 </div>
 <div id="abkhaz-adyge" class="section level4">
 <h4>Abkhaz-Adyge</h4>
-<p><strong>Abaza</strong> <span class="citation">(Klyagina and Panova <a href="#ref-klyaginapanova2019">2019</a>:10)</span></p>
+<p><strong>Abaza</strong> <span class="citation">(<a
+href="#ref-klyaginapanova2019" role="doc-biblioref">Klyagina and Panova
+2019:10</a>)</span></p>
 <p><img src="examples/abaza.png" style="width:60.0%" /></p>
 <p>The continuative marker: -rḳʷ(a).</p>
+<p><strong>Abaza</strong> <span class="citation">(<a
+href="#ref-tabulova1976" role="doc-biblioref">Tabulova
+1976:256</a>)</span></p>
+<p><img src="examples/abaza2.png" style="width:60.0%" /></p>
+<p>The continuative marker: wẑəg’əj.</p>
 </div>
 <div id="yukaghir" class="section level4">
 <h4>Yukaghir</h4>
-<p><strong>Southern Yukaghir</strong> <span class="citation">(Maslova <a href="#ref-maslova2003">2003</a>:369)</span></p>
+<p><strong>Southern Yukaghir</strong> <span class="citation">(<a
+href="#ref-maslova2003" role="doc-biblioref">Maslova
+2003:369</a>)</span></p>
 <p><img src="examples/yukaghir.png" style="width:60.0%" /></p>
 <p>The continuative marker: aji:.</p>
 </div>
 <div id="ainu" class="section level4">
 <h4>Ainu</h4>
-<p><strong>Hokkaido Ainu</strong> <span class="citation">(Akulov <a href="#ref-akulov2005">2005</a>:119)</span></p>
+<p><strong>Hokkaido Ainu</strong> <span class="citation">(<a
+href="#ref-akulov2005" role="doc-biblioref">Akulov
+2005:119</a>)</span></p>
 <p><img src="examples/ainu.png" style="width:60.0%" /></p>
 <p>The continuative marker: naa.</p>
 </div>
 <div id="koreanic" class="section level4">
 <h4>Koreanic</h4>
-<p><strong>Korean</strong> <span class="citation">(Sohn <a href="#ref-sohn1994">1994</a>:103)</span></p>
+<p><strong>Korean</strong> <span class="citation">(<a
+href="#ref-sohn1994" role="doc-biblioref">Sohn 1994:103</a>)</span></p>
 <p><img src="examples/korean1.png" style="width:60.0%" /></p>
 <p>The continuative marker: acik.</p>
-<p><strong>Korean</strong> <span class="citation">(Sohn <a href="#ref-sohn1994">1994</a>:332)</span></p>
+<p><strong>Korean</strong> <span class="citation">(<a
+href="#ref-sohn1994" role="doc-biblioref">Sohn 1994:332</a>)</span></p>
 <p><img src="examples/korean2.png" style="width:60.0%" /></p>
 <p>The continuative marker: -keli / -tay.</p>
 </div>
 <div id="austroasiatic-khmeric" class="section level4">
 <h4>Austroasiatic (&gt; Khmeric)</h4>
-<p><strong>Central Khmer</strong> <span class="citation">(Haiman <a href="#ref-haiman2011">2011</a>:221)</span></p>
+<p><strong>Central Khmer</strong> <span class="citation">(<a
+href="#ref-haiman2011" role="doc-biblioref">Haiman
+2011:221</a>)</span></p>
 <p><img src="examples/khmer.png" style="width:60.0%" /></p>
 <p>The continuative marker: nev.</p>
 </div>
 <div id="austronesian-atayalic" class="section level4">
 <h4>Austronesian (&gt; Atayalic)</h4>
-<p><strong>Atayal</strong> <span class="citation">(Rau <a href="#ref-rau1992">1992</a>:159)</span></p>
+<p><strong>Atayal</strong> <span class="citation">(<a
+href="#ref-rau1992" role="doc-biblioref">Rau 1992:159</a>)</span></p>
 <p><img src="examples/atayal.png" style="width:60.0%" /></p>
 <p>The continuative marker: na.</p>
 </div>
@@ -534,127 +602,186 @@ div.tocify {
 <h3>2. Africa</h3>
 <div id="atlantic-congo-north-central-atlantic" class="section level4">
 <h4>Atlantic-Congo (&gt; North-Central Atlantic)</h4>
-<p><strong>Balanta-Ganja</strong> <span class="citation">(Creissels and Biaye <a href="#ref-creisselsbiaye2016">2016</a>:201)</span></p>
+<p><strong>Balanta-Ganja</strong> <span class="citation">(<a
+href="#ref-creisselsbiaye2016" role="doc-biblioref">Creissels and Biaye
+2016:201</a>)</span></p>
 <p><img src="examples/balanta-ganja.png" style="width:60.0%" /></p>
 <p>The continuative marker: tígtà.</p>
 </div>
-<div id="atlantic-congo-volta-congo-north-volta-congo" class="section level4">
+<div id="atlantic-congo-volta-congo-north-volta-congo"
+class="section level4">
 <h4>Atlantic-Congo (&gt; Volta-Congo &gt; North Volta-Congo)</h4>
-<p><strong>Sango</strong> <span class="citation">(Samarin <a href="#ref-samarin1970">1970</a>:105)</span></p>
+<p><strong>Sango</strong> <span class="citation">(<a
+href="#ref-samarin1970" role="doc-biblioref">Samarin
+1970:105</a>)</span></p>
 <p><img src="examples/sango.png" style="width:60.0%" /></p>
 <p>The continuative marker: ngba.</p>
+<p><strong>Sango</strong> <span class="citation">(<a
+href="#ref-nassensteinpasch2021" role="doc-biblioref">Nassenstein and
+Pasch 2016:114</a>)</span></p>
+<p><img src="examples/sango2.png" style="width:60.0%" /></p>
+<p>The continuative marker: de.</p>
 </div>
 <div id="atlantic-congo-volta-congo-kwa" class="section level4">
 <h4>Atlantic-Congo (&gt; Volta-Congo &gt; Kwa)</h4>
-<p><strong>Ewe</strong> <span class="citation">(Rongier <a href="#ref-rongier2004">1970</a>:75)</span></p>
+<p><strong>Ewe</strong> <span class="citation">(<a
+href="#ref-rongier2004" role="doc-biblioref">Rongier
+1970:75</a>)</span></p>
 <p><img src="examples/ewe.png" style="width:60.0%" /></p>
 <p>The continuative marker: gà-.</p>
 </div>
 <div id="atlantic-congo-volta-congo-gur" class="section level4">
 <h4>Atlantic-Congo (&gt; Volta-Congo &gt; Gur)</h4>
-<p><strong>Northern Dagara</strong> <span class="citation">(Mwinlaaru <a href="#ref-mwinlaaru2017">2017</a>:328)</span></p>
+<p><strong>Northern Dagara</strong> <span class="citation">(<a
+href="#ref-mwinlaaru2017" role="doc-biblioref">Mwinlaaru
+2017:328</a>)</span></p>
 <p><img src="examples/dagara.png" style="width:60.0%" /></p>
-<p>The continuative marker: dgi.</p>
+<p>The continuative marker: cãa.</p>
 </div>
-<div id="atlantic-congo-volta-congo-east-bantu-corridor-bantu" class="section level4">
-<h4>Atlantic-Congo (&gt; Volta-Congo &gt; East Bantu &gt; Corridor Bantu)</h4>
-<p><strong>Nyakyusa-Ngonde</strong> <span class="citation">(Persohn <a href="#ref-persohn2017">2017</a>:186)</span></p>
+<div id="atlantic-congo-volta-congo-east-bantu-corridor-bantu"
+class="section level4">
+<h4>Atlantic-Congo (&gt; Volta-Congo &gt; East Bantu &gt; Corridor
+Bantu)</h4>
+<p><strong>Nyakyusa-Ngonde</strong> <span class="citation">(<a
+href="#ref-persohn2017" role="doc-biblioref">Persohn
+2017:186</a>)</span></p>
 <p><img src="examples/nyakyusa.png" style="width:60.0%" /></p>
 <p>The continuative marker: kaalɪ.</p>
 </div>
-<div id="atlantic-congo-volta-congo-east-bantu-southern-bantu-makua" class="section level4">
-<h4>Atlantic-Congo (&gt; Volta-Congo &gt; East Bantu &gt; Southern Bantu-Makua)</h4>
-<p><strong>Zulu</strong> <span class="citation">(Ziervogel, … Taljaard <a href="#ref-ziervogel1976">1976</a>:91)</span></p>
+<div id="atlantic-congo-volta-congo-east-bantu-southern-bantu-makua"
+class="section level4">
+<h4>Atlantic-Congo (&gt; Volta-Congo &gt; East Bantu &gt; Southern
+Bantu-Makua)</h4>
+<p><strong>Zulu</strong> <span class="citation">(<a
+href="#ref-ziervogel1976" role="doc-biblioref">Ziervogel … Taljaard
+1976:91</a>)</span></p>
 <p><img src="examples/zulu.png" style="width:60.0%" /></p>
 <p>The continuative marker: sa-.</p>
 </div>
-<div id="atlantic-congo-volta-congo-central-western-bantu" class="section level4">
+<div id="atlantic-congo-volta-congo-central-western-bantu"
+class="section level4">
 <h4>Atlantic-Congo (&gt; Volta-Congo &gt; Central-Western Bantu)</h4>
-<p><strong>Yansi</strong> <span class="citation">(Mayanga <a href="#ref-mayanga1985">1985</a>:111)</span></p>
+<p><strong>Yansi</strong> <span class="citation">(<a
+href="#ref-mayanga1985" role="doc-biblioref">Mayanga
+1985:111</a>)</span></p>
 <p><img src="examples/yansi.png" style="width:60.0%" /></p>
 <p>The continuative marker: -binde-.</p>
 </div>
 <div id="afro-asiatic-semitic" class="section level4">
 <h4>Afro-Asiatic (&gt; Semitic)</h4>
-<p><strong>North Levantine Arabic</strong> <span class="citation">(Versteegh <a href="#ref-versteegh2018">2018</a>:246)</span></p>
+<p><strong>North Levantine Arabic</strong> <span class="citation">(<a
+href="#ref-versteegh2018" role="doc-biblioref">Versteegh
+2018:246</a>)</span></p>
 <p><img src="examples/arabic.png" style="width:60.0%" /></p>
-<p>The continuative marker: copula + baʿda + ʿam-.</p>
+<p>The continuative marker: baʿda.</p>
 </div>
 <div id="afro-asiatic-berber" class="section level4">
 <h4>Afro-Asiatic (&gt; Berber)</h4>
-<p><strong>Ghomara</strong> <span class="citation">(Mourigh <a href="#ref-mourigh2015">2015</a>:370)</span></p>
+<p><strong>Ghomara</strong> <span class="citation">(<a
+href="#ref-mourigh2015" role="doc-biblioref">Mourigh
+2015:370</a>)</span></p>
 <p><img src="examples/ghomara.png" style="width:60.0%" /></p>
 <p>The continuative marker: baqi / baqqa / baqin.</p>
 </div>
 <div id="afro-asiatic-chadic" class="section level4">
 <h4>Afro-Asiatic (&gt; Chadic)</h4>
-<p><strong>Buwal</strong> <span class="citation">(Viljoen <a href="#ref-viljoen2013">2013</a>:615)</span></p>
+<p><strong>Buwal</strong> <span class="citation">(<a
+href="#ref-viljoen2013" role="doc-biblioref">Viljoen
+2013:615</a>)</span></p>
 <p><img src="examples/buwal.png" style="width:60.0%" /></p>
 <p>The continuative marker: wár.</p>
 </div>
 <div id="afro-asiatic-cushitic" class="section level4">
 <h4>Afro-Asiatic (&gt; Cushitic)</h4>
-<p><strong>Kambaata</strong> <span class="citation">(Treis <a href="#ref-treis2008">2008</a>:193)</span></p>
+<p><strong>Kambaata</strong> <span class="citation">(<a
+href="#ref-treis2008" role="doc-biblioref">Treis
+2008:193</a>)</span></p>
 <p><img src="examples/kambaata.png" style="width:60.0%" /></p>
 <p>The continuative marker: tées-u.</p>
 </div>
 <div id="afro-asiatic-egyptian" class="section level4">
 <h4>Afro-Asiatic (&gt; Egyptian)</h4>
-<p><strong>Coptic</strong> <span class="citation">(Layton <a href="#ref-layton2004">2004</a>:384)</span></p>
+<p><strong>Coptic</strong> <span class="citation">(<a
+href="#ref-layton2004" role="doc-biblioref">Layton
+2004:384</a>)</span></p>
 <p><img src="examples/coptic.png" style="width:60.0%" /></p>
 <p>The continuative marker: on.</p>
+<p><strong>Coptic</strong> <span class="citation">(<a
+href="#ref-elanskaya2010" role="doc-biblioref">Elanskaya
+2010:424</a>)</span></p>
+<p><img src="examples/coptic2.png" style="width:60.0%" /></p>
+<p>The continuative marker: еti.</p>
 </div>
 <div id="mande" class="section level4">
 <h4>Mande</h4>
-<p><strong>Gban</strong> <span class="citation">(Fedotov <a href="#ref-fedotov2015">2015</a>:4)</span></p>
+<p><strong>Gban</strong> <span class="citation">(<a
+href="#ref-fedotov2015" role="doc-biblioref">Fedotov
+2015:4</a>)</span></p>
 <p><img src="examples/gban.png" style="width:60.0%" /></p>
 <p>The continuative marker: lé‶.</p>
-<p><strong>Gban</strong> <span class="citation">(Fedotov <a href="#ref-fedotov2015">2015</a>:5)</span></p>
+<p><strong>Gban</strong> <span class="citation">(<a
+href="#ref-fedotov2015" role="doc-biblioref">Fedotov
+2015:5</a>)</span></p>
 <p><img src="examples/gban2.png" style="width:60.0%" /></p>
 <p>The continuative marker: gɔ ̰ .</p>
 </div>
 <div id="central-sudanic" class="section level4">
 <h4>Central Sudanic</h4>
-<p><strong>Ma’di</strong> <span class="citation">(Blackings and Fabb <a href="#ref-blackingsfabb2003">2003</a>:247)</span></p>
+<p><strong>Ma’di</strong> <span class="citation">(<a
+href="#ref-blackingsfabb2003" role="doc-biblioref">Blackings and Fabb
+2003:247</a>)</span></p>
 <p><img src="examples/madi.png" style="width:60.0%" /></p>
 <p>The continuative marker: ɔlʊ.</p>
-<p><strong>Ma’di</strong> <span class="citation">(Blackings and Fabb <a href="#ref-blackingsfabb2003">2003</a>:495)</span></p>
+<p><strong>Ma’di</strong> <span class="citation">(<a
+href="#ref-blackingsfabb2003" role="doc-biblioref">Blackings and Fabb
+2003:495</a>)</span></p>
 <p><img src="examples/madi2.png" style="width:60.0%" /></p>
-<p>The continuative marker: .</p>
+<p>The continuative marker: adɨ.</p>
 </div>
 <div id="nilotic" class="section level4">
 <h4>Nilotic</h4>
-<p><strong>Turkana</strong> <span class="citation">(Dimmendaal <a href="#ref-dimmendaal1983">1983</a>:138)</span></p>
+<p><strong>Turkana</strong> <span class="citation">(<a
+href="#ref-dimmendaal1983" role="doc-biblioref">Dimmendaal
+1983:138</a>)</span></p>
 <p><img src="examples/turkana.png" style="width:60.0%" /></p>
-<p>The continuative marker: ɛ-riŋ-a, e-rok-o.</p>
+<p>The continuative marker: ɛ-riŋ-a_e-rok-o.</p>
 </div>
 <div id="dogon" class="section level4">
 <h4>Dogon</h4>
-<p><strong>Nanga</strong> <span class="citation">(Heath <a href="#ref-heath2016">2016</a>:226)</span></p>
+<p><strong>Nanga</strong> <span class="citation">(<a
+href="#ref-heath2016" role="doc-biblioref">Heath
+2016:226</a>)</span></p>
 <p><img src="examples/nanga.png" style="width:60.0%" /></p>
 <p>The continuative marker: níŋay yŋà.</p>
 </div>
 <div id="khoe-kwadi" class="section level4">
 <h4>Khoe-Kwadi</h4>
-<p><strong>Ts’ixa</strong> <span class="citation">(Fehn <a href="#ref-fehn2014">2014</a>:193)</span></p>
+<p><strong>Ts’ixa</strong> <span class="citation">(<a
+href="#ref-fehn2014" role="doc-biblioref">Fehn 2014:193</a>)</span></p>
 <p><img src="examples/tsixa.png" style="width:60.0%" /></p>
 <p>The continuative marker: xàwèè.</p>
 </div>
 <div id="nubian" class="section level4">
 <h4>Nubian</h4>
-<p><strong>Kenuzi-Dongola</strong> <span class="citation">(Armbruster <a href="#ref-armbruster1960">1960</a>:412)</span></p>
+<p><strong>Kenuzi-Dongola</strong> <span class="citation">(<a
+href="#ref-armbruster1960" role="doc-biblioref">Armbruster
+1960:412</a>)</span></p>
 <p><img src="examples/dongolese.png" style="width:60.0%" /></p>
-<p>The continuative marker: ɛlgon, ólgon.</p>
+<p>The continuative marker: ɛlgon / ólgon.</p>
 </div>
 <div id="songhay" class="section level4">
 <h4>Songhay</h4>
-<p><strong>Tadaksahak</strong> <span class="citation">(Christiansen-Bolli <a href="#ref-сhristiansen2010">2010</a>:217)</span></p>
+<p><strong>Tadaksahak</strong> <span class="citation">(<a
+href="#ref-сhristiansen2010" role="doc-biblioref">Christiansen-Bolli
+2010:217</a>)</span></p>
 <p><img src="examples/tadaksahak.png" style="width:60.0%" /></p>
 <p>The continuative marker: ʃeddí ~ ceddí.</p>
 </div>
 <div id="dizoid" class="section level4">
 <h4>Dizoid</h4>
-<p><strong>Sheko</strong> <span class="citation">(Hellenthal <a href="#ref-hellenthal2010">2010</a>:286)</span></p>
+<p><strong>Sheko</strong> <span class="citation">(<a
+href="#ref-hellenthal2010" role="doc-biblioref">Hellenthal
+2010:286</a>)</span></p>
 <p><img src="examples/sheko.png" style="width:60.0%" /></p>
 <p>The continuative marker: kàtʃā.</p>
 </div>
@@ -663,133 +790,190 @@ div.tocify {
 <h3>3. North America</h3>
 <div id="otomanguean-eastern-otomanguean" class="section level4">
 <h4>Otomanguean (&gt; Eastern Otomanguean)</h4>
-<p><strong>Isthmus Zapotec</strong> <span class="citation">(Pickett, … Cerqueda <a href="#ref-pickettetal2001">2001</a>:80)</span></p>
+<p><strong>Isthmus Zapotec</strong> <span class="citation">(<a
+href="#ref-pickettetal2001" role="doc-biblioref">Pickett … Cerqueda
+2001:80</a>)</span></p>
 <p><img src="examples/zapotec.png" style="width:60.0%" /></p>
-<p>The continuative marker: ru’.</p>
-<p><strong>Isthmus Zapotec</strong> <span class="citation">(Pickett <a href="#ref-pickett2007">2007</a>:97)</span></p>
+<p>The continuative marker: ru.</p>
+<p><strong>Isthmus Zapotec</strong> <span class="citation">(<a
+href="#ref-pickett2007" role="doc-biblioref">Pickett
+2007:97</a>)</span></p>
 <p><img src="examples/zapotec2.png" style="width:60.0%" /></p>
-<p>The continuative marker: de yanna.</p>
+<p>The continuative marker: de_yanna.</p>
 </div>
 <div id="otomanguean-western-otomanguean" class="section level4">
 <h4>Otomanguean (&gt; Western Otomanguean)</h4>
-<p><strong>Querétaro Otomi</strong> <span class="citation">(Palancar <a href="#ref-palancar2009">2009</a>:363)</span></p>
+<p><strong>Querétaro Otomi</strong> <span class="citation">(<a
+href="#ref-palancar2009" role="doc-biblioref">Palancar
+2009:363</a>)</span></p>
 <p><img src="examples/otomi.png" style="width:60.0%" /></p>
 <p>The continuative marker: to’be.</p>
 </div>
 <div id="uto-aztecan" class="section level4">
 <h4>Uto-Aztecan</h4>
-<p><strong>Tlaxcala-Puebla-Central Nahuatl</strong> <span class="citation">(Nájera <a href="#ref-nájera2019">2019</a>:224)</span></p>
+<p><strong>Tlaxcala-Puebla-Central Nahuatl</strong> <span
+class="citation">(<a href="#ref-nájera2019" role="doc-biblioref">Nájera
+2019:224</a>)</span></p>
 <p><img src="examples/nahuatl.png" style="width:60.0%" /></p>
 <p>The continuative marker: ok=.</p>
 </div>
 <div id="algic" class="section level4">
 <h4>Algic</h4>
-<p><strong>Montagnais</strong> <span class="citation">(Oxford <a href="#ref-oxford2007">2007</a>:209)</span></p>
+<p><strong>Montagnais</strong> <span class="citation">(<a
+href="#ref-oxford2007" role="doc-biblioref">Oxford
+2007:209</a>)</span></p>
 <p><img src="examples/montagnais.png" style="width:60.0%" /></p>
 <p>The continuative marker: eshku.</p>
 </div>
 <div id="athabaskan-eyak-tlingit-tlingit" class="section level4">
 <h4>Athabaskan-Eyak-Tlingit (&gt; Tlingit)</h4>
-<p><strong>Tlingit</strong> <span class="citation">(Crippen <a href="#ref-crippen2008">2008</a>:225)</span></p>
+<p><strong>Tlingit</strong> <span class="citation">(<a
+href="#ref-crippen2008" role="doc-biblioref">Crippen
+2008:225</a>)</span></p>
 <p><img src="examples/tlingit.png" style="width:60.0%" /></p>
 <p>The continuative marker: tsu.</p>
 </div>
 <div id="athabaskan-eyak-tlingit-athabaskan" class="section level4">
 <h4>Athabaskan-Eyak-Tlingit (&gt; Athabaskan)</h4>
-<p><strong>Navajo</strong> <span class="citation">(Young and Morgan <a href="#ref-youngmorgan1987">1987</a>:13)</span></p>
+<p><strong>Navajo</strong> <span class="citation">(<a
+href="#ref-youngmorgan1987" role="doc-biblioref">Young and Morgan
+1987:13</a>)</span></p>
 <p><img src="examples/navajo.png" style="width:60.0%" /></p>
-<p>The continuative marker: t’ah(dii).</p>
+<p>The continuative marker: t’ahdii.</p>
+<p><strong>Navajo</strong> <span class="citation">(<a
+href="#ref-youngmorgan1987" role="doc-biblioref">Young and Morgan
+1987:13</a>)</span></p>
+<p><img src="examples/navajo2.png" style="width:60.0%" /></p>
+<p>The continuative marker: t’ah.</p>
 </div>
 <div id="mayan" class="section level4">
 <h4>Mayan</h4>
-<p><strong>Yucatec Maya</strong> <span class="citation">(Bohnemeyer <a href="#ref-bohnemeyer2001">2001</a>:394)</span></p>
+<p><strong>Yucatec Maya</strong> <span class="citation">(<a
+href="#ref-bohnemeyer2001" role="doc-biblioref">Bohnemeyer
+2001:394</a>)</span></p>
 <p><img src="examples/maya.png" style="width:60.0%" /></p>
-<p>The continuative marker: láaili’ …-e’.</p>
-<p><strong>Yucatec Maya</strong> <span class="citation">(Bohnemeyer <a href="#ref-bohnemeyer2001">2001</a>:350)</span></p>
+<p>The continuative marker: láailiʼ …-eʼ.</p>
+<p><strong>Yucatec Maya</strong> <span class="citation">(<a
+href="#ref-bohnemeyer2001" role="doc-biblioref">Bohnemeyer
+2001:350</a>)</span></p>
 <p><img src="examples/maya2.png" style="width:60.0%" /></p>
 <p>The continuative marker: sèegir.</p>
 </div>
 <div id="salishan" class="section level4">
 <h4>Salishan</h4>
-<p><strong>Northern Lushootseed</strong> <span class="citation">(Zahir <a href="#ref-zahir2018">2018</a>:140)</span></p>
+<p><strong>Northern Lushootseed</strong> <span class="citation">(<a
+href="#ref-zahir2018" role="doc-biblioref">Zahir
+2018:140</a>)</span></p>
 <p><img src="examples/lushootseed.png" style="width:60.0%" /></p>
 <p>The continuative marker: uʔxʷ.</p>
 </div>
 <div id="mixe-zoque" class="section level4">
 <h4>Mixe-Zoque</h4>
-<p><strong>Highland Popoluca</strong> <span class="citation">(Boudreault <a href="#ref-boudreault2009">2009</a>:323–324, pp. 323)</span></p>
+<p><strong>Highland Popoluca</strong> <span class="citation">(<a
+href="#ref-boudreault2009" role="doc-biblioref">Boudreault
+2009:323–324</a>, pp. 323)</span></p>
 <p><img src="examples/popoluca.png" style="width:60.0%" /></p>
 <p>The continuative marker: nam.</p>
 </div>
 <div id="siouan" class="section level4">
 <h4>Siouan</h4>
-<p><strong>Lakota</strong> <span class="citation">(Ullrich <a href="#ref-ullrich2018">2018</a>:277)</span></p>
+<p><strong>Lakota</strong> <span class="citation">(<a
+href="#ref-ullrich2018" role="doc-biblioref">Ullrich
+2018:277</a>)</span></p>
 <p><img src="examples/lakota.png" style="width:60.0%" /></p>
 <p>The continuative marker: -akhe.</p>
-<p><strong>Lakota</strong> <span class="citation">(Ullrich <a href="#ref-ullrich2018">2018</a>:278)</span></p>
+<p><strong>Lakota</strong> <span class="citation">(<a
+href="#ref-ullrich2018" role="doc-biblioref">Ullrich
+2018:278</a>)</span></p>
 <p><img src="examples/lakota2.png" style="width:60.0%" /></p>
-<p>The continuative marker: nahaŋhci, héčhena.</p>
+<p>The continuative marker: nahaŋhci / héčhena.</p>
 </div>
 <div id="eskimo-aleut" class="section level4">
 <h4>Eskimo-Aleut</h4>
-<p><strong>Central Alaskan Yupik</strong> <span class="citation">(Miyaoka <a href="#ref-miyaoka2012">2012</a>:1232)</span></p>
+<p><strong>Central Alaskan Yupik</strong> <span class="citation">(<a
+href="#ref-miyaoka2012" role="doc-biblioref">Miyaoka
+2012:1232</a>)</span></p>
 <p><img src="examples/yupik.png" style="width:60.0%" /></p>
 <p>The continuative marker: -gur.</p>
-<p><strong>Central Alaskan Yupik</strong> <span class="citation">(Miyaoka <a href="#ref-miyaoka2012">2012</a>:922)</span></p>
+<p><strong>Central Alaskan Yupik</strong> <span class="citation">(<a
+href="#ref-miyaoka2012" role="doc-biblioref">Miyaoka
+2012:922</a>)</span></p>
 <p><img src="examples/yupik2.png" style="width:60.0%" /></p>
 <p>The continuative marker: cali.</p>
 </div>
 <div id="totonacan" class="section level4">
 <h4>Totonacan</h4>
-<p><strong>Huehuetla Tepehua</strong> <span class="citation">(Kung <a href="#ref-kung2007">2007</a>:468)</span></p>
+<p><strong>Huehuetla Tepehua</strong> <span class="citation">(<a
+href="#ref-kung2007" role="doc-biblioref">Kung 2007:468</a>)</span></p>
 <p><img src="examples/tepehua.png" style="width:60.0%" /></p>
-<p>The continuative marker: -ka(7).</p>
+<p>The continuative marker: -ka7.</p>
 </div>
 <div id="cochimi-yuman" class="section level4">
 <h4>Cochimi-Yuman</h4>
-<p><strong>Tipai</strong> <span class="citation">(Miller <a href="#ref-miller2001">2001</a>:293)</span></p>
+<p><strong>Tipai</strong> <span class="citation">(<a
+href="#ref-miller2001" role="doc-biblioref">Miller
+2001:293</a>)</span></p>
 <p><img src="examples/tipai.png" style="width:60.0%" /></p>
 <p>The continuative marker: xkiiway.</p>
 </div>
 <div id="iroquoian" class="section level4">
 <h4>Iroquoian</h4>
-<p><strong>Cherokee</strong> <span class="citation">(Montgomery-Anderson <a href="#ref-montgomery2008">2008</a>:564)</span></p>
+<p><strong>Cherokee</strong> <span class="citation">(<a
+href="#ref-montgomery2008" role="doc-biblioref">Montgomery-Anderson
+2008:564</a>)</span></p>
 <p><img src="examples/cherokee.png" style="width:60.0%" /></p>
 <p>The continuative marker: si.</p>
 </div>
 <div id="miwok-costanoan" class="section level4">
 <h4>Miwok-Costanoan</h4>
-<p><strong>Southern Ohlone</strong> <span class="citation">(Okrand <a href="#ref-okrand1977">1977</a>:303)</span></p>
+<p><strong>Mutsun</strong> <span class="citation">(<a
+href="#ref-okrand1977" role="doc-biblioref">Okrand
+1977:303</a>)</span></p>
 <p><img src="examples/ohlone.png" style="width:60.0%" /></p>
 <p>The continuative marker: hemmen.</p>
 </div>
 <div id="kiowa-tanoan" class="section level4">
 <h4>Kiowa-Tanoan</h4>
-<p><strong>Towa</strong> <span class="citation">(Yumitani <a href="#ref-yumitani1998">1998</a>:247)</span></p>
+<p><strong>Towa</strong> <span class="citation">(<a
+href="#ref-yumitani1998" role="doc-biblioref">Yumitani
+1998:247</a>)</span></p>
 <p><img src="examples/towa.png" style="width:60.0%" /></p>
 <p>The continuative marker: ql (hhal).</p>
 </div>
 <div id="muskogean" class="section level4">
 <h4>Muskogean</h4>
-<p><strong>Creek</strong> <span class="citation">(Martin <a href="#ref-martin2011">2011</a>:306)</span></p>
+<p><strong>Creek</strong> <span class="citation">(<a
+href="#ref-martin2011" role="doc-biblioref">Martin
+2011:306</a>)</span></p>
 <p><img src="examples/creek.png" style="width:60.0%" /></p>
 <p>The continuative marker: -i: (i)mônk-.</p>
+<p><strong>Creek</strong> <span class="citation">(<a
+href="#ref-martin2011" role="doc-biblioref">Martin
+2011:150</a>)</span></p>
+<p><img src="examples/creek2.png" style="width:60.0%" /></p>
+<p>The continuative marker: hatí.</p>
 </div>
 <div id="wakashan" class="section level4">
 <h4>Wakashan</h4>
-<p><strong>Nuu-chah-nulth</strong> <span class="citation">(Davidson <a href="#ref-davidson2002">2002</a>:236)</span></p>
+<p><strong>Nuu-chah-nulth</strong> <span class="citation">(<a
+href="#ref-davidson2002" role="doc-biblioref">Davidson
+2002:236</a>)</span></p>
 <p><img src="examples/nuu-chah-nulth.png" style="width:60.0%" /></p>
 <p>The continuative marker: ʔi’qhi’.</p>
 </div>
 <div id="caddoan" class="section level4">
 <h4>Caddoan</h4>
-<p><strong>Caddo</strong> <span class="citation">(Melnar <a href="#ref-melnar2004">2004</a>:108)</span></p>
+<p><strong>Caddo</strong> <span class="citation">(<a
+href="#ref-melnar2004" role="doc-biblioref">Melnar
+2004:108</a>)</span></p>
 <p><img src="examples/caddo.png" style="width:60.0%" /></p>
 <p>The continuative marker: hahʔuk#.</p>
 </div>
 <div id="tarascan" class="section level4">
 <h4>Tarascan</h4>
-<p><strong>Purepecha</strong> <span class="citation">(Chamoreau <a href="#ref-chamoreau1998">1998</a>:348)</span></p>
+<p><strong>Purepecha</strong> <span class="citation">(<a
+href="#ref-chamoreau1998" role="doc-biblioref">Chamoreau
+1998:348</a>)</span></p>
 <p><img src="examples/purepecha.png" style="width:60.0%" /></p>
 <p>The continuative marker: -saN(-sam).</p>
 </div>
@@ -798,142 +982,195 @@ div.tocify {
 <h3>4. South America</h3>
 <div id="arawakan-southern-maipuran" class="section level4">
 <h4>Arawakan (&gt; Southern Maipuran)</h4>
-<p><strong>Yine</strong> <span class="citation">(Hanson <a href="#ref-hanson2010">2010</a>:245)</span></p>
+<p><strong>Yine</strong> <span class="citation">(<a
+href="#ref-hanson2010" role="doc-biblioref">Hanson
+2010:245</a>)</span></p>
 <p><img src="examples/yine.png" style="width:60.0%" /></p>
 <p>The continuative marker: -wa.</p>
 </div>
 <div id="arawakan-caribbean-arawakan" class="section level4">
 <h4>Arawakan (&gt; Caribbean Arawakan)</h4>
-<p><strong>Wayuu</strong> <span class="citation">(Mansen and Mansen <a href="#ref-mansen1984">1984</a>:535)</span></p>
+<p><strong>Wayuu</strong> <span class="citation">(<a
+href="#ref-mansen1984" role="doc-biblioref">Mansen and Mansen
+1984:535</a>)</span></p>
 <p><img src="examples/wayuu.png" style="width:60.0%" /></p>
 <p>The continuative marker: -yülia.</p>
 </div>
 <div id="tupian" class="section level4">
 <h4>Tupian</h4>
-<p><strong>Paraguayan Guaraní</strong> <span class="citation">(Gerasimov <a href="#ref-gerasimov2020">2020</a>:2)</span></p>
+<p><strong>Paraguayan Guaraní</strong> <span class="citation">(<a
+href="#ref-gerasimov2020" role="doc-biblioref">Gerasimov
+2020:2</a>)</span></p>
 <p><img src="examples/guarani.png" style="width:60.0%" /></p>
 <p>The continuative marker: -ve.</p>
-<p><strong>Paraguayan Guaraní</strong> <span class="citation">(Estigarribia <a href="#ref-estigarribia2020">2020</a>:234)</span></p>
+<p><strong>Paraguayan Guaraní</strong> <span class="citation">(<a
+href="#ref-estigarribia2020" role="doc-biblioref">Estigarribia
+2020:234</a>)</span></p>
 <p><img src="examples/guarani2.png" style="width:60.0%" /></p>
 <p>The continuative marker: gueteri.</p>
 </div>
 <div id="pano-tacanan" class="section level4">
 <h4>Pano-Tacanan</h4>
-<p><strong>Ese Ejja</strong> <span class="citation">(Vuillermet <a href="#ref-vuillermet2012">2012</a>:478)</span></p>
+<p><strong>Ese Ejja</strong> <span class="citation">(<a
+href="#ref-vuillermet2012" role="doc-biblioref">Vuillermet
+2012:478</a>)</span></p>
 <p><img src="examples/ese.png" style="width:60.0%" /></p>
 <p>The continuative marker: -poki/ -pokya.</p>
-<p><strong>Ese Ejja</strong> <span class="citation">(Vuillermet <a href="#ref-vuillermet2012">2012</a>:543)</span></p>
+<p><strong>Ese Ejja</strong> <span class="citation">(<a
+href="#ref-vuillermet2012" role="doc-biblioref">Vuillermet
+2012:543</a>)</span></p>
 <p><img src="examples/ese2.png" style="width:60.0%" /></p>
 <p>The continuative marker: -so’o.</p>
 </div>
 <div id="quechuan" class="section level4">
 <h4>Quechuan</h4>
-<p><strong>Huangascar-Topara-Yauyos Quechua</strong> <span class="citation">(Shimelman <a href="#ref-shimelman2017">2017</a>:266)</span></p>
+<p><strong>Yauyos Quechua</strong> <span class="citation">(<a
+href="#ref-shimelman2017" role="doc-biblioref">Shimelman
+2017:266</a>)</span></p>
 <p><img src="examples/quechua.png" style="width:60.0%" /></p>
 <p>The continuative marker: -Raq.</p>
 </div>
 <div id="cariban" class="section level4">
 <h4>Cariban</h4>
-<p><strong>Galibi Carib</strong> <span class="citation">(Courtz <a href="#ref-courtz2008">2008</a>:180)</span></p>
+<p><strong>Galibi Carib</strong> <span class="citation">(<a
+href="#ref-courtz2008" role="doc-biblioref">Courtz
+2008:180</a>)</span></p>
 <p><img src="examples/carib.png" style="width:60.0%" /></p>
 <p>The continuative marker: noro.</p>
 </div>
 <div id="nuclear-macro-je" class="section level4">
 <h4>Nuclear-Macro-Je</h4>
-<p><strong>Xavánte</strong> <span class="citation">(Machado Estevam <a href="#ref-estevam2011">2011</a>:291)</span></p>
+<p><strong>Xavánte</strong> <span class="citation">(<a
+href="#ref-estevam2011" role="doc-biblioref">Machado Estevam
+2011:291</a>)</span></p>
 <p><img src="examples/xavante.png" style="width:60.0%" /></p>
 <p>The continuative marker: -uösi.</p>
-<p><strong>Xavánte</strong> <span class="citation">(Machado Estevam <a href="#ref-estevam2011">2011</a>:107)</span></p>
+<p><strong>Xavánte</strong> <span class="citation">(<a
+href="#ref-estevam2011" role="doc-biblioref">Machado Estevam
+2011:107</a>)</span></p>
 <p><img src="examples/xavante2.png" style="width:60.0%" /></p>
-<p>The continuative marker: hadu ~ zahadu.</p>
+<p>The continuative marker: (za)hadu.</p>
 </div>
 <div id="chibchan" class="section level4">
 <h4>Chibchan</h4>
-<p><strong>Rama</strong> <span class="citation">(Grinevald <a href="#ref-grinevald1990">1990</a>:157)</span></p>
+<p><strong>Rama</strong> <span class="citation">(<a
+href="#ref-grinevald1990" role="doc-biblioref">Grinevald
+1990:157</a>)</span></p>
 <p><img src="examples/rama.png" style="width:60.0%" /></p>
 <p>The continuative marker: -sai.</p>
 </div>
 <div id="tucanoan" class="section level4">
 <h4>Tucanoan</h4>
-<p><strong>Tanimuca-Retuarã</strong> <span class="citation">(Eraso <a href="#ref-eraso2015">2015</a>:263)</span></p>
+<p><strong>Tanimuca-Retuarã</strong> <span class="citation">(<a
+href="#ref-eraso2015" role="doc-biblioref">Eraso
+2015:263</a>)</span></p>
 <p><img src="examples/tanimuca.png" style="width:60.0%" /></p>
 <p>The continuative marker: -~ɟuhú-.</p>
 </div>
 <div id="huitotoan" class="section level4">
 <h4>Huitotoan</h4>
-<p><strong>Murui Huitoto</strong> <span class="citation">(Wojtylak <a href="#ref-wojtylak2017">2017</a>:601)</span></p>
+<p><strong>Murui Huitoto</strong> <span class="citation">(<a
+href="#ref-wojtylak2017" role="doc-biblioref">Wojtylak
+2017:601</a>)</span></p>
 <p><img src="examples/murui.png" style="width:60.0%" /></p>
 <p>The continuative marker: nia.</p>
 </div>
 <div id="matacoan" class="section level4">
 <h4>Matacoan</h4>
-<p><strong>Nivaclé</strong> <span class="citation">(Fabre <a href="#ref-fabre2016">2016</a>:365)</span></p>
+<p><strong>Nivaclé</strong> <span class="citation">(<a
+href="#ref-fabre2016" role="doc-biblioref">Fabre
+2016:365</a>)</span></p>
 <p><img src="examples/nivacle.png" style="width:60.0%" /></p>
 <p>The continuative marker: jôjje-clai.</p>
-<p><strong>Nivaclé</strong> <span class="citation">(Fabre <a href="#ref-fabre2016">2016</a>:360)</span></p>
+<p><strong>Nivaclé</strong> <span class="citation">(<a
+href="#ref-fabre2016" role="doc-biblioref">Fabre
+2016:360</a>)</span></p>
 <p><img src="examples/nivacle2.png" style="width:60.0%" /></p>
 <p>The continuative marker: manlhe-e-sh.</p>
 </div>
 <div id="arawan" class="section level4">
 <h4>Arawan</h4>
-<p><strong>Culina</strong> <span class="citation">(Dienst <a href="#ref-dienst2014">2014</a>:126)</span></p>
+<p><strong>Culina</strong> <span class="citation">(<a
+href="#ref-dienst2014" role="doc-biblioref">Dienst
+2014:126</a>)</span></p>
 <p><img src="examples/culina.png" style="width:60.0%" /></p>
 <p>The continuative marker: -kha.</p>
 </div>
 <div id="barbacoan" class="section level4">
 <h4>Barbacoan</h4>
-<p><strong>Totoro</strong> <span class="citation">(Gonzales Castaño <a href="#ref-gonzales2019">2019</a>:692)</span></p>
+<p><strong>Totoro</strong> <span class="citation">(<a
+href="#ref-gonzales2019" role="doc-biblioref">Gonzales Castaño
+2019:692</a>)</span></p>
 <p><img src="examples/totoro.png" style="width:60.0%" /></p>
-<p>The continuative marker: toavia, todavia, toapia.</p>
+<p>The continuative marker: toavia / todavia / toapia.</p>
 </div>
 <div id="nambiquaran" class="section level4">
 <h4>Nambiquaran</h4>
-<p><strong>Mamaindé</strong> <span class="citation">(Eberhard <a href="#ref-eberhard2009">2009</a>:359)</span></p>
+<p><strong>Mamaindé</strong> <span class="citation">(<a
+href="#ref-eberhard2009" role="doc-biblioref">Eberhard
+2009:359</a>)</span></p>
 <p><img src="examples/mamainde.png" style="width:60.0%" /></p>
 <p>The continuative marker: naih.</p>
-<p><strong>Mamaindé</strong> <span class="citation">(Eberhard <a href="#ref-eberhard2009">2009</a>:407)</span></p>
+<p><strong>Mamaindé</strong> <span class="citation">(<a
+href="#ref-eberhard2009" role="doc-biblioref">Eberhard
+2009:407</a>)</span></p>
 <p><img src="examples/mamainde2.png" style="width:60.0%" /></p>
-<p>The continuative marker: -jãʔ (-ja, -ʔai, -jaʔna).</p>
+<p>The continuative marker: -jãʔ (-ja / -ʔai / -jaʔna).</p>
 </div>
 <div id="chonan" class="section level4">
 <h4>Chonan</h4>
-<p><strong>Tehuelche</strong> <span class="citation">(Fernández Garay <a href="#ref-garay1998">1998</a>:143)</span></p>
+<p><strong>Tehuelche</strong> <span class="citation">(<a
+href="#ref-garay1998" role="doc-biblioref">Fernández Garay
+1998:143</a>)</span></p>
 <p><img src="examples/tehuelche.png" style="width:60.0%" /></p>
 <p>The continuative marker: -r.</p>
-<p><strong>Tehuelche</strong> <span class="citation">(Fernández Garay <a href="#ref-garay1998">1998</a>:295)</span></p>
+<p><strong>Tehuelche</strong> <span class="citation">(<a
+href="#ref-garay1998" role="doc-biblioref">Fernández Garay
+1998:295</a>)</span></p>
 <p><img src="examples/tehuelche2.png" style="width:60.0%" /></p>
 <p>The continuative marker: keTš ~ keTx.</p>
 </div>
 <div id="naduhup" class="section level4">
 <h4>Naduhup</h4>
-<p><strong>Hup</strong> <span class="citation">(Epps <a href="#ref-epps2008">2008</a>:584)</span></p>
+<p><strong>Hup</strong> <span class="citation">(<a href="#ref-epps2008"
+role="doc-biblioref">Epps 2008:584</a>)</span></p>
 <p><img src="examples/hup.png" style="width:60.0%" /></p>
 <p>The continuative marker: tæ.</p>
 </div>
 <div id="bororoan" class="section level4">
 <h4>Bororoan</h4>
-<p><strong>Bororo</strong> <span class="citation">(Crowell <a href="#ref-crowell1979">1979</a>:134)</span></p>
+<p><strong>Bororo</strong> <span class="citation">(<a
+href="#ref-crowell1979" role="doc-biblioref">Crowell
+1979:134</a>)</span></p>
 <p><img src="examples/bororo.png" style="width:60.0%" /></p>
 <p>The continuative marker: kimo.</p>
 </div>
 <div id="peba-yagua" class="section level4">
 <h4>Peba-Yagua</h4>
-<p><strong>Yagua</strong> <span class="citation">(Payne <a href="#ref-payne1985">1985</a>:253)</span></p>
+<p><strong>Yagua</strong> <span class="citation">(<a
+href="#ref-payne1985" role="doc-biblioref">Payne
+1985:253</a>)</span></p>
 <p><img src="examples/yagua.png" style="width:60.0%" /></p>
 <p>The continuative marker: -jancha.</p>
 </div>
 <div id="araucanian" class="section level4">
 <h4>Araucanian</h4>
-<p><strong>Mapudungun</strong> <span class="citation">(Smeets <a href="#ref-smeets2008">2008</a>:170)</span></p>
+<p><strong>Mapudungun</strong> <span class="citation">(<a
+href="#ref-smeets2008" role="doc-biblioref">Smeets
+2008:170</a>)</span></p>
 <p><img src="examples/mapudungun.png" style="width:60.0%" /></p>
 <p>The continuative marker: pet´u.</p>
-<p><strong>Mapudungun</strong> <span class="citation">(Smeets <a href="#ref-smeets2008">2008</a>:172)</span></p>
+<p><strong>Mapudungun</strong> <span class="citation">(<a
+href="#ref-smeets2008" role="doc-biblioref">Smeets
+2008:172</a>)</span></p>
 <p><img src="examples/mapudungun2.png" style="width:60.0%" /></p>
 <p>The continuative marker: -ka.</p>
 </div>
 <div id="isolate" class="section level4">
 <h4>Isolate</h4>
-<p><strong>Puinave</strong> <span class="citation">(Higuita <a href="#ref-higuita2008">2008</a>:262)</span></p>
+<p><strong>Puinave</strong> <span class="citation">(<a
+href="#ref-higuita2008" role="doc-biblioref">Higuita
+2008:262</a>)</span></p>
 <p><img src="examples/puinave.png" style="width:60.0%" /></p>
 <p>The continuative marker: -ju.</p>
 </div>
@@ -942,142 +1179,197 @@ div.tocify {
 <h3>5. Australia</h3>
 <div id="pama-nyungan-desert-nyungic" class="section level4">
 <h4>Pama-Nyungan (&gt; Desert Nyungic)</h4>
-<p><strong>Ngarinman</strong> <span class="citation">(Meakins and Nordlinger <a href="#ref-meakins2014">2014</a>:387)</span></p>
+<p><strong>Ngarinman</strong> <span class="citation">(<a
+href="#ref-meakins2014" role="doc-biblioref">Meakins and Nordlinger
+2014:387</a>)</span></p>
 <p><img src="examples/ngarinman.png" style="width:60.0%" /></p>
 <p>The continuative marker: =rni.</p>
 </div>
-<div id="pama-nyungan-yarli-baagandji" class="section level4">
-<h4>Pama-Nyungan (&gt; Yarli-Baagandji)</h4>
-<p><strong>Paakantyi</strong> <span class="citation">(Hercus <a href="#ref-hercus1982">1982</a>:195)</span></p>
-<p><img src="examples/paakantyi.png" style="width:60.0%" /></p>
-<p>The continuative marker: -ŋana.</p>
+<div id="pama-nyungan-southeastern-pama-nyungan" class="section level4">
+<h4>Pama-Nyungan (&gt; Southeastern Pama-Nyungan)</h4>
+<p><strong>Ngiyambaa</strong> <span class="citation">(<a
+href="#ref-donaldson1977" role="doc-biblioref">Donaldson
+1977:354</a>)</span></p>
+<p><img src="examples/ngiyambaa.png" style="width:60.0%" /></p>
+<p>The continuative marker: guwayu-bu.</p>
 </div>
 <div id="pama-nyungan-south-west-pama-nyungan" class="section level4">
 <h4>Pama-Nyungan (&gt; South-West Pama-Nyungan)</h4>
-<p><strong>Martuthunira</strong> <span class="citation">(Dench <a href="#ref-dench1995">1995</a>:130)</span></p>
+<p><strong>Martuthunira</strong> <span class="citation">(<a
+href="#ref-dench1995" role="doc-biblioref">Dench
+1995:130</a>)</span></p>
 <p><img src="examples/martuthunira.png" style="width:60.0%" /></p>
 <p>The continuative marker: waruu / waruul.</p>
-<p><strong>Martuthunira</strong> <span class="citation">(Dench <a href="#ref-dench1995">1995</a>:283)</span></p>
+<p><strong>Martuthunira</strong> <span class="citation">(<a
+href="#ref-dench1995" role="doc-biblioref">Dench
+1995:283</a>)</span></p>
 <p><img src="examples/martuthunira2.png" style="width:60.0%" /></p>
 <p>The continuative marker: parilha.</p>
 </div>
 <div id="gunwinyguan" class="section level4">
 <h4>Gunwinyguan</h4>
-<p><strong>Bininj Kun-Wok</strong> <span class="citation">(Evans <a href="#ref-evans2003">2003</a>:518)</span></p>
+<p><strong>Bininj Kun-Wok</strong> <span class="citation">(<a
+href="#ref-evans2003" role="doc-biblioref">Evans
+2003:518</a>)</span></p>
 <p><img src="examples/bininj-kun-wok.png" style="width:60.0%" /></p>
 <p>The continuative marker: djal-.</p>
 </div>
 <div id="nyulnyulan" class="section level4">
 <h4>Nyulnyulan</h4>
-<p><strong>Bardi</strong> <span class="citation">(Bowern <a href="#ref-bowern2012">2012</a>:651)</span></p>
+<p><strong>Bardi</strong> <span class="citation">(<a
+href="#ref-bowern2012" role="doc-biblioref">Bowern
+2012:651</a>)</span></p>
 <p><img src="examples/bardi.png" style="width:60.0%" /></p>
-<p>The continuative marker: gardi (garda, gardo, gardoo ?).</p>
+<p>The continuative marker: gardi (garda / gardo / gardoo ?).</p>
 </div>
 <div id="worrorran" class="section level4">
 <h4>Worrorran</h4>
-<p><strong>Worrorra</strong> <span class="citation">(Clendon <a href="#ref-clendon2014">2014</a>:238)</span></p>
+<p><strong>Worrorra</strong> <span class="citation">(<a
+href="#ref-clendon2014" role="doc-biblioref">Clendon
+2014:238</a>)</span></p>
 <p><img src="examples/worrorra.png" style="width:60.0%" /></p>
 <p>The continuative marker: wali.</p>
-<p><strong>Worrorra</strong> <span class="citation">(Clendon <a href="#ref-clendon2014">2014</a>:268)</span></p>
+<p><strong>Worrorra</strong> <span class="citation">(<a
+href="#ref-clendon2014" role="doc-biblioref">Clendon
+2014:268</a>)</span></p>
 <p><img src="examples/worrorra2.png" style="width:60.0%" /></p>
 <p>The continuative marker: weni-nyine.</p>
+<p><strong>Worrorra</strong> <span class="citation">(<a
+href="#ref-clendon2014" role="doc-biblioref">Clendon
+2014:269</a>)</span></p>
+<p><img src="examples/worrorra3.png" style="width:60.0%" /></p>
+<p>The continuative marker: -aanjanu.</p>
 </div>
 <div id="mirndi" class="section level4">
 <h4>Mirndi</h4>
-<p><strong>Wambayan</strong> <span class="citation">(Nordlinger <a href="#ref-nordlinger1998">1998</a>:178)</span></p>
+<p><strong>Wambayan</strong> <span class="citation">(<a
+href="#ref-nordlinger1998" role="doc-biblioref">Nordlinger
+1998:178</a>)</span></p>
 <p><img src="examples/wambayan.png" style="width:60.0%" /></p>
 <p>The continuative marker: mirra.</p>
-<p><strong>Wambayan</strong> <span class="citation">(Nordlinger <a href="#ref-nordlinger1998">1998</a>:206)</span></p>
+<p><strong>Wambayan</strong> <span class="citation">(<a
+href="#ref-nordlinger1998" role="doc-biblioref">Nordlinger
+1998:206</a>)</span></p>
 <p><img src="examples/wambayan2.png" style="width:60.0%" /></p>
 <p>The continuative marker: =nima.</p>
 </div>
 <div id="iwaidjan-proper" class="section level4">
 <h4>Iwaidjan Proper</h4>
-<p><strong>Mawng</strong> <span class="citation">(Singer <a href="#ref-singer2006">2006</a>:342)</span></p>
+<p><strong>Mawng</strong> <span class="citation">(<a
+href="#ref-singer2006" role="doc-biblioref">Singer
+2006:342</a>)</span></p>
 <p><img src="examples/mawng.png" style="width:60.0%" /></p>
 <p>The continuative marker: akut.</p>
-<p><strong>Mawng</strong> <span class="citation">(Singer <a href="#ref-singer2006">2006</a>:89)</span></p>
+<p><strong>Mawng</strong> <span class="citation">(<a
+href="#ref-singer2006" role="doc-biblioref">Singer
+2006:89</a>)</span></p>
 <p><img src="examples/mawng2.png" style="width:60.0%" /></p>
 <p>The continuative marker: angkat.</p>
 </div>
 <div id="mangarrayi-maran" class="section level4">
 <h4>Mangarrayi-Maran</h4>
-<p><strong>Mangarrayi</strong> <span class="citation">(Merlan <a href="#ref-merlan1989">1989</a>:35)</span></p>
+<p><strong>Mangarrayi</strong> <span class="citation">(<a
+href="#ref-merlan1989" role="doc-biblioref">Merlan
+1989:35</a>)</span></p>
 <p><img src="examples/mangarrayi.png" style="width:60.0%" /></p>
 <p>The continuative marker: ŋiraŋa.</p>
 </div>
 <div id="maningrida" class="section level4">
 <h4>Maningrida</h4>
-<p><strong>Guragone</strong> <span class="citation">(Green <a href="#ref-green1995">1995</a>:234)</span></p>
+<p><strong>Guragone</strong> <span class="citation">(<a
+href="#ref-green1995" role="doc-biblioref">Green
+1995:234</a>)</span></p>
 <p><img src="examples/guragone.png" style="width:60.0%" /></p>
 <p>The continuative marker: rangin.</p>
 </div>
 <div id="tangkic" class="section level4">
 <h4>Tangkic</h4>
-<p><strong>Kayardild</strong> <span class="citation">(Evans <a href="#ref-evans1995">1995</a>:391)</span></p>
+<p><strong>Kayardild</strong> <span class="citation">(<a
+href="#ref-evans1995" role="doc-biblioref">Evans
+1995:391</a>)</span></p>
 <p><img src="examples/kayardild.png" style="width:60.0%" /></p>
 <p>The continuative marker: =(i)da.</p>
-<p><strong>Kayardild</strong> <span class="citation">(Evans <a href="#ref-evans1995">1995</a>:321)</span></p>
+<p><strong>Kayardild</strong> <span class="citation">(<a
+href="#ref-evans1995" role="doc-biblioref">Evans
+1995:321</a>)</span></p>
 <p><img src="examples/kayardild2.png" style="width:60.0%" /></p>
 <p>The continuative marker: wirdija.</p>
 </div>
 <div id="giimbiyu" class="section level4">
 <h4>Giimbiyu</h4>
-<p><strong>Urningangg</strong> <span class="citation">(Campbell <a href="#ref-campbell2006">2006</a>:31)</span></p>
+<p><strong>Urningangg</strong> <span class="citation">(<a
+href="#ref-campbell2006" role="doc-biblioref">Campbell
+2006:31</a>)</span></p>
 <p><img src="examples/urningangg.png" style="width:60.0%" /></p>
 <p>The continuative marker: meheb.</p>
 </div>
 <div id="jarrakan" class="section level4">
 <h4>Jarrakan</h4>
-<p><strong>Kitja</strong> <span class="citation">(Kofod <a href="#ref-kofod1996">1996</a>:43)</span></p>
+<p><strong>Kitja</strong> <span class="citation">(<a
+href="#ref-kofod1996" role="doc-biblioref">Kofod 1996:43</a>)</span></p>
 <p><img src="examples/kitja.png" style="width:60.0%" /></p>
 <p>The continuative marker: mamperre.</p>
 </div>
 <div id="yangmanic" class="section level4">
 <h4>Yangmanic</h4>
-<p><strong>Wardaman</strong> <span class="citation">(Merlan <a href="#ref-merlan1994">1994</a>:164)</span></p>
+<p><strong>Wardaman</strong> <span class="citation">(<a
+href="#ref-merlan1994" role="doc-biblioref">Merlan
+1994:164</a>)</span></p>
 <p><img src="examples/wardaman.png" style="width:60.0%" /></p>
 <p>The continuative marker: gayawun.</p>
 </div>
 <div id="bunaban" class="section level4">
 <h4>Bunaban</h4>
-<p><strong>Gooniyandi</strong> <span class="citation">(McGregor <a href="#ref-mcgregor1990">1990</a>:464)</span></p>
+<p><strong>Gooniyandi</strong> <span class="citation">(<a
+href="#ref-mcgregor1990" role="doc-biblioref">McGregor
+1990:464</a>)</span></p>
 <p><img src="examples/gooniyandi.png" style="width:60.0%" /></p>
 <p>The continuative marker: =nyali.</p>
-<p><strong>Gooniyandi</strong> <span class="citation">(McGregor <a href="#ref-mcgregor1990">1990</a>:511)</span></p>
+<p><strong>Gooniyandi</strong> <span class="citation">(<a
+href="#ref-mcgregor1990" role="doc-biblioref">McGregor
+1990:511</a>)</span></p>
 <p><img src="examples/gooniyandi2.png" style="width:60.0%" /></p>
 <p>The continuative marker: wamba.</p>
 </div>
 <div id="garrwan" class="section level4">
 <h4>Garrwan</h4>
-<p><strong>Garrwa</strong> <span class="citation">(Mushin <a href="#ref-mushin2012">2012</a>:200)</span></p>
+<p><strong>Garrwa</strong> <span class="citation">(<a
+href="#ref-mushin2012" role="doc-biblioref">Mushin
+2012:200</a>)</span></p>
 <p><img src="examples/garrwa.png" style="width:60.0%" /></p>
 <p>The continuative marker: -wa.</p>
 </div>
 <div id="limilngan-wulna" class="section level4">
 <h4>Limilngan-Wulna</h4>
-<p><strong>Limilngan</strong> <span class="citation">(Harvey <a href="#ref-harvey2001">2001</a>:142)</span></p>
+<p><strong>Limilngan</strong> <span class="citation">(<a
+href="#ref-harvey2001" role="doc-biblioref">Harvey
+2001:142</a>)</span></p>
 <p><img src="examples/limilngan.png" style="width:60.0%" /></p>
 <p>The continuative marker: ulik.</p>
 </div>
 <div id="northern-daly" class="section level4">
 <h4>Northern Daly</h4>
-<p><strong>Mullukmulluk</strong> <span class="citation">(Birk <a href="#ref-birk1976">1976</a>:32)</span></p>
+<p><strong>Mullukmulluk</strong> <span class="citation">(<a
+href="#ref-birk1976" role="doc-biblioref">Birk 1976:32</a>)</span></p>
 <p><img src="examples/mullukmulluk.png" style="width:60.0%" /></p>
 <p>The continuative marker: way.</p>
-<p><strong>Mullukmulluk</strong> <span class="citation">(Birk <a href="#ref-birk1976">1976</a>:32)</span></p>
+<p><strong>Mullukmulluk</strong> <span class="citation">(<a
+href="#ref-birk1976" role="doc-biblioref">Birk 1976:32</a>)</span></p>
 <p><img src="examples/mullukmulluk2.png" style="width:60.0%" /></p>
 <p>The continuative marker: tYin-taŋ-way.</p>
 </div>
 <div id="isolate-australia-1" class="section level4">
 <h4>Isolate (Australia 1)</h4>
-<p><strong>Tiwi</strong> <span class="citation">(Lee <a href="#ref-lee1987">1987</a>:387)</span></p>
+<p><strong>Tiwi</strong> <span class="citation">(<a href="#ref-lee1987"
+role="doc-biblioref">Lee 1987:387</a>)</span></p>
 <p><img src="examples/tiwi.png" style="width:60.0%" /></p>
-<p>The continuative marker: ninganuwanga, muya (?).</p>
+<p>The continuative marker: ninganuwanga / muya (?).</p>
 </div>
 <div id="isolate-australia-2" class="section level4">
 <h4>Isolate (Australia 2)</h4>
-<p><strong>Wageman</strong> <span class="citation">(Cook <a href="#ref-cook1987">1987</a>:274–275)</span></p>
+<p><strong>Wageman</strong> <span class="citation">(<a
+href="#ref-cook1987" role="doc-biblioref">Cook
+1987:274–275</a>)</span></p>
 <p><img src="examples/wageman.png" style="width:60.0%" /></p>
 <p>The continuative marker: goko.</p>
 </div>
@@ -1086,515 +1378,760 @@ div.tocify {
 <h3>6. Papunesia</h3>
 <div id="austronesian-malayo-polynesian-celebic" class="section level4">
 <h4>Austronesian (&gt; Malayo-Polynesian &gt; Celebic)</h4>
-<p><strong>Tukang Besi North</strong> <span class="citation">(Donohue <a href="#ref-donohue1999">1999</a>:174)</span></p>
+<p><strong>Tukang Besi North</strong> <span class="citation">(<a
+href="#ref-donohue1999" role="doc-biblioref">Donohue
+1999:174</a>)</span></p>
 <p><img src="examples/tukang-besi.png" style="width:60.0%" /></p>
 <p>The continuative marker: -ho.</p>
 </div>
 <div id="austronesian-malayo-polynesian" class="section level4">
 <h4>Austronesian (&gt; Malayo-Polynesian)</h4>
-<p><strong>Chamorro</strong> <span class="citation">(Chung <a href="#ref-chung2020">2020</a>:406)</span></p>
+<p><strong>Chamorro</strong> <span class="citation">(<a
+href="#ref-chung2020" role="doc-biblioref">Chung
+2020:406</a>)</span></p>
 <p><img src="examples/chamorro.png" style="width:60.0%" /></p>
 <p>The continuative marker: trabiha.</p>
-<p><strong>Chamorro</strong> <span class="citation">(Chung <a href="#ref-chung2020">2020</a>:344)</span></p>
+<p><strong>Chamorro</strong> <span class="citation">(<a
+href="#ref-chung2020" role="doc-biblioref">Chung
+2020:344</a>)</span></p>
 <p><img src="examples/chamorro2.png" style="width:60.0%" /></p>
 <p>The continuative marker: ha’.</p>
 </div>
 <div id="austronesian-malayo-sumbawan" class="section level4">
 <h4>Austronesian (&gt; Malayo-Sumbawan)</h4>
-<p><strong>Indonesian</strong> <span class="citation">(Sneddon, … Ewing <a href="#ref-sneddonetal2010">2010</a>:206)</span></p>
+<p><strong>Standard Indonesian</strong> <span class="citation">(<a
+href="#ref-sneddonetal2010" role="doc-biblioref">Sneddon … Ewing
+2010:206</a>)</span></p>
 <p><img src="examples/indonesian.png" style="width:60.0%" /></p>
 <p>The continuative marker: masih.</p>
 </div>
-<div id="austronesian-malayo-polynesian-greater-central-philippine" class="section level4">
-<h4>Austronesian (&gt; Malayo-Polynesian &gt; Greater Central Philippine)</h4>
-<p><strong>Tagalog</strong> <span class="citation">(Schachter and Otanes <a href="#ref-schachterotanes1972">1972</a>:416)</span></p>
+<div id="austronesian-malayo-polynesian-greater-central-philippine"
+class="section level4">
+<h4>Austronesian (&gt; Malayo-Polynesian &gt; Greater Central
+Philippine)</h4>
+<p><strong>Tagalog</strong> <span class="citation">(<a
+href="#ref-schachterotanes1972" role="doc-biblioref">Schachter and
+Otanes 1972:416</a>)</span></p>
 <p><img src="examples/tagalog.png" style="width:60.0%" /></p>
 <p>The continuative marker: pa.</p>
 </div>
-<div id="austronesian-malayo-polynesian-oceanic-new-caledonian" class="section level4">
-<h4>Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New Caledonian)</h4>
-<p><strong>Nêlêmwa-Nixumwak</strong> <span class="citation">(Bril <a href="#ref-bril2016">2016</a>:93)</span></p>
+<div id="austronesian-malayo-polynesian-oceanic-new-caledonian"
+class="section level4">
+<h4>Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; New
+Caledonian)</h4>
+<p><strong>Nêlêmwa-Nixumwak</strong> <span class="citation">(<a
+href="#ref-bril2016" role="doc-biblioref">Bril 2016:93</a>)</span></p>
 <p><img src="examples/nelemwa.png" style="width:60.0%" /></p>
 <p>The continuative marker: gaa.</p>
-<p><strong>Nêlêmwa-Nixumwak</strong> <span class="citation">(Bril <a href="#ref-bril2016">2016</a>:95)</span></p>
+<p><strong>Nêlêmwa-Nixumwak</strong> <span class="citation">(<a
+href="#ref-bril2016" role="doc-biblioref">Bril 2016:95</a>)</span></p>
 <p><img src="examples/nelemwa2.png" style="width:60.0%" /></p>
 <p>The continuative marker: gat.</p>
 </div>
-<div id="austronesian-malayo-polynesian-oceanic-central-vanuatu" class="section level4">
-<h4>Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central Vanuatu)</h4>
-<p><strong>Dakaka</strong> <span class="citation">(Prince <a href="#ref-vonprince2012">2012</a>:179)</span></p>
+<div id="austronesian-malayo-polynesian-oceanic-central-vanuatu"
+class="section level4">
+<h4>Austronesian (&gt; Malayo-Polynesian &gt; Oceanic &gt; Central
+Vanuatu)</h4>
+<p><strong>Dakaka</strong> <span class="citation">(<a
+href="#ref-vonprince2012" role="doc-biblioref">Prince
+2012:179</a>)</span></p>
 <p><img src="examples/dakaka.png" style="width:60.0%" /></p>
 <p>The continuative marker: ngabak.</p>
 </div>
-<div id="austronesian-malayo-polynesian-polynesian" class="section level4">
+<div id="austronesian-malayo-polynesian-polynesian"
+class="section level4">
 <h4>Austronesian (&gt; Malayo-Polynesian &gt; Polynesian)</h4>
-<p><strong>Tuvalu</strong> <span class="citation">(Besnier <a href="#ref-besnier2000">2000</a>:488)</span></p>
+<p><strong>Tuvalu</strong> <span class="citation">(<a
+href="#ref-besnier2000" role="doc-biblioref">Besnier
+2000:488</a>)</span></p>
 <p><img src="examples/tuvalu.png" style="width:60.0%" /></p>
 <p>The continuative marker: koi.</p>
 </div>
 <div id="nuclear-trans-new-guinea-madang" class="section level4">
 <h4>Nuclear Trans New Guinea (&gt; Madang)</h4>
-<p><strong>Kesawai</strong> <span class="citation">(Priestley <a href="#ref-priestley2008">2008</a>:382)</span></p>
+<p><strong>Kesawai</strong> <span class="citation">(<a
+href="#ref-priestley2008" role="doc-biblioref">Priestley
+2008:382</a>)</span></p>
 <p><img src="examples/kesawai.png" style="width:60.0%" /></p>
 <p>The continuative marker: =apaie + te ‘do’ / deictic verb.</p>
 </div>
 <div id="nuclear-trans-new-guinea-dani" class="section level4">
 <h4>Nuclear Trans New Guinea (&gt; Dani)</h4>
-<p><strong>Western Dani</strong> <span class="citation">(Barclay <a href="#ref-barclay2008">2008</a>:441)</span></p>
+<p><strong>Western Dani</strong> <span class="citation">(<a
+href="#ref-barclay2008" role="doc-biblioref">Barclay
+2008:441</a>)</span></p>
 <p><img src="examples/dani.png" style="width:60.0%" /></p>
 <p>The continuative marker: awo.</p>
 </div>
 <div id="austroasiatic-aslian" class="section level4">
 <h4>Austroasiatic (&gt; Aslian)</h4>
-<p><strong>Semelai</strong> <span class="citation">(Kruspe <a href="#ref-kruspe2004">2004</a>:299)</span></p>
+<p><strong>Semelai</strong> <span class="citation">(<a
+href="#ref-kruspe2004" role="doc-biblioref">Kruspe
+2004:299</a>)</span></p>
 <p><img src="examples/semelai.png" style="width:60.0%" /></p>
 <p>The continuative marker: lagiʔ.</p>
 </div>
 <div id="nuclear-torricelli" class="section level4">
 <h4>Nuclear Torricelli</h4>
-<p><strong>Yeri</strong> <span class="citation">(Wilson <a href="#ref-wilson2017">2017</a>:478)</span></p>
+<p><strong>Yeri</strong> <span class="citation">(<a
+href="#ref-wilson2017" role="doc-biblioref">Wilson
+2017:478</a>)</span></p>
 <p><img src="examples/yeri.png" style="width:60.0%" /></p>
 <p>The continuative marker: ko / kua.</p>
 </div>
 <div id="lower-sepik-ramu" class="section level4">
 <h4>Lower Sepik-Ramu</h4>
-<p><strong>Yimas</strong> <span class="citation">(Foley <a href="#ref-foley1991">1991</a>:250)</span></p>
+<p><strong>Yimas</strong> <span class="citation">(<a
+href="#ref-foley1991" role="doc-biblioref">Foley
+1991:250</a>)</span></p>
 <p><img src="examples/yimas.png" style="width:60.0%" /></p>
 <p>The continuative marker: mpa-n.</p>
 </div>
 <div id="timor-alor-pantar" class="section level4">
 <h4>Timor-Alor-Pantar</h4>
-<p><strong>Bunak</strong> <span class="citation">(Schapper <a href="#ref-schapper2010">2010</a>:501)</span></p>
+<p><strong>Bunak</strong> <span class="citation">(<a
+href="#ref-schapper2010" role="doc-biblioref">Schapper
+2010:501</a>)</span></p>
 <p><img src="examples/bunak.png" style="width:60.0%" /></p>
 <p>The continuative marker: taq.</p>
-<p><strong>Bunak</strong> <span class="citation">(Schapper <a href="#ref-schapper2010">2010</a>:458)</span></p>
+<p><strong>Bunak</strong> <span class="citation">(<a
+href="#ref-schapper2010" role="doc-biblioref">Schapper
+2010:458</a>)</span></p>
 <p><img src="examples/bunak2.png" style="width:60.0%" /></p>
 <p>The continuative marker: liol.</p>
 </div>
 <div id="yam" class="section level4">
 <h4>Yam</h4>
-<p><strong>Anta-Komnzo-Wára-Wérè-Kémä</strong> <span class="citation">(Döhler <a href="#ref-döhler2016">2016</a>:115)</span></p>
+<p><strong>Anta-Komnzo-Wára-Wérè-Kémä</strong> <span
+class="citation">(<a href="#ref-döhler2016" role="doc-biblioref">Döhler
+2016:115</a>)</span></p>
 <p><img src="examples/komnzo.png" style="width:60.0%" /></p>
 <p>The continuative marker: komnzo.</p>
 </div>
 <div id="north-halmahera" class="section level4">
 <h4>North Halmahera</h4>
-<p><strong>Tidore</strong> <span class="citation">(Staden <a href="#ref-vanstaden2000">2000</a>:229)</span></p>
+<p><strong>Tidore</strong> <span class="citation">(<a
+href="#ref-vanstaden2000" role="doc-biblioref">Staden
+2000:229</a>)</span></p>
 <p><img src="examples/tidore.png" style="width:60.0%" /></p>
 <p>The continuative marker: moju.</p>
 </div>
 <div id="dagan" class="section level4">
 <h4>Dagan</h4>
-<p><strong>Daga</strong> <span class="citation">(Murane <a href="#ref-murane1974">1974</a>:62)</span></p>
+<p><strong>Daga</strong> <span class="citation">(<a
+href="#ref-murane1974" role="doc-biblioref">Murane
+1974:155</a>)</span></p>
 <p><img src="examples/daga.png" style="width:60.0%" /></p>
 <p>The continuative marker: -an.</p>
-<p><strong>Daga</strong> <span class="citation">(Murane <a href="#ref-murane1974">1974</a>:197)</span></p>
+<p><strong>Daga</strong> <span class="citation">(<a
+href="#ref-murane1974" role="doc-biblioref">Murane
+1974:197</a>)</span></p>
 <p><img src="examples/daga2.png" style="width:60.0%" /></p>
 <p>The continuative marker: yaogi.</p>
 </div>
 <div id="south-bougainville" class="section level4">
 <h4>South Bougainville</h4>
-<p><strong>Siwai</strong> <span class="citation">(Onishi <a href="#ref-onishi1994">1994</a>:159)</span></p>
+<p><strong>Siwai</strong> <span class="citation">(<a
+href="#ref-onishi1994" role="doc-biblioref">Onishi
+1994:159</a>)</span></p>
 <p><img src="examples/siwai.png" style="width:60.0%" /></p>
 <p>The continuative marker: kotonoko.</p>
-<p><strong>Siwai</strong> <span class="citation">(Onishi <a href="#ref-onishi1994">1994</a>:500)</span></p>
+<p><strong>Siwai</strong> <span class="citation">(<a
+href="#ref-onishi1994" role="doc-biblioref">Onishi
+1994:500</a>)</span></p>
 <p><img src="examples/siwai2.png" style="width:60.0%" /></p>
 <p>The continuative marker: tu(h) ‘be’ + participle.</p>
 </div>
 <div id="east-birds-head" class="section level4">
 <h4>East Bird’s Head</h4>
-<p><strong>Moskona</strong> <span class="citation">(Gravelle <a href="#ref-gravelle2010">2010</a>:121)</span></p>
+<p><strong>Moskona</strong> <span class="citation">(<a
+href="#ref-gravelle2010" role="doc-biblioref">Gravelle
+2010:121</a>)</span></p>
 <p><img src="examples/moskona.png" style="width:60.0%" /></p>
 <p>The continuative marker: ros.</p>
 </div>
 <div id="west-bomberai" class="section level4">
 <h4>West Bomberai</h4>
-<p><strong>Kalamang</strong> <span class="citation">(Visser <a href="#ref-visser2020">2020</a>:387)</span></p>
+<p><strong>Kalamang</strong> <span class="citation">(<a
+href="#ref-visser2020" role="doc-biblioref">Visser
+2020:387</a>)</span></p>
 <p><img src="examples/kalamang.png" style="width:60.0%" /></p>
 <p>The continuative marker: tok.</p>
 </div>
 <div id="taulil-butam" class="section level4">
 <h4>Taulil-Butam</h4>
-<p><strong>Taulil</strong> <span class="citation">(Meng <a href="#ref-meng2018">2018</a>:165)</span></p>
+<p><strong>Taulil</strong> <span class="citation">(<a
+href="#ref-meng2018" role="doc-biblioref">Meng 2018:202</a>)</span></p>
 <p><img src="examples/taulil.png" style="width:60.0%" /></p>
-<p>The continuative marker: ar, avar.</p>
+<p>The continuative marker: ar / avar.</p>
 </div>
 </div>
 <div id="references" class="section level3 unnumbered">
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-akulov2005">
-<p><strong>Akulov, A.</strong> <strong>2005</strong>. <em>An Aynu-Russian-English Dictionary</em>. Kazan: Dobrotworskii.</p>
-</div>
-<div id="ref-armbruster1960">
-<p><strong>Armbruster, C. H.</strong> <strong>1960</strong>. <em>Dongolese Nubian: A Grammar</em>. Cambridge: Cambridge University Press.</p>
-</div>
-<div id="ref-barclay2008">
-<p><strong>Barclay, P.</strong> <strong>2008</strong>. <em>A Grammar of Western Dani</em>. München: Lincom.</p>
-</div>
-<div id="ref-besnier2000">
-<p><strong>Besnier, N.</strong> <strong>2000</strong>. <em>Tuvaluan: A Polynesian Language of the Central Pacific</em>. London &amp; New York: Routledge.</p>
-</div>
-<div id="ref-birk1976">
-<p><strong>Birk, D. B. W.</strong> <strong>1976</strong>. <em>The Malakmalak Language, Daly River (Western Arnhem Land)</em>. Canberra: Research School of Pacific; Asian Studies, Australian National University.</p>
-</div>
-<div id="ref-blackingsfabb2003">
-<p><strong>Blackings, M. and N. Fabb</strong>. <strong>2003</strong>. <em>A Grammar of Ma’di</em>. Berlin: Mouton de Gruyter.</p>
-</div>
-<div id="ref-bohnemeyer2001">
-<p><strong>Bohnemeyer, J.</strong> <strong>2001</strong>. <em>The Grammar of Time Reference in Yukatek Maya</em>. München: Lincom Europa.</p>
-</div>
-<div id="ref-boudreault2009">
-<p><strong>Boudreault, L. J.</strong> <strong>2009</strong>. A grammar of sierra popoluca (soteapanec, a mixe-zoquean language).</p>
-</div>
-<div id="ref-bowern2012">
-<p><strong>Bowern, C.</strong> <strong>2012</strong>. <em>A Grammar of Bardi</em>. Berlin: Mouton.</p>
-</div>
-<div id="ref-bril2016">
-<p><strong>Bril, I.</strong> <strong>2016</strong>. ‘Tense, Aspect and Mood in Nêlêmwa (New Caledonia): Encoding Events, Processes and States’. In Guentchéva, Z. (ed), <em>Aspectuality and temporality: Descriptive and theoretical issues</em>. Amsterdam: John Benjamins, 63–106.</p>
-</div>
-<div id="ref-butt2019">
-<p><strong>Butt, J., C. Benjamin and A. M. Rodríguez</strong>. <strong>2019</strong>. <em>A New Reference Grammar of Modern Spanish</em>. London, New York: Routledge.</p>
-</div>
-<div id="ref-campbell2006">
-<p><strong>Campbell, L.</strong> <strong>2006</strong>. A sketch grammar of urningangk, erre and mengerrdji: The giimbiyu languages of western arnhem land.</p>
-</div>
-<div id="ref-chamoreau1998">
-<p><strong>Chamoreau, C.</strong> <strong>1998</strong>. Description du purépecha parle sur des isles du lac patzcuaro (mexique).</p>
-</div>
-<div id="ref-сhristiansen2010">
-<p><strong>Christiansen-Bolli, R.</strong> <strong>2010</strong>. A grammar of tadaksahak: A northern songhay language of mali.</p>
-</div>
-<div id="ref-chung2020">
-<p><strong>Chung, S.</strong> <strong>2020</strong>. <em>Chamorro Grammar</em>. Santa Cruz: University of California.</p>
-</div>
-<div id="ref-clendon2014">
-<p><strong>Clendon, M.</strong> <strong>2014</strong>. <em>Worrorra: A Language of the North-West Kimberley Coast</em>. Adelaide: University of Adelaide.</p>
-</div>
-<div id="ref-cook1987">
-<p><strong>Cook, A. R.</strong> <strong>1987</strong>. Wagiman matyin: A description of the wagiman language of the northern territory.</p>
-</div>
-<div id="ref-courtz2008">
-<p><strong>Courtz, H.</strong> <strong>2008</strong>. <em>A Carib Grammar and Dictionary</em>. Toronto: Magoria Books.</p>
-</div>
-<div id="ref-creisselsbiaye2016">
-<p><strong>Creissels, D. and S. Biaye</strong>. <strong>2016</strong>. <em>Le Balant Ganja</em>. Dakar: IFAN Cheikh Anta Diop.</p>
-</div>
-<div id="ref-crippen2008">
-<p><strong>Crippen, J.</strong> <strong>2008</strong>. Notes on tlingit grammar.</p>
-</div>
-<div id="ref-crowell1979">
-<p><strong>Crowell, T. H.</strong> <strong>1979</strong>. A grammar of bororo.</p>
-</div>
-<div id="ref-davidson2002">
-<p><strong>Davidson, M.</strong> <strong>2002</strong>. Studies in wakashan (nootkan) grammar.</p>
-</div>
-<div id="ref-dejamorn2006">
-<p><strong>Dej-Amorn, S.</strong> <strong>2006</strong>. <em>The Grammar of Green Hmong Particles</em>. Mahidol University.</p>
-</div>
-<div id="ref-dench1995">
-<p><strong>Dench, A.</strong> <strong>1995</strong>. <em>Martuthunira: A Language of the Pilbara Region of Western Australia</em>. Canberra: Research School of Pacific; Asian Studies, Australian National University.</p>
-</div>
-<div id="ref-dienst2014">
-<p><strong>Dienst, S.</strong> <strong>2014</strong>. <em>A Grammar of Kulina</em>. Berlin: De Gruyter Mouton.</p>
-</div>
-<div id="ref-dimmendaal1983">
-<p><strong>Dimmendaal, G. J.</strong> <strong>1983</strong>. <em>The Turkana Language</em>. Dordrecht: Foris Publications.</p>
-</div>
-<div id="ref-donohue1999">
-<p><strong>Donohue, M.</strong> <strong>1999</strong>. <em>A Grammar of Tukang Besi</em>. Berlin: Mouton de Gruyter.</p>
-</div>
-<div id="ref-döhler2016">
-<p><strong>Döhler, C.</strong> <strong>2016</strong>. Komnzo: A language of southern new guinea.</p>
-</div>
-<div id="ref-dunn1999">
-<p><strong>Dunn, M. J.</strong> <strong>1999</strong>. <em>A Grammar of Chukchi</em>. Canberra: Australian National University.</p>
-</div>
-<div id="ref-eberhard2009">
-<p><strong>Eberhard, D. M.</strong> <strong>2009</strong>. Mamaindê grammar: A northern nambikwara language and its cultural context.</p>
-</div>
-<div id="ref-epps2008">
-<p><strong>Epps, P.</strong> <strong>2008</strong>. <em>A Grammar of Hup</em>. Berlin: Mouton de Gruyter.</p>
-</div>
-<div id="ref-eraso2015">
-<p><strong>Eraso, N.</strong> <strong>2015</strong>. Gramática tanimuka, una lengua de la amazonía colombiana.</p>
-</div>
-<div id="ref-estigarribia2020">
-<p><strong>Estigarribia, B.</strong> <strong>2020</strong>. <em>A Grammar of Paraguayan Guarani</em>. London: UCL Press.</p>
-</div>
-<div id="ref-evans2003">
-<p><strong>Evans, N.</strong> <strong>2003</strong>. <em>Bininj Gun-Wok: A Pan-Dialectal Grammar of Mayali, Kunwinjku and Kune</em>. Canberra: Research School of Pacific; Asian Studies, Australian National University.</p>
-</div>
-<div id="ref-evans1995">
-<p><strong>Evans, N. D.</strong> <strong>1995</strong>. <em>A Grammar of Kayardild: With Historical-Comparative Notes on Tangkic</em>. Berlin: Mouton de Gruyter.</p>
-</div>
-<div id="ref-fabre2016">
-<p><strong>Fabre, A.</strong> <strong>2016</strong>. <em>Gramática de La Lengua Nivacle (Familia Mataguayo, Chaco Paraguayo)</em>. Kangasala.</p>
-</div>
-<div id="ref-fedotov2015">
-<p><strong>Fedotov, M.</strong> <strong>2015</strong>. To be continued... : Приключения континуативного показателя в языке гбан [to be continued…: Adventures of the continuative marker in gban].</p>
-</div>
-<div id="ref-fehn2014">
-<p><strong>Fehn, A.-M.</strong> <strong>2014</strong>. A grammar of ts’ixa (kalahari khoe).</p>
-</div>
-<div id="ref-garay1998">
-<p><strong>Fernández Garay, A.</strong> <strong>1998</strong>. <em>El Tehuelche: Una Lengua En Vías de Extinción</em>. Valdivia: Facultad de Filosofía y Humanidades, Universidad Austral de Chile.</p>
-</div>
-<div id="ref-foley1991">
-<p><strong>Foley, W. A.</strong> <strong>1991</strong>. <em>The Yimas Language of New Guinea</em>. Stanford: Stanford University Press.</p>
-</div>
-<div id="ref-gerasimov2020">
-<p><strong>Gerasimov, D.</strong> <strong>2020</strong>. Mini-course on paraguayan guarani at hse.</p>
-</div>
-<div id="ref-gonzales2019">
-<p><strong>Gonzales Castaño, G.</strong> <strong>2019</strong>. Una gramática de la lengua namtrik de totoró: Lengua barbacoa hablada en los andes colombianos.</p>
-</div>
-<div id="ref-gökselkerslake2005">
-<p><strong>Göksel, A. and C. Kerslake</strong>. <strong>2005</strong>. <em>Turkish: A Comprehensive Grammar</em>. London: Routledge.</p>
-</div>
-<div id="ref-gravelle2010">
-<p><strong>Gravelle, G.</strong> <strong>2010</strong>. A grammar of moskona: An east bird’s head language of west papua, indonesia.</p>
-</div>
-<div id="ref-green1995">
-<p><strong>Green, R.</strong> <strong>1995</strong>. <em>A Grammar of Gurr-Goni (North Central Arnhem Land)</em>. Canberra: Research School of Pacific; Asian Studies, Australian National University.</p>
-</div>
-<div id="ref-grinevald1990">
-<p><strong>Grinevald, C. G.</strong> <strong>1990</strong>. A grammar of rama.</p>
-</div>
-<div id="ref-haiman2011">
-<p><strong>Haiman, J.</strong> <strong>2011</strong>. <em>Cambodian (Khmer)</em>. Amsterdam: Benjamins.</p>
-</div>
-<div id="ref-hanson2010">
-<p><strong>Hanson, R.</strong> <strong>2010</strong>. A grammar of yine (piro).</p>
-</div>
-<div id="ref-harvey2001">
-<p><strong>Harvey, M.</strong> <strong>2001</strong>. <em>A Grammar of Limilngan: A Language of the Mary River Region Northern Territory Australia</em>. Canberra: Research School of Pacific; Asian Studies, Australian National University.</p>
-</div>
-<div id="ref-haspelmath1993">
-<p><strong>Haspelmath, M.</strong> <strong>1993</strong>. <em>A Grammar of Lezgian</em>. Berlin, New York: Walter de Gruyter.</p>
-</div>
-<div id="ref-heath2016">
-<p><strong>Heath, J.</strong> <strong>2016</strong>. A grammar of nanga.</p>
-</div>
-<div id="ref-hellenthal2010">
-<p><strong>Hellenthal, A. C.</strong> <strong>2010</strong>. <em>A Grammar of Sheko</em>. Utrecht: LOT.</p>
-</div>
-<div id="ref-hercus1982">
-<p><strong>Hercus, L. A.</strong> <strong>1982</strong>. <em>The Bāgandji Language</em>. Canberra: Research School of Pacific; Asian Studies, Australian National University.</p>
-</div>
-<div id="ref-hewitt1995">
-<p><strong>Hewitt, G. B.</strong> <strong>1995</strong>. <em>Georgian: A Structural Reference Grammar</em>. Amsterdam, Philadelphia: John Benjamins.</p>
-</div>
-<div id="ref-higuita2008">
-<p><strong>Higuita, J. M. G.</strong> <strong>2008</strong>. <em>Una Gramatica Del Wansöjöt (Puinave)</em>. Utrecht: LOT.</p>
-</div>
-<div id="ref-iwasaki2005">
-<p><strong>Iwasaki, S. and P. Ingkaphirom</strong>. <strong>2005</strong>. <em>A Reference Grammar of Thai</em>. Cambridge: Cambridge University Press.</p>
-</div>
-<div id="ref-kachru2006">
-<p><strong>Kachru, Y.</strong> <strong>2006</strong>. <em>Hindi</em>. Philadelphia: Benjamins.</p>
-</div>
-<div id="ref-kaiseretal2013">
-<p><strong>Kaiser, S., Y. Ichikawa, N. Kobayashi and H. Yamamoto</strong>. <strong>2013</strong>. <em>Japanese: A Comprehensive Grammar</em>. London, New York: Routledge.</p>
-</div>
-<div id="ref-karlsson1999">
-<p><strong>Karlsson, F.</strong> <strong>1999</strong>. <em>Finnish: An Essential Grammar</em>. London: Routledge.</p>
-</div>
-<div id="ref-klyaginapanova2019">
-<p><strong>Klyagina, E. and A. Panova</strong>. <strong>2019</strong>. ‘Phasal Polarity in Abaza’. <em>HSE University. Series WP BRP Linguistics</em> 89.</p>
-</div>
-<div id="ref-kofod1996">
-<p><strong>Kofod, F. M.</strong> <strong>1996</strong>. <em>Introduction to the Kija Language</em>. Halls Creek: Kimberley Language Resource Centre.</p>
-</div>
-<div id="ref-kruspe2004">
-<p><strong>Kruspe, N. D.</strong> <strong>2004</strong>. <em>A Grammar of Semelai</em>. Cambridge: Cambridge University Press.</p>
-</div>
-<div id="ref-kullmann1996">
-<p><strong>Kullmann, R.</strong> <strong>1996</strong>. <em>Mongolian Grammar</em>. Hong Kong: Jensco.</p>
-</div>
-<div id="ref-kung2007">
-<p><strong>Kung, S. S.</strong> <strong>2007</strong>. A descriptive grammar of huehuetla tepehua.</p>
-</div>
-<div id="ref-layton2004">
-<p><strong>Layton, B.</strong> <strong>2004</strong>. <em>A Coptic Grammar with Chrestomathy and Glossary: Sahidic Dialect</em>. Wiesbaden: Otto Harrassowitz Verlag.</p>
-</div>
-<div id="ref-lee1987">
-<p><strong>Lee, J.</strong> <strong>1987</strong>. <em>Tiwi Today: A Study of Language Change in a Contact Situation</em>. Canberra: Research School of Pacific; Asian Studies, Australian National University.</p>
-</div>
-<div id="ref-lehmann1993">
-<p><strong>Lehmann, T.</strong> <strong>1993</strong>. <em>A Grammar of Modern Tamil</em>. Pondicherry, India: Pondicherry Institute of Linguistics; Culture.</p>
-</div>
-<div id="ref-estevam2011">
-<p><strong>Machado Estevam, A.</strong> <strong>2011</strong>. Morphosyntaxe du xavante, langue jê du mato grosso (brésil).</p>
-</div>
-<div id="ref-mansen1984">
-<p><strong>Mansen, K. and R. A. Mansen</strong>. <strong>1984</strong>. <em>Aprendamos Guajiro: Gramática Pedagógica de Guajiro</em>. Lomalinda: Editorial Townsend.</p>
-</div>
-<div id="ref-martin2011">
-<p><strong>Martin, J. B.</strong> <strong>2011</strong>. <em>A Grammar of Creek (Muskogee)</em>. Lincoln: University of Nebraska Press.</p>
-</div>
-<div id="ref-maslova2003">
-<p><strong>Maslova, E.</strong> <strong>2003</strong>. <em>A Grammar of Kolyma Yukaghir</em>. Berlin: Mouton de Gruyter.</p>
-</div>
-<div id="ref-mayanga1985">
-<p><strong>Mayanga, T.</strong> <strong>1985</strong>. <em>Grammaire Yansi</em>. République du Zaïre: CEEBA, Bandundu.</p>
-</div>
-<div id="ref-mcgregor1990">
-<p><strong>McGregor, W.</strong> <strong>1990</strong>. <em>A Functional Grammar of Gooniyandi</em>. Amsterdam: John Benjamins.</p>
-</div>
-<div id="ref-meakins2014">
-<p><strong>Meakins, F. and R. Nordlinger</strong>. <strong>2014</strong>. <em>A Grammar of Bilinarra: An Australian Aboriginal Language of the Northern Territory</em>. Berlin: De Gruyter Mouton.</p>
-</div>
-<div id="ref-melnar2004">
-<p><strong>Melnar, L. R.</strong> <strong>2004</strong>. Caddo verb morphology.</p>
-</div>
-<div id="ref-meng2018">
-<p><strong>Meng, C.</strong> <strong>2018</strong>. A grammar of tulil.</p>
-</div>
-<div id="ref-merlan1989">
-<p><strong>Merlan, F.</strong> <strong>1989</strong>. <em>Mangarayi</em>. London: Routledge.</p>
-</div>
-<div id="ref-merlan1994">
-<p><strong>Merlan, F. C.</strong> <strong>1994</strong>. <em>A Grammar of Wardaman: A Language of the Northern Territory of Australia</em>. Berlin: Mouton de Gruyter.</p>
-</div>
-<div id="ref-miller2001">
-<p><strong>Miller, A.</strong> <strong>2001</strong>. <em>A Grammar of Jamul Tiipay</em>. Berlin, New York: Mouton de Gruyter.</p>
-</div>
-<div id="ref-miyaoka2012">
-<p><strong>Miyaoka, O.</strong> <strong>2012</strong>. <em>A Grammar of Central Alaskan Yupik: An Eskimo Language</em>. Berlin: Mouton de Gruyter.</p>
-</div>
-<div id="ref-montgomery2008">
-<p><strong>Montgomery-Anderson, B.</strong> <strong>2008</strong>. A reference grammar of oklahoma cherokee.</p>
-</div>
-<div id="ref-mourigh2015">
-<p><strong>Mourigh, K.</strong> <strong>2015</strong>. A grammar of ghomara berber.</p>
-</div>
-<div id="ref-murane1974">
-<p><strong>Murane, E.</strong> <strong>1974</strong>. <em>Daga Grammar: From Morpheme to Discourse</em>. Norman: Dallas, Texas: The Summer Institute of Linguistics; the University of Texas at Arlington.</p>
-</div>
-<div id="ref-mushin2012">
-<p><strong>Mushin, I.</strong> <strong>2012</strong>. <em>A Grammar of (Western) Garrwa</em>. Berlin: De Gruyter Mouton.</p>
-</div>
-<div id="ref-mwinlaaru2017">
-<p><strong>Mwinlaaru, I. N.</strong> <strong>2017</strong>. A systemic functional description of the grammar of dagaare.</p>
-</div>
-<div id="ref-nájera2019">
-<p><strong>Nájera, L. F.</strong> <strong>2019</strong>. La gramática de la cláusula simple en el náhuatl de tlaxcala.</p>
-</div>
-<div id="ref-nedjalkov1997">
-<p><strong>Nedjalkov, I.</strong> <strong>1997</strong>. <em>Evenki</em>. London, New York: Routledge.</p>
-</div>
-<div id="ref-nordlinger1998">
-<p><strong>Nordlinger, R.</strong> <strong>1998</strong>. <em>A Grammar of Wambaya, Northern Territory (Australia)</em>. Canberra: Research School of Pacific; Asian Studies, Australian National University.</p>
-</div>
-<div id="ref-okrand1977">
-<p><strong>Okrand, M.</strong> <strong>1977</strong>. Mutsun grammar.</p>
-</div>
-<div id="ref-onishi1994">
-<p><strong>Onishi, M.</strong> <strong>1994</strong>. A grammar of motuna (bougainville, papua new guinea).</p>
-</div>
-<div id="ref-oxford2007">
-<p><strong>Oxford, W.</strong> <strong>2007</strong>. Towards a grammar of innu-aimun particles.</p>
-</div>
-<div id="ref-palancar2009">
-<p><strong>Palancar, E.</strong> <strong>2009</strong>. <em>Gramática Y Textos Del Hñöñhö: Otomí de San Ildefonso Tultepec, Queretaro</em>. Mexico City: Plaza y Valdés.</p>
-</div>
-<div id="ref-payne1985">
-<p><strong>Payne, D. L.</strong> <strong>1985</strong>. Aspects of the grammar of yagua: A typological perspective (peru).</p>
-</div>
-<div id="ref-persohn2017">
-<p><strong>Persohn, B.</strong> <strong>2017</strong>. <em>The Verb in Nyakyusa: A Focus on Tense, Aspect, and Modality</em>. Berlin: Language Science Press.</p>
-</div>
-<div id="ref-pickett2007">
-<p><strong>Pickett, V. B.</strong> <strong>2007</strong>. Vocabulario zapoteco del istmo: Español-zapoteco y zapoteco-español.</p>
-</div>
-<div id="ref-pickettetal2001">
-<p><strong>Pickett, V. B., C. Black and V. M. Cerqueda</strong>. <strong>2001</strong>. Gramática popular del zapoteco del istmo, segunda edición (electrónica).</p>
-</div>
-<div id="ref-priestley2008">
-<p><strong>Priestley, C.</strong> <strong>2008</strong>. A grammar of koromu (kesawai), a trans new guinea language of papua new guinea.</p>
-</div>
-<div id="ref-vonprince2012">
-<p><strong>Prince, K. von</strong>. <strong>2012</strong>. A grammar of daakaka.</p>
-</div>
-<div id="ref-rau1992">
-<p><strong>Rau, D.-H. V.</strong> <strong>1992</strong>. A grammar of atayal.</p>
-</div>
-<div id="ref-rongier2004">
-<p><strong>Rongier, J.</strong> <strong>1970</strong>. <em>Parlons éwé: Langue Du Togo</em>. France: L’Harmattan.</p>
-</div>
-<div id="ref-maross2017">
-<p><strong>Ross, C. and J.-h. S. Ma</strong>. <strong>2017</strong>. <em>Modern Mandarin Chinese Grammar: A Practical Guide</em>. London: Routledge.</p>
-</div>
-<div id="ref-samarin1970">
-<p><strong>Samarin, W. J.</strong> <strong>1970</strong>. <em>Sango: Langue de L’Afrique Centrale</em>. Leiden: Brill.</p>
-</div>
-<div id="ref-schachterotanes1972">
-<p><strong>Schachter, P. and F. T. Otanes</strong>. <strong>1972</strong>. <em>Tagalog Reference Grammar</em>. Berkeley; Los Angeles: University of California Press.</p>
-</div>
-<div id="ref-schapper2010">
-<p><strong>Schapper, A.</strong> <strong>2010</strong>. Bunaq: A papuan language of central timor.</p>
-</div>
-<div id="ref-shimelman2017">
-<p><strong>Shimelman, A.</strong> <strong>2017</strong>. <em>A Grammar of Yauyos Quechua</em>. Berlin: Language Science Press.</p>
-</div>
-<div id="ref-singer2006">
-<p><strong>Singer, R.</strong> <strong>2006</strong>. Agreement in mawng: Productive and lexicalised uses of agreement in an australian language.</p>
-</div>
-<div id="ref-smeets2008">
-<p><strong>Smeets, I.</strong> <strong>2008</strong>. <em>A Grammar of Mapuche</em>. Berlin: Mouton de Gruyter.</p>
-</div>
-<div id="ref-sneddonetal2010">
-<p><strong>Sneddon, J. N., A. Adelaar, D. N. Djenar and M. C. Ewing</strong>. <strong>2010</strong>. <em>Indonesian Reference Grammar</em>. Allen &amp; Unwin.</p>
-</div>
-<div id="ref-sohn1994">
-<p><strong>Sohn, H.-m.</strong> <strong>1994</strong>. <em>Korean</em>. London: Routledge.</p>
-</div>
-<div id="ref-vanstaden2000">
-<p><strong>Staden, M. van</strong>. <strong>2000</strong>. <em>Tidore: A Linguistic Description of a Language of the North Moluccas</em>. Leiden: Univ. Leiden.</p>
-</div>
-<div id="ref-treis2008">
-<p><strong>Treis, Y.</strong> <strong>2008</strong>. <em>A Grammar of Kambaata, 1: Phonology, Nominal Morphology and Non-Verbal Predication</em>. Köln: Rüdiger Köppe Verlag.</p>
-</div>
-<div id="ref-ullrich2018">
-<p><strong>Ullrich, J.</strong> <strong>2018</strong>. Modification, secondary predication and multi-verb constructions in lakota.</p>
-</div>
-<div id="ref-versteegh2018">
-<p><strong>Versteegh, K.</strong> <strong>2018</strong>. ‘Temporal Adverbs of Contrast in the Basic Variety of Arabic’. In Manfredi, S. and M. Tosco (eds), <em>Arabic in contact</em>. Amsterdam, Philadelphia: John Benjamins, 233–250.</p>
-</div>
-<div id="ref-viljoen2013">
-<p><strong>Viljoen, M. H.</strong> <strong>2013</strong>. A grammatical description of the buwal language.</p>
-</div>
-<div id="ref-visser2020">
-<p><strong>Visser, E.</strong> <strong>2020</strong>. A grammar of kalamang: The papuan language of the karas islands.</p>
-</div>
-<div id="ref-vuillermet2012">
-<p><strong>Vuillermet, M.</strong> <strong>2012</strong>. A grammar of ese ejja, a takanan language of the bolivian amazon.</p>
-</div>
-<div id="ref-wilson2017">
-<p><strong>Wilson, J.</strong> <strong>2017</strong>. A grammar of yeri: A torricelli language of papua new guinea.</p>
-</div>
-<div id="ref-wojtylak2017">
-<p><strong>Wojtylak, K. I.</strong> <strong>2017</strong>. A grammar of murui (bue): A witotoan language of northwest amazonia.</p>
-</div>
-<div id="ref-youngmorgan1987">
-<p><strong>Young, R. W. and W. Morgan Sr.</strong> <strong>1987</strong>. <em>The Navajo Language: A Grammar and Colloquial Dictionary</em>. Albuquerque: University of New Mexico Press.</p>
-</div>
-<div id="ref-yumitani1998">
-<p><strong>Yumitani, Y.</strong> <strong>1998</strong>. JA phonology and morphology of jemez towa.</p>
-</div>
-<div id="ref-zahir2018">
-<p><strong>Zahir, Z.</strong> <strong>2018</strong>. Elements of lushootseed grammar in discourse perspective.</p>
-</div>
-<div id="ref-ziervogel1976">
-<p><strong>Ziervogel, D., J. A. Louw and P. Taljaard</strong>. <strong>1976</strong>. <em>A Handbook of the Zulu Language</em>. Pretoria: J.L. van Schaik.</p>
+<h3 class="unnumbered">References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-akulov2005" class="csl-entry">
+<strong>Akulov, A.</strong> <strong>2005</strong>. <em>An
+Aynu-Russian-English Dictionary</em>. Kazan: Dobrotworskii.
+</div>
+<div id="ref-armbruster1960" class="csl-entry">
+<strong>Armbruster, C. H.</strong> <strong>1960</strong>. <em>Dongolese
+Nubian: A Grammar</em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-barclay2008" class="csl-entry">
+<strong>Barclay, P.</strong> <strong>2008</strong>. <em>A Grammar of
+Western Dani</em>. München: Lincom.
+</div>
+<div id="ref-besnier2000" class="csl-entry">
+<strong>Besnier, N.</strong> <strong>2000</strong>. <em>Tuvaluan: A
+Polynesian Language of the Central Pacific</em>. London &amp; New York:
+Routledge.
+</div>
+<div id="ref-birk1976" class="csl-entry">
+<strong>Birk, D. B. W.</strong> <strong>1976</strong>. <em>The
+MalakMalak Language, Daly River (Western Arnhem Land)</em>. Canberra:
+Research School of Pacific; Asian Studies, Australian National
+University.
+</div>
+<div id="ref-blackingsfabb2003" class="csl-entry">
+<strong>Blackings, M. and N. Fabb</strong>. <strong>2003</strong>. <em>A
+Grammar of Ma’di</em>. Berlin: Mouton de Gruyter.
+</div>
+<div id="ref-bohnemeyer2001" class="csl-entry">
+<strong>Bohnemeyer, J.</strong> <strong>2001</strong>. <em>The Grammar
+of Time Reference in Yukatek Maya</em>. München: Lincom Europa.
+</div>
+<div id="ref-boudreault2009" class="csl-entry">
+<strong>Boudreault, L. J.</strong> <strong>2009</strong>. A grammar of
+sierra popoluca (soteapanec, a mixe-zoquean language).
+</div>
+<div id="ref-bowern2012" class="csl-entry">
+<strong>Bowern, C.</strong> <strong>2012</strong>. <em>A Grammar of
+Bardi</em>. Berlin: Mouton.
+</div>
+<div id="ref-bril2016" class="csl-entry">
+<strong>Bril, I.</strong> <strong>2016</strong>. <span>‘Tense, Aspect
+and Mood in Nêlêmwa (New Caledonia): Encoding Events, Processes and
+States’</span>. In Guentchéva, Z. (ed), <em>Aspectuality and
+temporality: Descriptive and theoretical issues</em>. Amsterdam: John
+Benjamins, 63–106.
+</div>
+<div id="ref-butt2019" class="csl-entry">
+<strong>Butt, J., C. Benjamin and A. M. Rodríguez</strong>.
+<strong>2019</strong>. <em>A New Reference Grammar of Modern
+Spanish</em>. London, New York: Routledge.
+</div>
+<div id="ref-campbell2006" class="csl-entry">
+<strong>Campbell, L.</strong> <strong>2006</strong>. A sketch grammar of
+urningangk, erre and mengerrdji: The giimbiyu languages of western
+arnhem land.
+</div>
+<div id="ref-chamoreau1998" class="csl-entry">
+<strong>Chamoreau, C.</strong> <strong>1998</strong>. Description du
+purépecha parle sur des isles du lac patzcuaro (mexique).
+</div>
+<div id="ref-сhristiansen2010" class="csl-entry">
+<strong>Christiansen-Bolli, R.</strong> <strong>2010</strong>. A grammar
+of tadaksahak: A northern songhay language of mali.
+</div>
+<div id="ref-chung2020" class="csl-entry">
+<strong>Chung, S.</strong> <strong>2020</strong>. <em>Chamorro
+Grammar</em>. Santa Cruz: University of California.
+</div>
+<div id="ref-clendon2014" class="csl-entry">
+<strong>Clendon, M.</strong> <strong>2014</strong>. <em>Worrorra: A
+Language of the North-West Kimberley Coast</em>. Adelaide: University of
+Adelaide.
+</div>
+<div id="ref-cook1987" class="csl-entry">
+<strong>Cook, A. R.</strong> <strong>1987</strong>. Wagiman matyin: A
+description of the wagiman language of the northern territory.
+</div>
+<div id="ref-courtz2008" class="csl-entry">
+<strong>Courtz, H.</strong> <strong>2008</strong>. <em>A Carib Grammar
+and Dictionary</em>. Toronto: Magoria Books.
+</div>
+<div id="ref-creisselsbiaye2016" class="csl-entry">
+<strong>Creissels, D. and S. Biaye</strong>. <strong>2016</strong>.
+<em>Le Balant Ganja</em>. Dakar: IFAN Cheikh Anta Diop.
+</div>
+<div id="ref-crippen2008" class="csl-entry">
+<strong>Crippen, J.</strong> <strong>2008</strong>. Notes on tlingit
+grammar.
+</div>
+<div id="ref-crowell1979" class="csl-entry">
+<strong>Crowell, T. H.</strong> <strong>1979</strong>. A grammar of
+bororo.
+</div>
+<div id="ref-davidson2002" class="csl-entry">
+<strong>Davidson, M.</strong> <strong>2002</strong>. Studies in wakashan
+(nootkan) grammar.
+</div>
+<div id="ref-dejamorn2006" class="csl-entry">
+<strong>Dej-Amorn, S.</strong> <strong>2006</strong>. <em>The Grammar of
+Green Hmong Particles</em>. Mahidol University.
+</div>
+<div id="ref-dench1995" class="csl-entry">
+<strong>Dench, A.</strong> <strong>1995</strong>. <em>Martuthunira: A
+Language of the Pilbara Region of Western Australia</em>. Canberra:
+Research School of Pacific; Asian Studies, Australian National
+University.
+</div>
+<div id="ref-dienst2014" class="csl-entry">
+<strong>Dienst, S.</strong> <strong>2014</strong>. <em>A Grammar of
+Kulina</em>. Berlin: De Gruyter Mouton.
+</div>
+<div id="ref-dimmendaal1983" class="csl-entry">
+<strong>Dimmendaal, G. J.</strong> <strong>1983</strong>. <em>The
+Turkana Language</em>. Dordrecht: Foris Publications.
+</div>
+<div id="ref-döhler2016" class="csl-entry">
+<strong>Döhler, C.</strong> <strong>2016</strong>. Komnzo: A language of
+southern new guinea.
+</div>
+<div id="ref-donaldson1977" class="csl-entry">
+<strong>Donaldson, T.</strong> <strong>1977</strong>. A description of
+ngiyamba: The language of the waŋa:ybuwan people of central western new
+south wales.
+</div>
+<div id="ref-donohue1999" class="csl-entry">
+<strong>Donohue, M.</strong> <strong>1999</strong>. <em>A Grammar of
+Tukang Besi</em>. Berlin: Mouton de Gruyter.
+</div>
+<div id="ref-dunn1999" class="csl-entry">
+<strong>Dunn, M. J.</strong> <strong>1999</strong>. <em>A Grammar of
+Chukchi</em>. Canberra: Australian National University.
+</div>
+<div id="ref-eberhard2009" class="csl-entry">
+<strong>Eberhard, D. M.</strong> <strong>2009</strong>. Mamaindê
+grammar: A northern nambikwara language and its cultural context.
+</div>
+<div id="ref-elanskaya2010" class="csl-entry">
+<strong>Elanskaya, A. I.</strong> <strong>2010</strong>. <em>Grammatika
+Koptskogo Jazyka</em>. Sankt-Peterburg: Nestor-Istoriya.
+</div>
+<div id="ref-epps2008" class="csl-entry">
+<strong>Epps, P.</strong> <strong>2008</strong>. <em>A Grammar of
+Hup</em>. Berlin: Mouton de Gruyter.
+</div>
+<div id="ref-eraso2015" class="csl-entry">
+<strong>Eraso, N.</strong> <strong>2015</strong>. Gramática tanimuka,
+una lengua de la amazonía colombiana.
+</div>
+<div id="ref-estigarribia2020" class="csl-entry">
+<strong>Estigarribia, B.</strong> <strong>2020</strong>. <em>A Grammar
+of Paraguayan Guarani</em>. London: UCL Press.
+</div>
+<div id="ref-evans2003" class="csl-entry">
+<strong>Evans, N.</strong> <strong>2003</strong>. <em>Bininj Gun-Wok: A
+Pan-Dialectal Grammar of Mayali, Kunwinjku and Kune</em>. Canberra:
+Research School of Pacific; Asian Studies, Australian National
+University.
+</div>
+<div id="ref-evans1995" class="csl-entry">
+<strong>Evans, N. D.</strong> <strong>1995</strong>. <em>A Grammar of
+Kayardild: With Historical-Comparative Notes on Tangkic</em>. Berlin:
+Mouton de Gruyter.
+</div>
+<div id="ref-fabre2016" class="csl-entry">
+<strong>Fabre, A.</strong> <strong>2016</strong>. <em>Gramática de La
+Lengua Nivacle (Familia Mataguayo, Chaco Paraguayo)</em>. Kangasala.
+</div>
+<div id="ref-fedotov2015" class="csl-entry">
+<strong>Fedotov, M.</strong> <strong>2015</strong>. To be continued... :
+Приключения континуативного показателя в языке гбан [to be continued…:
+Adventures of the continuative marker in gban].
+</div>
+<div id="ref-fehn2014" class="csl-entry">
+<strong>Fehn, A.-M.</strong> <strong>2014</strong>. A grammar of ts’ixa
+(kalahari khoe).
+</div>
+<div id="ref-garay1998" class="csl-entry">
+<strong>Fernández Garay, A.</strong> <strong>1998</strong>. <em>El
+Tehuelche: Una Lengua En Vías de Extinción</em>. Valdivia: Facultad de
+Filosofía y Humanidades, Universidad Austral de Chile.
+</div>
+<div id="ref-foley1991" class="csl-entry">
+<strong>Foley, W. A.</strong> <strong>1991</strong>. <em>The Yimas
+Language of New Guinea</em>. Stanford: Stanford University Press.
+</div>
+<div id="ref-gerasimov2020" class="csl-entry">
+<strong>Gerasimov, D.</strong> <strong>2020</strong>. Mini-course on
+paraguayan guarani at HSE.
+</div>
+<div id="ref-gökselkerslake2005" class="csl-entry">
+<strong>Göksel, A. and C. Kerslake</strong>. <strong>2005</strong>.
+<em>Turkish: A Comprehensive Grammar</em>. London: Routledge.
+</div>
+<div id="ref-gonzales2019" class="csl-entry">
+<strong>Gonzales Castaño, G.</strong> <strong>2019</strong>. Una
+gramática de la lengua namtrik de totoró: Lengua barbacoa hablada en los
+andes colombianos.
+</div>
+<div id="ref-gravelle2010" class="csl-entry">
+<strong>Gravelle, G.</strong> <strong>2010</strong>. A grammar of
+moskona: An east bird’s head language of west papua, indonesia.
+</div>
+<div id="ref-green1995" class="csl-entry">
+<strong>Green, R.</strong> <strong>1995</strong>. <em>A Grammar of
+Gurr-Goni (North Central Arnhem Land)</em>. Canberra: Research School of
+Pacific; Asian Studies, Australian National University.
+</div>
+<div id="ref-grinevald1990" class="csl-entry">
+<strong>Grinevald, C. G.</strong> <strong>1990</strong>. A grammar of
+rama.
+</div>
+<div id="ref-haiman2011" class="csl-entry">
+<strong>Haiman, J.</strong> <strong>2011</strong>. <em>Cambodian
+(Khmer)</em>. Amsterdam: Benjamins.
+</div>
+<div id="ref-hanson2010" class="csl-entry">
+<strong>Hanson, R.</strong> <strong>2010</strong>. A grammar of yine
+(piro).
+</div>
+<div id="ref-harvey2001" class="csl-entry">
+<strong>Harvey, M.</strong> <strong>2001</strong>. <em>A Grammar of
+Limilngan: A Language of the Mary River Region Northern Territory
+Australia</em>. Canberra: Research School of Pacific; Asian Studies,
+Australian National University.
+</div>
+<div id="ref-haspelmath1993" class="csl-entry">
+<strong>Haspelmath, M.</strong> <strong>1993</strong>. <em>A Grammar of
+Lezgian</em>. Berlin, New York: Walter de Gruyter.
+</div>
+<div id="ref-heath2016" class="csl-entry">
+<strong>Heath, J.</strong> <strong>2016</strong>. A grammar of nanga.
+</div>
+<div id="ref-hellenthal2010" class="csl-entry">
+<strong>Hellenthal, A. C.</strong> <strong>2010</strong>. <em>A Grammar
+of Sheko</em>. Utrecht: LOT.
+</div>
+<div id="ref-higbiethinsan2002" class="csl-entry">
+<strong>Higbie, J. and S. Thinsan</strong>. <strong>2002</strong>.
+<em>Thai Reference Grammar: The Structure of Spoken Thai</em>. Bangkok:
+Orchid Press.
+</div>
+<div id="ref-higuita2008" class="csl-entry">
+<strong>Higuita, J. M. G.</strong> <strong>2008</strong>. <em>Una
+Gramatica Del Wansöjöt (Puinave)</em>. Utrecht: LOT.
+</div>
+<div id="ref-iwasaki2005" class="csl-entry">
+<strong>Iwasaki, S. and P. Ingkaphirom</strong>. <strong>2005</strong>.
+<em>A Reference Grammar of Thai</em>. Cambridge: Cambridge University
+Press.
+</div>
+<div id="ref-kachru2006" class="csl-entry">
+<strong>Kachru, Y.</strong> <strong>2006</strong>. <em>Hindi</em>.
+Philadelphia: Benjamins.
+</div>
+<div id="ref-kaiseretal2013" class="csl-entry">
+<strong>Kaiser, S., Y. Ichikawa, N. Kobayashi and H. Yamamoto</strong>.
+<strong>2013</strong>. <em>Japanese: A Comprehensive Grammar</em>.
+London, New York: Routledge.
+</div>
+<div id="ref-karlsson1999" class="csl-entry">
+<strong>Karlsson, F.</strong> <strong>1999</strong>. <em>Finnish: An
+Essential Grammar</em>. London: Routledge.
+</div>
+<div id="ref-klyaginapanova2019" class="csl-entry">
+<strong>Klyagina, E. and A. Panova</strong>. <strong>2019</strong>.
+<span>‘Phasal Polarity in Abaza’</span>. <em>HSE University. Series WP
+BRP Linguistics</em> 89.
+</div>
+<div id="ref-kofod1996" class="csl-entry">
+<strong>Kofod, F. M.</strong> <strong>1996</strong>. <em>Introduction to
+the Kija Language</em>. Halls Creek: Kimberley Language Resource Centre.
+</div>
+<div id="ref-kruspe2004" class="csl-entry">
+<strong>Kruspe, N. D.</strong> <strong>2004</strong>. <em>A Grammar of
+Semelai</em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-kullmann1996" class="csl-entry">
+<strong>Kullmann, R.</strong> <strong>1996</strong>. <em>Mongolian
+Grammar</em>. Hong Kong: Jensco.
+</div>
+<div id="ref-kung2007" class="csl-entry">
+<strong>Kung, S. S.</strong> <strong>2007</strong>. A descriptive
+grammar of huehuetla tepehua.
+</div>
+<div id="ref-layton2004" class="csl-entry">
+<strong>Layton, B.</strong> <strong>2004</strong>. <em>A Coptic Grammar
+with Chrestomathy and Glossary: Sahidic Dialect</em>. Wiesbaden: Otto
+Harrassowitz Verlag.
+</div>
+<div id="ref-lee1987" class="csl-entry">
+<strong>Lee, J.</strong> <strong>1987</strong>. <em>Tiwi Today: A Study
+of Language Change in a Contact Situation</em>. Canberra: Research
+School of Pacific; Asian Studies, Australian National University.
+</div>
+<div id="ref-lehmann1993" class="csl-entry">
+<strong>Lehmann, T.</strong> <strong>1993</strong>. <em>A Grammar of
+Modern Tamil</em>. Pondicherry, India: Pondicherry Institute of
+Linguistics; Culture.
+</div>
+<div id="ref-lithompson1989" class="csl-entry">
+<strong>Li, C. N. and S. A. Thompson</strong>. <strong>1989</strong>.
+<em>Mandarin Chinese: A Functional Reference Grammar</em>. Berceley, Los
+Angeles, London: University of California Press.
+</div>
+<div id="ref-estevam2011" class="csl-entry">
+<strong>Machado Estevam, A.</strong> <strong>2011</strong>.
+Morphosyntaxe du xavante, langue jê du mato grosso (brésil).
+</div>
+<div id="ref-mansen1984" class="csl-entry">
+<strong>Mansen, K. and R. A. Mansen</strong>. <strong>1984</strong>.
+<em>Aprendamos Guajiro: Gramática Pedagógica de Guajiro</em>. Lomalinda:
+Editorial Townsend.
+</div>
+<div id="ref-martin2011" class="csl-entry">
+<strong>Martin, J. B.</strong> <strong>2011</strong>. <em>A Grammar of
+Creek (Muskogee)</em>. Lincoln: University of Nebraska Press.
+</div>
+<div id="ref-maslova2003" class="csl-entry">
+<strong>Maslova, E.</strong> <strong>2003</strong>. <em>A Grammar of
+Kolyma Yukaghir</em>. Berlin: Mouton de Gruyter.
+</div>
+<div id="ref-mayanga1985" class="csl-entry">
+<strong>Mayanga, T.</strong> <strong>1985</strong>. <em>Grammaire
+Yansi</em>. République du Zaïre: CEEBA, Bandundu.
+</div>
+<div id="ref-mcgregor1990" class="csl-entry">
+<strong>McGregor, W.</strong> <strong>1990</strong>. <em>A Functional
+Grammar of Gooniyandi</em>. Amsterdam: John Benjamins.
+</div>
+<div id="ref-meakins2014" class="csl-entry">
+<strong>Meakins, F. and R. Nordlinger</strong>. <strong>2014</strong>.
+<em>A Grammar of Bilinarra: An Australian Aboriginal Language of the
+Northern Territory</em>. Berlin: De Gruyter Mouton.
+</div>
+<div id="ref-melnar2004" class="csl-entry">
+<strong>Melnar, L. R.</strong> <strong>2004</strong>. Caddo verb
+morphology.
+</div>
+<div id="ref-meng2018" class="csl-entry">
+<strong>Meng, C.</strong> <strong>2018</strong>. A grammar of tulil.
+</div>
+<div id="ref-merlan1989" class="csl-entry">
+<strong>Merlan, F.</strong> <strong>1989</strong>. <em>Mangarayi</em>.
+London: Routledge.
+</div>
+<div id="ref-merlan1994" class="csl-entry">
+<strong>Merlan, F. C.</strong> <strong>1994</strong>. <em>A Grammar of
+Wardaman: A Language of the Northern Territory of Australia</em>.
+Berlin: Mouton de Gruyter.
+</div>
+<div id="ref-miller2001" class="csl-entry">
+<strong>Miller, A.</strong> <strong>2001</strong>. <em>A Grammar of
+Jamul Tiipay</em>. Berlin, New York: Mouton de Gruyter.
+</div>
+<div id="ref-miyaoka2012" class="csl-entry">
+<strong>Miyaoka, O.</strong> <strong>2012</strong>. <em>A Grammar of
+Central Alaskan Yupik: An Eskimo Language</em>. Berlin: Mouton de
+Gruyter.
+</div>
+<div id="ref-montgomery2008" class="csl-entry">
+<strong>Montgomery-Anderson, B.</strong> <strong>2008</strong>. A
+reference grammar of oklahoma cherokee.
+</div>
+<div id="ref-mourigh2015" class="csl-entry">
+<strong>Mourigh, K.</strong> <strong>2015</strong>. A grammar of ghomara
+berber.
+</div>
+<div id="ref-murane1974" class="csl-entry">
+<strong>Murane, E.</strong> <strong>1974</strong>. <em>Daga Grammar:
+From Morpheme to Discourse</em>. Norman: Dallas, Texas: The Summer
+Institute of Linguistics; the University of Texas at Arlington.
+</div>
+<div id="ref-mushin2012" class="csl-entry">
+<strong>Mushin, I.</strong> <strong>2012</strong>. <em>A Grammar of
+(Western) Garrwa</em>. Berlin: De Gruyter Mouton.
+</div>
+<div id="ref-mwinlaaru2017" class="csl-entry">
+<strong>Mwinlaaru, I. N.</strong> <strong>2017</strong>. A systemic
+functional description of the grammar of dagaare.
+</div>
+<div id="ref-nájera2019" class="csl-entry">
+<strong>Nájera, L. F.</strong> <strong>2019</strong>. La gramática de la
+cláusula simple en el náhuatl de tlaxcala.
+</div>
+<div id="ref-nassensteinpasch2021" class="csl-entry">
+<strong>Nassenstein, N. and H. Pasch</strong>. <strong>2016</strong>.
+<span>‘Tense, Aspect and Mood in Nêlêmwa (New Caledonia): Encoding
+Events, Processes and States’</span>. In Guentchéva, Z. (ed),
+<em>Aspectuality and temporality: Descriptive and theoretical
+issues</em>. Amsterdam: John Benjamins, 63–106.
+</div>
+<div id="ref-nedjalkov1997" class="csl-entry">
+<strong>Nedjalkov, I.</strong> <strong>1997</strong>. <em>Evenki</em>.
+London, New York: Routledge.
+</div>
+<div id="ref-nordlinger1998" class="csl-entry">
+<strong>Nordlinger, R.</strong> <strong>1998</strong>. <em>A Grammar of
+Wambaya, Northern Territory (Australia)</em>. Canberra: Research School
+of Pacific; Asian Studies, Australian National University.
+</div>
+<div id="ref-okrand1977" class="csl-entry">
+<strong>Okrand, M.</strong> <strong>1977</strong>. Mutsun grammar.
+</div>
+<div id="ref-onishi1994" class="csl-entry">
+<strong>Onishi, M.</strong> <strong>1994</strong>. A grammar of motuna
+(bougainville, papua new guinea).
+</div>
+<div id="ref-oxford2007" class="csl-entry">
+<strong>Oxford, W.</strong> <strong>2007</strong>. Towards a grammar of
+innu-aimun particles.
+</div>
+<div id="ref-palancar2009" class="csl-entry">
+<strong>Palancar, E.</strong> <strong>2009</strong>. <em>Gramática y
+Textos Del Hñöñhö: Otomí de San Ildefonso Tultepec, Queretaro</em>.
+Mexico City: Plaza y Valdés.
+</div>
+<div id="ref-payne1985" class="csl-entry">
+<strong>Payne, D. L.</strong> <strong>1985</strong>. Aspects of the
+grammar of yagua: A typological perspective (peru).
+</div>
+<div id="ref-persohn2017" class="csl-entry">
+<strong>Persohn, B.</strong> <strong>2017</strong>. <em>The Verb in
+Nyakyusa: A Focus on Tense, Aspect, and Modality</em>. Berlin: Language
+Science Press.
+</div>
+<div id="ref-pickett2007" class="csl-entry">
+<strong>Pickett, V. B.</strong> <strong>2007</strong>. Vocabulario
+zapoteco del istmo: Español-zapoteco y zapoteco-español.
+</div>
+<div id="ref-pickettetal2001" class="csl-entry">
+<strong>Pickett, V. B., C. Black and V. M. Cerqueda</strong>.
+<strong>2001</strong>. Gramática popular del zapoteco del istmo, segunda
+edición (electrónica).
+</div>
+<div id="ref-priestley2008" class="csl-entry">
+<strong>Priestley, C.</strong> <strong>2008</strong>. A grammar of
+koromu (kesawai), a trans new guinea language of papua new guinea.
+</div>
+<div id="ref-vonprince2012" class="csl-entry">
+<strong>Prince, K. von</strong>. <strong>2012</strong>. A grammar of
+daakaka.
+</div>
+<div id="ref-rau1992" class="csl-entry">
+<strong>Rau, D.-H. V.</strong> <strong>1992</strong>. A grammar of
+atayal.
+</div>
+<div id="ref-rayfield2006" class="csl-entry">
+<strong>Rayfield, D.</strong> <strong>2006</strong>. <em>A Comprehensive
+Georgian-English Dictionary</em>. London: Garnett Press.
+</div>
+<div id="ref-rongier2004" class="csl-entry">
+<strong>Rongier, J.</strong> <strong>1970</strong>. <em>Parlons Éwé:
+Langue Du Togo</em>. France: L’Harmattan.
+</div>
+<div id="ref-maross2017" class="csl-entry">
+<strong>Ross, C. and J. S. Ma</strong>. <strong>2017</strong>.
+<em>Modern Mandarin Chinese Grammar: A Practical Guide</em>. London:
+Routledge.
+</div>
+<div id="ref-samarin1970" class="csl-entry">
+<strong>Samarin, W. J.</strong> <strong>1970</strong>. <em>Sango: Langue
+de l’afrique Centrale</em>. Leiden: Brill.
+</div>
+<div id="ref-schachterotanes1972" class="csl-entry">
+<strong>Schachter, P. and F. T. Otanes</strong>. <strong>1972</strong>.
+<em>Tagalog Reference Grammar</em>. Berkeley; Los Angeles: University of
+California Press.
+</div>
+<div id="ref-schapper2010" class="csl-entry">
+<strong>Schapper, A.</strong> <strong>2010</strong>. Bunaq: A papuan
+language of central timor.
+</div>
+<div id="ref-shimelman2017" class="csl-entry">
+<strong>Shimelman, A.</strong> <strong>2017</strong>. <em>A Grammar of
+Yauyos Quechua</em>. Berlin: Language Science Press.
+</div>
+<div id="ref-singer2006" class="csl-entry">
+<strong>Singer, R.</strong> <strong>2006</strong>. Agreement in mawng:
+Productive and lexicalised uses of agreement in an australian language.
+</div>
+<div id="ref-smeets2008" class="csl-entry">
+<strong>Smeets, I.</strong> <strong>2008</strong>. <em>A Grammar of
+Mapuche</em>. Berlin: Mouton de Gruyter.
+</div>
+<div id="ref-sneddonetal2010" class="csl-entry">
+<strong>Sneddon, J. N., A. Adelaar, D. N. Djenar and M. C.
+Ewing</strong>. <strong>2010</strong>. <em>Indonesian Reference
+Grammar</em>. Allen &amp; Unwin.
+</div>
+<div id="ref-sohn1994" class="csl-entry">
+<strong>Sohn, H.</strong> <strong>1994</strong>. <em>Korean</em>.
+London: Routledge.
+</div>
+<div id="ref-vanstaden2000" class="csl-entry">
+<strong>Staden, M. van</strong>. <strong>2000</strong>. <em>Tidore: A
+Linguistic Description of a Language of the North Moluccas</em>. Leiden:
+Univ. Leiden.
+</div>
+<div id="ref-tabulova1976" class="csl-entry">
+<strong>Tabulova, N. T.</strong> <strong>1976</strong>. <em>Grammatika
+Abazinskogo Jazyka. Fonetika i Morfologija [a Grammar of Abaza:
+Phonetics and Morphology]</em>. Cherkessk: Karačaevo-Čerkesskoe
+otdelenie Stavropolʹskogo knižnogo izdatelʹstva.
+</div>
+<div id="ref-treis2008" class="csl-entry">
+<strong>Treis, Y.</strong> <strong>2008</strong>. <em>A Grammar of
+Kambaata, 1: Phonology, Nominal Morphology and Non-Verbal
+Predication</em>. Köln: Rüdiger Köppe Verlag.
+</div>
+<div id="ref-ullrich2018" class="csl-entry">
+<strong>Ullrich, J.</strong> <strong>2018</strong>. Modification,
+secondary predication and multi-verb constructions in lakota.
+</div>
+<div id="ref-versteegh2018" class="csl-entry">
+<strong>Versteegh, K.</strong> <strong>2018</strong>. <span>‘Temporal
+Adverbs of Contrast in the Basic Variety of Arabic’</span>. In Manfredi,
+S. and M. Tosco (eds), <em>Arabic in contact</em>. Amsterdam,
+Philadelphia: John Benjamins, 233–250.
+</div>
+<div id="ref-viljoen2013" class="csl-entry">
+<strong>Viljoen, M. H.</strong> <strong>2013</strong>. A grammatical
+description of the buwal language.
+</div>
+<div id="ref-visser2020" class="csl-entry">
+<strong>Visser, E.</strong> <strong>2020</strong>. A grammar of
+kalamang: The papuan language of the karas islands.
+</div>
+<div id="ref-vuillermet2012" class="csl-entry">
+<strong>Vuillermet, M.</strong> <strong>2012</strong>. A grammar of ese
+ejja, a takanan language of the bolivian amazon.
+</div>
+<div id="ref-wilson2017" class="csl-entry">
+<strong>Wilson, J.</strong> <strong>2017</strong>. A grammar of yeri: A
+torricelli language of papua new guinea.
+</div>
+<div id="ref-wojtylak2017" class="csl-entry">
+<strong>Wojtylak, K. I.</strong> <strong>2017</strong>. A grammar of
+murui (bue): A witotoan language of northwest amazonia.
+</div>
+<div id="ref-youngmorgan1987" class="csl-entry">
+<strong>Young, R. W. and W. Morgan Sr.</strong> <strong>1987</strong>.
+<em>The Navajo Language: A Grammar and Colloquial Dictionary</em>.
+Albuquerque: University of New Mexico Press.
+</div>
+<div id="ref-yumitani1998" class="csl-entry">
+<strong>Yumitani, Y.</strong> <strong>1998</strong>. JA phonology and
+morphology of jemez towa.
+</div>
+<div id="ref-zahir2018" class="csl-entry">
+<strong>Zahir, Z.</strong> <strong>2018</strong>. Elements of
+lushootseed grammar in discourse perspective.
+</div>
+<div id="ref-ziervogel1976" class="csl-entry">
+<strong>Ziervogel, D., J. A. Louw and P. C. Taljaard</strong>.
+<strong>1976</strong>. <em>A Handbook of the Zulu Language</em>.
+Pretoria: J.L. van Schaik.
 </div>
 </div>
 </div>
 
 <br>
 <br>
-<p> <center> Anastasia Panova, 2021 </center></p>
+<p> <center> © Anastasia Panova, 2021-2022 </center></p>
 
 
 </div>
@@ -1606,7 +2143,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -1624,7 +2161,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -1633,6 +2170,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
@@ -1645,7 +2185,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
