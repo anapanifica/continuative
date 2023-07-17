@@ -1,0 +1,210 @@
+---
+title: "Examples"
+output:
+  html_document:
+    theme: paper
+    include:
+      after_body: footer.html
+    toc: true
+    toc_depth: 5
+    toc_float: true
+bibliography: 
+  - references.bib
+link-citations: true
+csl: generic-style-rules-for-linguistics.csl
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+library(DT)
+library(tidyverse)
+library(lingtypology)
+df <- read.csv("sample.csv")
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+df %>%
+  filter(included != "no") -> df
+```
+
+
+Screenshots of examples with continuative expressions.
+
+---
+
+### 1. Eurasia
+
+```{r, include=FALSE, echo=FALSE}
+df %>%
+  filter(macroarea == "Eurasia") -> df1
+```
+
+```{r, echo=FALSE, results='asis'}
+for (f in unique(df1$family)) {
+  cat('\n\n#### ', f, '\n',
+      sep="")
+  
+  for (i in df1$id_number[df1$family == f]) {
+    lang <- as.character(df1$language[df1$id_number == i])
+    example_source <- as.character(df1$example_source[df1$id_number == i])
+    example_page <- as.character(df1$example_page[df1$id_number == i])
+    example <- as.character(df1$example[df1$id_number == i])
+    form <- as.character(df1$form[df1$id_number == i])
+    cat('\n \n **', lang,
+      '** [@', example_source, ', pp. ', example_page, ']\n\n',
+      '![](examples/', example, '){width=60%}\n\n The continuative marker: ', form, '.',
+      sep="")
+}
+
+}
+
+```
+
+### 2. Africa
+
+```{r, include=FALSE, echo=FALSE}
+df %>%
+  filter(macroarea == "Africa") -> df1
+```
+
+```{r, echo=FALSE, results='asis'}
+for (f in unique(df1$family)) {
+  cat('\n\n#### ', f, '\n',
+      sep="")
+  
+  for (i in df1$id_number[df1$family == f]) {
+    lang <- as.character(df1$language[df1$id_number == i])
+    example_source <- as.character(df1$example_source[df1$id_number == i])
+    example_page <- as.character(df1$example_page[df1$id_number == i])
+    example <- as.character(df1$example[df1$id_number == i])
+    form <- as.character(df1$form[df1$id_number == i])
+    cat('\n \n **', lang,
+      '** [@', example_source, ', pp. ', example_page, ']\n\n',
+      '![](examples/', example, '){width=60%}\n\n The continuative marker: ', form, '.',
+      sep="")
+}
+
+}
+```
+
+
+### 3. North America
+
+```{r, include=FALSE, echo=FALSE}
+df %>%
+  filter(macroarea == "North America") -> df1
+```
+
+```{r, echo=FALSE, results='asis'}
+for (f in unique(df1$family)) {
+  cat('\n\n#### ', f, '\n',
+      sep="")
+  
+  for (i in df1$id_number[df1$family == f]) {
+    lang <- as.character(df1$language[df1$id_number == i])
+    example_source <- as.character(df1$example_source[df1$id_number == i])
+    example_page <- as.character(df1$example_page[df1$id_number == i])
+    example <- as.character(df1$example[df1$id_number == i])
+    form <- as.character(df1$form[df1$id_number == i])
+    cat('\n \n **', lang,
+      '** [@', example_source, ', pp. ', example_page, ']\n\n',
+      '![](examples/', example, '){width=60%}\n\n The continuative marker: ', form, '.',
+      sep="")
+}
+
+}
+```
+
+
+### 4. South America
+
+```{r, include=FALSE, echo=FALSE}
+df %>%
+  filter(macroarea == "South America") -> df1
+```
+
+```{r, echo=FALSE, results='asis'}
+for (f in unique(df1$family)) {
+  cat('\n\n#### ', f, '\n',
+      sep="")
+  
+  for (i in df1$id_number[df1$family == f]) {
+    lang <- as.character(df1$language[df1$id_number == i])
+    example_source <- as.character(df1$example_source[df1$id_number == i])
+    example_page <- as.character(df1$example_page[df1$id_number == i])
+    example <- as.character(df1$example[df1$id_number == i])
+    form <- as.character(df1$form[df1$id_number == i])
+    cat('\n \n **', lang,
+      '** [@', example_source, ', pp. ', example_page, ']\n\n',
+      '![](examples/', example, '){width=60%}\n\n The continuative marker: ', form, '.',
+      sep="")
+}
+
+}
+
+```
+
+
+### 5. Australia
+
+```{r, include=FALSE, echo=FALSE}
+df %>%
+  filter(macroarea == "Australia") -> df1
+```
+
+```{r, echo=FALSE, results='asis'}
+for (f in unique(df1$family)) {
+  cat('\n\n#### ', f, '\n',
+      sep="")
+  
+  for (i in df1$id_number[df1$family == f]) {
+    lang <- as.character(df1$language[df1$id_number == i])
+    example_source <- as.character(df1$example_source[df1$id_number == i])
+    example_page <- as.character(df1$example_page[df1$id_number == i])
+    example <- as.character(df1$example[df1$id_number == i])
+    form <- as.character(df1$form[df1$id_number == i])
+    cat('\n \n **', lang,
+      '** [@', example_source, ', pp. ', example_page, ']\n\n',
+      '![](examples/', example, '){width=60%}\n\n The continuative marker: ', form, '.',
+      sep="")
+}
+
+}
+
+```
+
+### 6. Papunesia
+
+```{r, include=FALSE, echo=FALSE}
+df %>%
+  filter(macroarea == "Papunesia") -> df1
+```
+
+```{r, echo=FALSE, results='asis'}
+for (f in unique(df1$family)) {
+  cat('\n\n#### ', f, '\n',
+      sep="")
+  
+  for (i in df1$id_number[df1$family == f]) {
+    lang <- as.character(df1$language[df1$id_number == i])
+    example_source <- as.character(df1$example_source[df1$id_number == i])
+    example_page <- as.character(df1$example_page[df1$id_number == i])
+    example <- as.character(df1$example[df1$id_number == i])
+    form <- as.character(df1$form[df1$id_number == i])
+    cat('\n \n **', lang,
+      '** [@', example_source, ', pp. ', example_page, ']\n\n',
+      '![](examples/', example, '){width=60%}\n\n The continuative marker: ', form, '.',
+      sep="")
+}
+
+}
+```
+
+### References

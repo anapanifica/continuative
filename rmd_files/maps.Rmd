@@ -1,0 +1,301 @@
+---
+title: "Maps"
+output:
+  html_document:
+    theme: paper
+    include:
+      after_body: footer.html
+    toc: true
+    toc_depth: 5
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+library(DT)
+library(tidyverse)
+library(lingtypology)
+library(knitr)
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+df <- read.csv("sample.csv")
+```
+
+
+
+The maps below are interactive versions of the maps included in the article (Panova Submitted). They show areal distributions of continuative expressions from the stratified 120-language sample according to several parameters.
+
+
+```{r, include=FALSE, echo=FALSE}
+df %>%
+  filter(included != "no") -> df1
+df1
+```
+
+### Morphosyntactic status
+
+
+
+```{r, include=FALSE, echo=FALSE}
+df1$morphosynt_type[df1$morphosynt_type == "not_clear"] <- "not clear"
+```
+
+
+
+```{r, include=FALSE, echo=FALSE}
+df1 %>%
+  filter(morphosynt_type != "") %>%
+  select("language", "morphosynt_type") %>%
+  distinct() %>%
+  mutate(tf = TRUE) %>%
+  spread(morphosynt_type, tf, fill = FALSE) -> df2
+```
+
+
+```{r, echo=FALSE}
+map.feature(languages = df2$language,
+            minichart.data = df2[, c("adverb/particle", "affix", "auxiliary", "not clear")],
+            minichart = "pie",
+            tile = "Stamen.TerrainBackground",
+            color = c("#1f77b4", "#ff7f0e", "#d62728", "lightyellow"),
+            width = 2)
+```
+
+
+### Emphatic vs. non-emphatic status
+
+
+```{r, include=FALSE, echo=FALSE}
+df1 %>%
+  filter(non_emphatic != "") %>%
+  select("language", "non_emphatic") %>%
+  distinct() %>%
+  mutate(tf = TRUE) %>%
+  spread(non_emphatic, tf, fill = FALSE) -> df3
+```
+
+The map shows those languages which have non-emphatic continuative exressions.
+
+
+
+```{r, echo=FALSE}
+map.feature(languages = df3$language,
+            minichart.data = df3[, c("yes")],
+            minichart = "pie",
+            color = "#d62728",
+            tile = "Stamen.TerrainBackground",
+            width = 2)
+```
+
+### Uses outside of the continuative domain
+
+```{r, include=FALSE, echo=FALSE}
+df1 %>%
+  filter(other_uses != "") %>%
+  select("family", "language", "other_uses") %>%
+  separate_rows(other_uses, sep = ", ") %>%
+  distinct() -> df2
+```
+
+```{r, include=FALSE, echo=FALSE}
+df2$other_uses[df2$other_uses == "more than" |
+                 df2$other_uses == "more" |
+                 df2$other_uses == "also" |
+                 df2$other_uses == "too" |
+                 df2$other_uses == "in addition" |
+                 df2$other_uses == "and" ] <- "additive"
+df2$other_uses[df2$other_uses == "all the time" |
+                 df2$other_uses == "always" |
+                 df2$other_uses == "continuously" |
+                 df2$other_uses == "continually"] <- "iterative"
+df2$other_uses[df2$other_uses == "up to now" |
+                 df2$other_uses == "now" |
+                 df2$other_uses == "for now"] <- "now / for now"
+df2$other_uses[df2$other_uses == "sit" |
+                 df2$other_uses == "be" |
+                 df2$other_uses == "become"] <- "stay"
+df2$other_uses[df2$other_uses == "a long time yet" |
+                 df2$other_uses == "forever" |
+                 df2$other_uses == "for a long time" |
+                 df2$other_uses == "for some time" |
+                 df2$other_uses == "have been doing" |
+                df2$other_uses == "for a while"] <- "delimitative"
+df2$other_uses[df2$other_uses == "immediately" |
+                 df2$other_uses == "after" |
+                 df2$other_uses == "in a moment" |
+                 df2$other_uses == "later" ] <- "after / in a moment"
+df2$other_uses[df2$other_uses == "just now" |
+                 df2$other_uses == "recently" |
+                 df2$other_uses == "just a moment ago" |
+                 df2$other_uses == "a while ago" |
+                 df2$other_uses == "just" |
+                 df2$other_uses == "perfect"] <- "'a while ago', 'just', 'recently'"
+df2$other_uses[df2$other_uses == "together" |
+                 df2$other_uses == "throughout"|
+                 df2$other_uses == "all"] <- "all / throughout"
+df2$other_uses[df2$other_uses == "really" |
+                 df2$other_uses == "exactly"] <- "very"
+df2$other_uses[df2$other_uses == "imperfective" |
+                 df2$other_uses == "progressive"] <- "progressive"
+df2$other_uses[df2$other_uses == "nevertheless" |
+                 df2$other_uses == "whereas" |
+                 df2$other_uses == "despite"] <- "concessive"
+df2$other_uses[df2$other_uses == "wait" |
+                 df2$other_uses == "despair (\"how on Earth... \")"] <- "'wait!'"
+df2$other_uses[df2$other_uses == "only"] <- "restrictive"
+df2$other_uses[df2$other_uses == "again"] <- "repetitive"
+df2$other_uses[df2$other_uses == "while"] <- "'while'"
+df2$other_uses[df2$other_uses == "before"] <- "'before'"
+df2$other_uses[df2$other_uses == "not yet"] <- "'not yet'"
+unique(df2$other_uses)
+```
+
+
+
+
+
+
+```{r, include=FALSE, echo=FALSE}
+df2 %>%
+  distinct() %>%
+  mutate(tf = TRUE) %>%
+  spread(other_uses, tf, fill = NA) -> df3
+```
+
+
+
+
+
+
+Additive, repetitive and iterative meanings of the continuative expressions
+
+```{r, echo=FALSE}
+map.feature(languages = df3$language,
+            minichart.data = df3[, c("iterative", "repetitive", "additive")],
+            minichart = "pie",
+            width = 2,
+            color= c("gold", "deeppink", "royalblue", "lightpink", "lightsalmon", "lightseagreen", "mediumvioletred", "limegreen"),
+            #color = c("#1f77b4", "#ff7f0e", "#d62728", "lightyellow"),
+            tile = "Stamen.TerrainBackground",
+            legend = TRUE
+            )
+```
+
+Continuative expressions functioning as markers of temporal (non-)simultaneity
+```{r, echo=FALSE}
+map.feature(languages = df3$language,
+            minichart.data = df3[, c( "'before'", "'a while ago', 'just', 'recently'", 
+                                      "'while'")],
+            minichart = "pie",
+            width = 2,
+            color= c("gold", "darkcyan", "deeppink", "lightpink", "lightsalmon", "lightseagreen", "mediumvioletred", "lightyellow", "limegreen"),
+            tile = "Stamen.TerrainBackground",
+            legend = TRUE
+            )
+```
+
+Other meanings
+
+```{r, echo=FALSE}
+map.feature(languages = df3$language,
+            minichart.data = df3[, c("concessive",
+                                     "'wait!'",
+                                     "restrictive",
+                                     "'not yet'",
+                                     "delimitative",
+                                     "progressive")],
+            minichart = "pie",
+            width = 2,
+            color= c("gold", "darkcyan", "deeppink", "lightyellow", "royalblue", "#d62728"),
+            legend = TRUE,
+            tile = "Stamen.TerrainBackground",
+            )
+```
+
+
+### Meaning in combination with negation
+
+
+```{r, include=FALSE, echo=FALSE}
+df1$meaning_with_negation[df1$meaning_with_negation == "no longer / not yet (still not)"] <- "no longer, not yet (still not)"
+df1$meaning_with_negation[df1$meaning_with_negation == "ungrammatical / marginal"] <- "ungrammatical or marginal"
+df1$meaning_with_negation[df1$meaning_with_negation == ""] <- "no data"
+
+```
+
+```{r, include=FALSE, echo=FALSE}
+df1 %>%
+  filter(meaning_with_negation != "") %>%
+  select("language", "meaning_with_negation") %>%
+  distinct() %>%
+  mutate(tf = TRUE) %>%
+  spread(meaning_with_negation, tf, fill = FALSE) -> df2
+```
+
+
+```{r, echo=FALSE}
+map.feature(languages = df2$language,
+            minichart.data = df2[, c("not yet (still not)", "no longer",
+                                     "no longer, not yet (still not)", 
+                                     "ungrammatical or marginal", "no data")],
+            minichart = "pie",
+            color= c("#ca0020", "#0571b0", "orange", "darkcyan", "lightyellow"),
+            tile = "Stamen.TerrainBackground",
+            width = 2)
+```
+
+
+
+### Maturation
+
+
+
+```{r, include=FALSE, echo=FALSE}
+df1 %>%
+  #filter(maturation != "") %>%
+  select("family", "language", "maturation") %>%
+  separate_rows(maturation, sep = ", ") %>%
+  distinct() -> df2
+df2
+```
+
+```{r, include=FALSE, echo=FALSE}
+df2$maturation[df2$maturation == "auxiliary / affix"] <- "auxiliary or affix"
+df2$maturation[df2$maturation == "no longer"] <- "no longer; no longer and not yet (still not); ungrammatical or marginal"
+df2$maturation[df2$maturation == "non-continuative meanings"] <- "non-continuative meanings (without additive and repetitive)"
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+df2 %>%
+  distinct() %>%
+  mutate(tf = TRUE) %>%
+  spread(maturation, tf, fill = NA) -> df3
+df3
+```
+
+```{r, echo=FALSE}
+map.feature(languages = df3$language,
+            minichart.data = df3[, c("auxiliary or affix", 
+                                     "non-continuative meanings (without additive and repetitive)", 
+                                     "no longer; no longer and not yet (still not); ungrammatical or marginal", 
+                                     "non-emphatic", 
+                                     "no mature features")],
+            minichart = "pie",
+            tile = "Stamen.TerrainBackground",
+            #color= c("gold", "darkcyan", "deeppink", "royalblue", "#d62728", "lightyellow"),
+            color= c("gold", "#d62728", "darkcyan", "royalblue", "lightyellow"),
+            width = 2,
+            legend = TRUE
+            )
+```
+
+
+

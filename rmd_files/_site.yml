@@ -1,0 +1,15 @@
+name: "Continuative expressions"
+navbar:
+  title: "The Continuative Expressions Database"
+  right:
+    - text: "Main"
+      href: index.html
+    - text: "Examples"
+      href: examples.html
+    - text: "Maps"
+      href: maps.html
+
+
+  # right:
+  #   - text: "Dataset (.csv)"
+  #     href: sample-2022-08-02.csv
