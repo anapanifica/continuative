@@ -5,8 +5,16 @@ output:
     theme: paper
     include:
       after_body: footer.html
-
+    toc: true
+    toc_depth: 5
+    toc_float: true
 ---
+
+<style type="text/css">
+  body{
+  font-size: 12pt;
+}
+</style>
 
 
 ```{r setup, include=FALSE}
