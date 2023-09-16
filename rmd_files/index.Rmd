@@ -35,11 +35,11 @@ library(knitr)
 
 This site presents **the Continuative Expressions Database**, a typological database of continuative ('still') expressions in the world's languages. The principles of data collection and the analysis of the continuative expressions included in the database are described in the following paper:
 
-```
-Panova, Anastasia. 2023. Towards a typology of continuative expressions. Submitted.
-```
 
-If you use the database in your research, please cite the aforementioned paper.
+**Panova, Anastasia. 2023. Towards a typology of continuative expressions. To appear in Linguistic Typology at the Crossroads.**
+
+
+If you use the database in your research, please cite the aforementioned paper. The raw dataset is available [here](https://doi.org/10.5281/zenodo.8352034).
 
 ---
 
@@ -49,6 +49,25 @@ The database contains information on 177 continuative expressions in 136 languag
 
 ```{r, include=FALSE, echo=FALSE}
 df <- read.csv("sample.csv")
+```
+
+
+```{r, include=FALSE, echo=FALSE}
+# the map for the article
+df %>%
+  filter(included != "no") -> df1
+map.feature(languages = df1$language,
+            #features = df$included,
+            label = df1$language,
+            popup = df1$family,
+            width = 5,
+            tile = "Stamen.TerrainBackground"
+            #legend = TRUE
+            )
+# don't forget to change in the html:
+# style="width:1000px;height:600px;"
+# "minZoom":1.6,
+# "stroke":true,"color":"black"
 ```
 
 
@@ -65,6 +84,10 @@ map.feature(languages = df$language,
             tile = "Stamen.TerrainBackground"
             #legend = TRUE
             )
+# don't forget to change in the html:
+# style="width:700px;height:400px;"
+# "minZoom":1.4,
+# "stroke":true,"color":"black"
 ```
 
 
